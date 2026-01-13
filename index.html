@@ -5,10 +5,7 @@
          META / SEO
     ========================== -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta
       name="description"
       content="Nidos Argentina: Somos una de las comunidades de Pokémon GO más activas de LATAM"
@@ -69,7 +66,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- =========================
-         PRELOAD (Hero / Imágenes clave)
+         PRELOAD (solo lo crítico)
     ========================== -->
     <link
       rel="preload"
@@ -78,18 +75,6 @@
       type="image/webp"
       fetchpriority="high"
     />
-
-    <!-- Precarga de imágenes de temporada -->
-    <link rel="preload" as="image" href="assets/images/temporada/temporada-caminosvaliosos.jpg" />
-    <link rel="preload" as="image" href="assets/images/temporada/incursiones.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/batallasMax.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/hora-destacada.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/hora-legendaria.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/maxMonday.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/misiones-de-campo.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/team-go-rocket.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/communityday.png" />
-    <link rel="preload" as="image" href="assets/images/temporada/wildarea-2025.png" />
   </head>
 
   <body>
@@ -120,7 +105,7 @@
                       de LATAM
                     </h4>
 
-                    <!-- Importante para GitHub Pages en repo proyecto: links relativos -->
+                    <!-- links relativos (GitHub Pages en repo proyecto) -->
                     <div class="main-button">
                       <a href="./nosotros/">Síguenos</a>
                     </div>
@@ -138,6 +123,10 @@
                   id="ctaBadgeImg"
                   src="assets/images/guias/medallero.webp"
                   alt="Próxima medalla"
+                  width="120"
+                  height="120"
+                  decoding="async"
+                  loading="eager"
                 />
               </div>
 
@@ -179,7 +168,10 @@
                           <img
                             src="assets/images/temporada/temporada-caminosvaliosos.jpg"
                             alt="Rotación de temporada"
-                            loading="eager"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Rotación de temporada</h4>
                         </div>
@@ -189,7 +181,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./incursiones/">
                         <div class="item">
-                          <img src="assets/images/temporada/incursiones.png" alt="Incursiones" />
+                          <img
+                            src="assets/images/temporada/incursiones.png"
+                            alt="Incursiones"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Incursiones</h4>
                         </div>
                       </a>
@@ -198,7 +197,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./batallas-max/">
                         <div class="item">
-                          <img src="assets/images/temporada/batallasMax.png" alt="Batallas Max" />
+                          <img
+                            src="assets/images/temporada/batallasMax.png"
+                            alt="Batallas Max"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Batallas Max</h4>
                         </div>
                       </a>
@@ -210,6 +216,10 @@
                           <img
                             src="assets/images/temporada/hora-destacada.png"
                             alt="Horas destacadas"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Horas destacadas</h4>
                         </div>
@@ -222,6 +232,10 @@
                           <img
                             src="assets/images/temporada/hora-legendaria.png"
                             alt="Horas legendarias"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Horas legendarias</h4>
                         </div>
@@ -231,7 +245,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./lunes-max/">
                         <div class="item">
-                          <img src="assets/images/temporada/maxMonday.png" alt="Lunes Max" />
+                          <img
+                            src="assets/images/temporada/maxMonday.png"
+                            alt="Lunes Max"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Lunes Max</h4>
                         </div>
                       </a>
@@ -243,6 +264,10 @@
                           <img
                             src="assets/images/temporada/misiones-de-campo.png"
                             alt="Investigaciones de campo"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Investigaciones de campo</h4>
                         </div>
@@ -255,6 +280,10 @@
                           <img
                             src="assets/images/temporada/team-go-rocket.png"
                             alt="Equipo GO Rocket"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Equipo GO Rocket</h4>
                         </div>
@@ -267,6 +296,10 @@
                           <img
                             src="assets/images/temporada/communityday.png"
                             alt="Días de la comunidad"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Días de la comunidad</h4>
                         </div>
@@ -280,7 +313,14 @@
                         rel="noopener noreferrer"
                       >
                         <div class="item">
-                          <img src="assets/images/temporada/gotour-2025.png" alt="GO Tour" />
+                          <img
+                            src="assets/images/temporada/gotour-2025.png"
+                            alt="GO Tour 2026 - Global"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>GO Tour 2026 - Global</h4>
                         </div>
                       </a>
@@ -311,6 +351,10 @@
                           <img
                             src="assets/images/guias/ditto.png"
                             alt="¿Cómo conseguir a Ditto?"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>¿Cómo conseguir a Ditto?</h4>
                         </div>
@@ -323,6 +367,10 @@
                           <img
                             src="assets/images/guias/vivillon.png"
                             alt="¿Cómo conseguir a Vivillon?"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>¿Cómo conseguir a Vivillon?</h4>
                         </div>
@@ -332,7 +380,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./pokemon-regionales/">
                         <div class="item">
-                          <img src="assets/images/guias/regionales.png" alt="Pokémon Regionales" />
+                          <img
+                            src="assets/images/guias/regionales.png"
+                            alt="Pokémon Regionales"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Pokémon Regionales</h4>
                         </div>
                       </a>
@@ -341,7 +396,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./shinycheck/">
                         <div class="item">
-                          <img src="assets/images/guias/shiny-check.png" alt="Shiny Check" />
+                          <img
+                            src="assets/images/guias/shiny-check.png"
+                            alt="Shiny Check"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Pokémon Shiny</h4>
                         </div>
                       </a>
@@ -353,6 +415,10 @@
                           <img
                             src="assets/images/guias/mejores-atacantes.png"
                             alt="Mejores Atacantes"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Mejores Atacantes</h4>
                         </div>
@@ -362,7 +428,14 @@
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./lista-unowns/">
                         <div class="item">
-                          <img src="assets/images/guias/unown.png" alt="Lista de Unown liberados" />
+                          <img
+                            src="assets/images/guias/unown.png"
+                            alt="Lista de Unown liberados"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <h4>Lista de Unowns</h4>
                         </div>
                       </a>
@@ -374,6 +447,10 @@
                           <img
                             src="assets/images/guias/megas.png"
                             alt="Lista de Mega-Evoluciones"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Lista de Mega-Evoluciones</h4>
                         </div>
@@ -385,7 +462,11 @@
                         <div class="item">
                           <img
                             src="assets/images/guias/fondos-especiales.png"
-                            alt="Pokémon con Fondos Especiales"
+                            alt="Lista de Fondos Especiales"
+                            width="480"
+                            height="270"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <h4>Lista de Fondos Especiales</h4>
                         </div>
@@ -452,7 +533,10 @@
           <img
             src="assets/images/promo/PIN-GOTour2026.webp"
             alt="Nuevo producto disponible en la tienda"
-            loading="eager"
+            width="420"
+            height="840"
+            loading="lazy"
+            decoding="async"
           />
         </a>
 
@@ -471,35 +555,36 @@
     </div>
 
     <!-- =========================
-         SCRIPTS (Vendor → Plugins → Tu código)
+         SCRIPTS (todo con defer)
+         Vendor → Plugins → Tu código
     ========================== -->
     <!-- UI común -->
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/footer.js"></script>
-    <script src="assets/js/politicas.js"></script>
+    <script src="assets/js/menu.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <script src="assets/js/politicas.js" defer></script>
 
     <!-- Vendor -->
-    <script src="libs/jquery/jquery.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery/jquery.min.js" defer></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js" defer></script>
 
     <!-- Plugins / Template -->
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/isotope.min.js" defer></script>
+    <script src="assets/js/owl-carousel.js" defer></script>
+    <script src="assets/js/tabs.js" defer></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/custom.js" defer></script>
 
     <!-- Feature scripts -->
-    <script src="assets/js/promo-tienda.js"></script>
-    <script src="assets/js/eventos.js"></script>
-    <script src="assets/js/events-past.js"></script>
+    <script src="assets/js/promo-tienda.js" defer></script>
+    <script src="assets/js/eventos.js" defer></script>
+    <script src="assets/js/events-past.js" defer></script>
 
     <!-- Firebase (Firestore/Auth) -->
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js" defer></script>
 
     <!-- Medallero -->
-    <script src="assets/js/medallero-index.js"></script>
+    <script src="assets/js/medallero-index.js" defer></script>
   </body>
 </html>
