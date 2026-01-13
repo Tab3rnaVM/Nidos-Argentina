@@ -1,0 +1,6233 @@
+@font-face {
+  font-family: "DinProBlack";
+  src: url("../fonts/dinpro-black.woff2") format("woff2"),
+    url("../fonts/dinpro-black.woff") format("woff");
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DinProBold";
+  src: url("../fonts/dinpro-bold.woff2") format("woff2"),
+    url("../fonts/dinpro-bold.woff") format("woff");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DinProLight";
+  src: url("../fonts/dinpro-light.woff2") format("woff2"),
+    url("../fonts/dinpro-light.woff") format("woff");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DinProMedium";
+  src: url("../fonts/dinpro-medium.woff2") format("woff2"),
+    url("../fonts/dinpro-medium.woff") format("woff");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DinProRegular";
+  src: url("../fonts/dinpro-regular.woff2") format("woff2"),
+    url("../fonts/dinpro-regular.woff") format("woff");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+header,
+nav,
+section,
+article,
+aside,
+footer,
+hgroup {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "DinProRegular", sans-serif;
+  font-weight: 400;
+  background-color: #1e1e1e;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 90% !important;
+}
+
+a {
+  color: #ccc;
+  text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #fff;
+  font-weight: 700;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 
+---------------------------------------------
+Global Styles
+--------------------------------------------- 
+*/
+html,
+body {
+  background-image: url(../images/fondo/fondonidos.jpg);
+  font-family: "DinProRegular", sans-serif;
+  overflow-x: hidden;
+}
+
+body .page-content {
+  margin-top: 110px;
+  background-color: rgb(117 170 219 / 75%);
+  padding: 60px;
+  border-radius: 23px;
+}
+
+p {
+  font-size: 15px;
+  color: #666;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+
+::selection {
+  background: #75aadb;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #75aadb;
+  color: #fff;
+}
+
+.templatemo-item {
+  max-width: 80px;
+  border-radius: 12px;
+}
+
+.update-bar {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: "DinProBold", sans-serif;
+}
+
+.main-button a {
+  font-family: "DinProBold", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: #75aadb;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.75) 2px 2px 4px;
+  cursor: pointer;
+}
+
+.main-button a:hover {
+  background-color: #fff;
+  color: #75aadb;
+}
+
+.main-border-button a {
+  font-size: 14px;
+  color: #75aadb;
+  background-color: transparent;
+  border: 1px solid #75aadb;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-border-button a:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #75aadb;
+}
+
+.border-no-active a {
+  border-color: #666;
+  color: #666;
+}
+
+.border-no-active a:hover {
+  border-color: #666;
+  color: #666;
+  background-color: transparent;
+}
+
+.character-type {
+  display: block;
+  font-size: 0.9em; /* Tamaño ligeramente más pequeño */
+  color: #666 !important; /* Color más claro para el subtipo */
+  margin-top: 4px; /* Separación con el nombre */
+}
+
+.character-phrase {
+  font-family: "DinProBold", sans-serif;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #666;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.character-phrase:hover::after {
+  content: attr(data-full-text); /* Muestra el texto completo al hacer hover */
+  position: absolute;
+  bottom: 100%; /* Aparece encima del texto */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%);
+  white-space: normal; /* Permite múltiples líneas */
+  background: #000; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 8px; /* Ajusta el padding */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra para el hover */
+  z-index: 10; /* Para que esté por encima */
+  font-size: 12px; /* Texto del tooltip */
+  max-width: 200px; /* Ancho máximo del hover */
+  line-height: 1.4; /* Espaciado de líneas del tooltip */
+  text-align: center; /* Centrado */
+}
+
+section {
+  margin-top: 120px;
+}
+
+.heading-section-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.heading-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.heading-section h4,
+.heading-section-arrows h4 {
+  font-family: "DinProBlack", sans-serif;
+  font-size: 34px;
+  text-decoration: none;
+  margin-bottom: 0 !important;
+  color: #fff;
+  text-shadow: 4px 1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.select-tipos h4 {
+  font-size: 34px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 5px #000000;
+}
+
+.heading-section h4 em,
+.select-tipos h4 em,
+.heading-section-arrows em {
+  color: #fff;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.bloqueado {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.bloqueado a {
+  color: gray !important;
+}
+
+#incursionsContainer,
+#batallasMaxContainer,
+#horasDestacadasContainer,
+#horasLegendariasContainer,
+#communityDaysContainer,
+#eventContainer,
+#countersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+}
+
+#indexEventList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre las tarjetas */
+  justify-content: space-between; /* Centra las tarjetas en el contenedor */
+}
+
+#containerSeason{
+  justify-content: center;
+}
+
+#pokemonDataContainer {
+  gap: 20px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+}
+
+.col-lg-3.col-sm-6 {
+  flex: 1 1 calc(25% - 20px); /* Cuatro elementos por fila con espacio */
+  max-width: calc(25% - 20px);
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+}
+
+.arrow {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 10px;
+  text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.arrow:hover {
+  color: #252626;
+  transform: scale(1.1);
+}
+
+.arrow:disabled,
+.arrow:disabled:hover {
+  opacity: 0.5; /* Reducir opacidad */
+  cursor: not-allowed; /* Cursor indicando que no es clickeable */
+  color: #ffffff; /* Mantener el color original */
+  transform: none; /* Evita que se agrande */
+}
+
+/* 
+---------------------------------------------
+Pre-loader Style
+--------------------------------------------- 
+*/
+
+.js-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.99);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.js-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@-webkit-keyframes dot {
+  50% {
+    -webkit-transform: translateX(96px);
+    transform: translateX(96px);
+  }
+}
+
+@keyframes dot {
+  50% {
+    -webkit-transform: translateX(96px);
+    transform: translateX(96px);
+  }
+}
+
+@-webkit-keyframes dots {
+  50% {
+    -webkit-transform: translateX(-31px);
+    transform: translateX(-31px);
+  }
+}
+
+@keyframes dots {
+  50% {
+    -webkit-transform: translateX(-31px);
+    transform: translateX(-31px);
+  }
+}
+
+.preloader-inner {
+  position: relative;
+  width: 142px;
+  height: 40px;
+  background: transparent;
+}
+
+.preloader-inner .dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  left: 15px;
+  background: #75aadb;
+  border-radius: 50%;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-animation: dot 2.8s infinite;
+  animation: dot 2.8s infinite;
+}
+
+.preloader-inner .dots {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  margin-top: 12px;
+  margin-left: 31px;
+  -webkit-animation: dots 2.8s infinite;
+  animation: dots 2.8s infinite;
+}
+
+.preloader-inner .dots span {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  background: #75aadb;
+  border-radius: 50%;
+}
+
+/* 
+---------------------------------------------
+Header Style
+--------------------------------------------- 
+*/
+
+.mobile-only {
+  display: none !important;
+}
+
+.background-header {
+  background-color: #000 !important;
+  height: 70px !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  display: none;
+}
+
+.header-area {
+  background-color: transparent;
+  position: absolute;
+  height: 70px;
+  top: 15px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.header-area .main-nav {
+  min-height: 80px;
+  background: transparent;
+  display: flex;
+  padding: 15px 0px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.background-header .main-nav {
+  padding: 0px;
+  background-color: transparent;
+}
+
+.header-area .main-nav #search {
+  position: relative;
+}
+
+.header-area .main-nav #search input {
+  background-color: #27292a;
+  height: 46px;
+  border-radius: 23px;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  padding: 0px 15px 0px 45px;
+}
+
+.header-area .main-nav #search i {
+  position: absolute;
+  color: #666;
+  left: 20px;
+  top: 16px;
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+}
+
+.header-area .main-nav .logo {
+  flex-basis: 25%;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.logofooter img {
+  width: 50% !important;
+}
+
+.header-area .main-nav .logo img {
+  width: 275px;
+}
+
+.background-header .main-nav .logo {
+  margin-top: 8px;
+}
+
+.background-header .main-nav .logo img {
+  width: 180px;
+}
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+  visibility: hidden;
+}
+
+.header-area .main-nav .nav {
+  display: inline-flex;
+  align-items: center;
+  flex-basis: 75%;
+  justify-content: flex-end;
+  vertical-align: middle;
+  text-align: right;
+  margin-top: 0px;
+  margin-right: 0px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  z-index: 999;
+}
+
+.header-area .main-nav .nav li {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.header-area .main-nav .nav li a {
+  font-family: "DinProBlack", sans-serif;
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  border: transparent;
+  padding: 13px 0px;
+  border-radius: 18px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+
+.header-area .main-nav .nav li:last-child a {
+  background-color: rgba(255, 255, 255);
+  padding: 8px;
+  border-radius: 30px;
+}
+
+.header-area .main-nav .nav li:last-child a img {
+  max-width: 30px;
+  border-radius: 50%;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover,
+.background-header .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover {
+  padding-left: 25px !important;
+}
+
+.header-area .main-nav .nav > li:hover > a,
+.header-area .main-nav .nav > li > a.active {
+  color: #75aadb !important;
+}
+
+.header-area .main-nav .nav li:last-child:hover a,
+.header-area .main-nav .nav li:last-child a.active {
+  color: #fff !important;
+  background-color: rgba(117, 170, 219, 0.75) !important;
+}
+
+.background-header .main-nav .nav li:hover a,
+.background-header .main-nav .nav li a.active {
+  color: #fff;
+  opacity: 1;
+}
+
+.header-area .main-nav .nav li.has-sub {
+  position: relative;
+  padding-right: 15px;
+}
+
+.header-area .main-nav .menu-trigger {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 23px;
+  width: 32px;
+  height: 40px;
+  text-indent: -9999em;
+  z-index: 99;
+  right: 7%;
+  display: none;
+}
+
+.background-header .main-nav .menu-trigger {
+  top: 17px;
+}
+
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #75aadb;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+}
+
+.background-header .main-nav .menu-trigger span,
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #75aadb;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #75aadb;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+  width: 75%;
+}
+
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #75aadb;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  content: "";
+}
+
+.header-area .main-nav .menu-trigger span {
+  top: 16px;
+}
+
+.header-area .main-nav .menu-trigger span:before {
+  -moz-transform-origin: 33% 100%;
+  -ms-transform-origin: 33% 100%;
+  -webkit-transform-origin: 33% 100%;
+  transform-origin: 33% 100%;
+  top: -10px;
+  z-index: 10;
+}
+
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transform-origin: 33% 0;
+  -ms-transform-origin: 33% 0;
+  -webkit-transform-origin: 33% 0;
+  transform-origin: 33% 0;
+  top: 10px;
+}
+
+.header-area .main-nav .menu-trigger.active span,
+.header-area .main-nav .menu-trigger.active span:before,
+.header-area .main-nav .menu-trigger.active span:after {
+  background-color: transparent;
+  width: 100%;
+}
+
+.header-area .main-nav .menu-trigger.active span:before {
+  -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
+  transform: translateY(6px) translateX(1px) rotate(45deg);
+  background-color: #75aadb;
+}
+
+.background-header .main-nav .menu-trigger.active span:before {
+  background-color: #75aadb;
+}
+
+.header-area .main-nav .menu-trigger.active span:after {
+  -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  background-color: #75aadb;
+}
+
+.background-header .main-nav .menu-trigger.active span:after {
+  background-color: #75aadb;
+}
+
+.header-area.header-sticky {
+  min-height: 70px;
+}
+
+.header-area.header-sticky .nav li a.active {
+  color: #fff;
+}
+
+#donacion {
+  color: #ffee00 !important;
+}
+
+#donacion:hover {
+  color: #e6d603 !important;
+}
+
+/* 
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/logo/banner-bg.webp);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 380px;  /* Evita el reflujo de layout */
+  border-radius: 23px;
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-banner-404 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/logo/banner-404.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
+}
+
+.main-banner h6, .main-banner-404 h6 {
+  font-family: "DinProMedium", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.main-banner h4, .main-banner-404 h4 {
+  font-family: "DinProBold", sans-serif;
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.main-banner h4 em, .main-banner-404 h4 em {
+  font-style: normal;
+  color: #75aadb;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+/* 
+---------------------------------------------
+Most Popular Style
+--------------------------------------------- 
+*/
+
+.season {
+  margin-top: 15px;
+  padding: 30px;
+  background-color: #1f2122;
+  border-radius: 23px;
+}
+
+.season .item {
+  background-color: #27292a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px 15px;
+  border-radius: 23px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.season .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(117, 170, 219);
+}
+
+.season .item .item {
+  padding: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+
+.season .item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.season .item h4 {
+  font-family: "DinProMedium";
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.season .item span {
+  color: #666;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.season .item ul {
+  float: right;
+  margin-top: 20px;
+}
+
+.season .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.season .item ul li:first-child i {
+  color: yellow;
+}
+
+.season .item ul li:last-child i {
+  color: #75aadb;
+}
+
+.season .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}
+
+/* 
+---------------------------------------------
+Gaming Library Style
+--------------------------------------------- 
+*/
+.event-list .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.event-list .col-lg-4 {
+  flex: 0 0 31% !important;
+  max-width: 32% !important;
+  padding: 0px;
+}
+
+.event-list {
+  margin-top: 15px;
+  border-radius: 23px;
+}
+
+/* Tarjetas individuales */
+.event-list .item {
+  background-color: #27292a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Asegura alturas uniformes */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilo para eventos activos */
+.date-active {
+  border: 3px solid #75aadb;
+  box-shadow: 0 0 10px rgba(76, 160, 175, 0.6);
+  animation: pulso 1.5s infinite;
+}
+
+/* Animación de pulso */
+@keyframes pulso {
+  0% {
+    box-shadow: 0 0 5px rgba(76, 160, 175, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(76, 160, 175, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(76, 160, 175, 0.6);
+  }
+}
+
+.date-past {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  pointer-events: none; /* Opcional: deshabilita interacción */
+}
+
+.date-future {
+  opacity: 1;
+  filter: none;
+}
+
+.textdatesalign {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-list .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(117, 170, 219);
+}
+
+/* Imagen */
+.event-list .event-image img {
+  max-width: max-content;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+}
+
+/* Detalles */
+.event-list .event-details h4 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.event-list .event-dates p {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Estilo para las fechas de inicio */
+.fecha-inicio {
+  color: #00ff2d !important; /* Verde brillante */
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para mayor legibilidad */
+}
+
+/* Estilo para las fechas de fin */
+.fecha-fin {
+  color: #ff4d4d !important; /* Rojo más brillante */
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para mayor legibilidad */
+}
+
+/* Estilos generales para el texto del tiempo restante */
+.tiempo-restante {
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 5px 0;
+}
+
+/* Estilo para eventos que están activos (Termina en:) */
+.date-active .tiempo-restante {
+  color: #ffcc00; /* Amarillo */
+}
+
+/* Estilo para eventos que aún no han comenzado (Comienza en:) */
+.date-future .tiempo-restante {
+  color: #00ff2d; /* Verde */
+}
+
+
+.event-list .row > [class*="col-"] {
+  margin-bottom: 20px;
+}
+
+.event-list .main-button {
+  text-align: center;
+  margin-bottom: -57px;
+  margin-top: 20px;
+}
+
+.scroll-bar-sections {
+  position: fixed;
+  top: -80px; /* Inicialmente oculta fuera de la pantalla */
+  left: 0;
+  width: 100%;
+  background-color: #5981a7; /* Color oscuro */
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  transition: top 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave */
+  overflow-x: auto; /* Permitir scroll horizontal */
+  white-space: nowrap; /* Evitar que los íconos salten de línea */
+  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+}
+
+.scroll-bar-sections::-webkit-scrollbar {
+  display: none; /* Ocultar scrollbar en Chrome y Safari */
+}
+
+.scroll-bar-sections.show {
+  top: 0; /* Se muestra cuando se activa la clase "show" */
+}
+
+.scroll-bar-sections img {
+  min-width: 45px !important;
+  width: 45px !important;
+  height: 45px !important;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 23px;
+}
+
+.scroll-bar-sections img:hover {
+  box-shadow: rgba(255, 255, 255, 0.75) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.75) 0px 18px 36px -18px inset;
+  border-radius: 50%;
+}
+/* 
+---------------------------------------------
+Footer Style
+--------------------------------------------- 
+*/
+
+footer {
+  margin-bottom: 20px;
+}
+
+footer p {
+  text-align: center;
+  color: #000;
+  font-weight: 300;
+}
+
+footer p a {
+  color: #000;
+  transition: all 0.3s;
+}
+
+footer p a:hover {
+  color: #75aadb;
+}
+
+.copy {
+  font-size: 12px;
+}
+
+.no-focus:focus .no-focus:hover {
+  outline: none !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 
+---------------------------------------------
+Featured Games Style
+--------------------------------------------- 
+*/
+
+.featured-games {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+}
+
+.featured-games .item .thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-games .item .thumb .hover-effect {
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+}
+
+/* .featured-games .item .thumb:hover .hover-effect {
+  opacity: 1;
+  visibility: visible;
+  bottom: 15px;
+} */
+
+.featured-games .item .thumb .hover-effect h6 {
+  background-color: #75aadb;
+  display: inline-block;
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.featured-games .item img {
+  border-radius: 23px;
+}
+
+.featured-games .item h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+.featured-games .item span {
+  color: #75aadb;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.featured-games .item ul {
+  float: right;
+  margin-top: 20px;
+}
+
+.featured-games .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.featured-games .item ul li:first-child i {
+  color: yellow;
+}
+
+.featured-games .item ul li:last-child i {
+  color: #75aadb;
+}
+
+.featured-games .owl-nav {
+  position: absolute;
+  margin: 0 auto;
+  top: -70px;
+  right: 0;
+}
+
+.featured-games .owl-nav .owl-prev {
+  margin-right: 2.5px;
+}
+
+.featured-games .owl-nav .owl-next {
+  margin-left: 2.5px;
+}
+
+.featured-games .owl-nav .owl-prev span,
+.featured-games .owl-nav .owl-next span {
+  font-size: 36px;
+  display: inline-block;
+  color: #666;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.featured-games .owl-nav .owl-prev span:hover,
+.featured-games .owl-nav .owl-next span:hover {
+  opacity: 1;
+  color: #75aadb;
+}
+
+.top-downloaded {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+  max-height: 567px;
+  min-height: 567px;
+}
+
+.top-downloaded ul li {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.top-downloaded ul li img {
+  float: left;
+  margin-right: 15px;
+}
+
+.top-downloaded ul li h4 {
+  font-size: 15px;
+  padding-top: 7px;
+}
+
+.top-downloaded ul li h6 {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.top-downloaded ul li span {
+  color: #fff;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.top-downloaded ul li .download i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-23px);
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  line-height: 46px;
+  color: #75aadb;
+  background-color: #27292a;
+  border-radius: 50%;
+}
+
+.top-downloaded ul li {
+  border-bottom: 1px solid #27292a;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+}
+
+.top-downloaded .text-button {
+  text-align: center;
+}
+
+.top-downloaded .text-button a {
+  font-weight: 600;
+  color: #75aadb;
+  font-size: 15px;
+}
+
+/* 
+---------------------------------------------
+Start Stream Style
+--------------------------------------------- 
+*/
+
+.start-stream .heading-section,
+.start-stream .heading-section-arrows {
+  margin-top: 60px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.start-stream .item {
+  padding: 30px;
+  border: 1px solid #444;
+  border-radius: 23px;
+}
+
+.start-stream .item h4 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.start-stream .main-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 
+---------------------------------------------
+Live Stream Style
+--------------------------------------------- 
+*/
+.selecttype-placeholder {
+  height: 0; /* No ocupa espacio por defecto */
+}
+
+.selecttype {
+  position: relative;
+  z-index: 10;
+  margin-top: 15px; /* Margen original */
+}
+
+.selecttype.fixed {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 85%;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #1f2122;
+  border-radius: 23px;
+  outline: 15px solid #5980a6;
+}
+
+.seccioncontainer {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 20px;
+}
+
+.seccioncontainer-counters {
+  margin-top: 20px;
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+}
+
+.seccioncontainer .item {
+  margin-bottom: 30px;
+}
+
+.seccioncontainer .thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.seccioncontainer .thumb img {
+  border-radius: 23px;
+}
+
+.seccioncontainer .hover-effect {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+}
+
+.seccioncontainer .hover-effect .live a {
+  position: absolute;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  right: 15px;
+  top: 15px;
+}
+
+.row {
+  justify-content: center !important;
+}
+
+.main-banner .row {
+  justify-content: left !important;
+}
+
+.row-counters {
+  scroll-margin-top: 85px;
+}
+
+.pokemon-shiny {
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical */
+  left: 15px; /* Ajusta la posición horizontal */
+  display: flex;
+  flex-direction: column;
+}
+
+.shiny-icon,
+.brillante-icon {
+  width: 40px; /* Ajusta el tamaño del ícono */
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto 3D */
+}
+
+.shiny-check {
+  position: absolute;
+  top: 35px; /* Justo debajo del icono shiny */
+  right: 8px;
+}
+
+/* Estilos base del checkbox */
+.shiny-checkbox {
+  appearance: none; /* Ocultar el checkbox por defecto */
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff; /* Borde blanco */
+  border-radius: 4px; /* Esquinas redondeadas */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background-color: transparent; /* Fondo transparente por defecto */
+  transition: background-color 0.3s ease;
+}
+
+/* Cuando el checkbox está marcado */
+.shiny-checkbox:checked {
+  background-color: #007bff; /* Azul cuando está marcado */
+  border-color: #fff; /* Mantener el borde blanco */
+}
+
+/* Icono de check cuando está marcado */
+.shiny-checkbox:checked::before {
+  content: "✔"; /* Agregar un ícono de check */
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+
+.number-spinda {
+  position: absolute;
+  bottom: -24px;
+  right: -1px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+  font-family: "DinProBold";
+}
+
+.pokemon-types {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Alinea los tipos a la derecha */
+  display: flex;
+  flex-direction: column;
+}
+
+.type-icon,
+.tipos-icon {
+  width: 35px; /* Ajusta el tamaño del ícono */
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto 3D */
+}
+
+.icono-counters {
+  width: 30px; /* Ajusta el tamaño del ícono */
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto 3D */
+}
+
+.ataque-counters {
+  font-family: "DinProBold", sans-serif;
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+.ivs-text-counters {
+  font-family: "DinProRegular", sans-serif;
+  font-size: 16px !important;
+  color: #fff !important;
+}
+
+.icon-atack-flex {
+  display: flex;
+  align-items: center;
+}
+
+.seccioncontainer .hover-effect ul {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.seccioncontainer .hover-effect ul li {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.seccioncontainer .hover-effect ul li a {
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.seccioncontainer .avatar img {
+  margin-right: 15px;
+}
+
+.seccioncontainer span i {
+  color: #fff;
+  background-color: #75aadb;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 3px;
+}
+
+.seccioncontainer span {
+  font-size: 14px;
+  color: #75aadb;
+}
+
+.seccioncontainer .down-content h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 61px;
+}
+
+.eggs-counters {
+  max-width: 40px;
+  border-radius: 50%;
+  margin-right: 10px !important;
+}
+
+.date-eggs {
+  display: block;
+}
+
+.info-counters {
+  margin-top: 10px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.clips .item .thumb a {
+  position: absolute !important;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px !important;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  left: 10% !important;
+  top: 20px !important;
+}
+
+.data-counters .item .thumb a {
+  position: absolute !important;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px !important;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  top: 20px !important;
+}
+
+.live .btnrangos {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  right: 0 !important;
+}
+
+.btnseccioncontainer,
+.btnrangos,
+.btncounters {
+  display: flex;
+  cursor: default !important;
+  background-color: transparent !important;
+  width: 45px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ordenrangos {
+  width: 30px;
+}
+
+.btnrangos img {
+  width: 36px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  border-radius: 50%;
+}
+
+.btnatks {
+  display: flex;
+  cursor: default !important;
+  width: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.container-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Reduce el espacio entre los recuadros */
+  justify-content: center; /* Centra los recuadros en el contenedor */
+  padding-bottom: 15px !important;
+}
+
+.container-list .box {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 5px; /* Reduce el padding dentro del recuadro */
+  text-align: center;
+  width: 115px; /* Ajusta el ancho del recuadro para que quepan más en la fila */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.container-list .box img {
+  width: 100%; /* Ajusta el tamaño de la imagen dentro del recuadro */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.container-list .box p {
+  margin-top: 5px; /* Reduce el espacio debajo de la imagen */
+  font-size: 12px; /* Ajusta el tamaño de la fuente del texto */
+  color: #333;
+}
+
+.container-list input[type="checkbox"] {
+  position: absolute;
+  top: 5px; /* Ajusta la posición del checkbox */
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #eee;
+  cursor: pointer;
+  border: 2px solid #ddd;
+}
+
+.container-list input[type="checkbox"]:checked {
+  background-color: #2196f3;
+  border: 2px solid #2196f3;
+}
+
+.container-list input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  display: none;
+}
+
+.container-list input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+#regionCounters {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.region-counter {
+  margin: 5px;
+  background-color: #e0f2f1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#mainContainer .section {
+  margin-bottom: 15px;
+}
+
+/* Contenedor combinado para título y contador */
+.section-header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre título y contador */
+  align-items: center; /* Alineación vertical */
+  background-color: #fff;
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 23px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+}
+
+.section-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: "DinProBold", sans-serif;
+  color: #000;
+  margin: 0;
+}
+
+.section-counter {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  background-color: #f8f9fa; /* Color de fondo opcional */
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.section-header i {
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Color de la flecha */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.section-header i:hover {
+  background-color: #555; /* Cambio de color al pasar el ratón */
+  transform: scale(1.1); /* Efecto de escala */
+}
+
+button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* 
+---------------------------------------------
+Featured Banner Style
+--------------------------------------------- 
+*/
+
+.feature-banner .thumb {
+  position: relative;
+  max-height: 305px;
+  overflow: hidden;
+  border-radius: 23px;
+}
+
+.feature-banner .thumb a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-23px, -23px);
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 46px;
+  color: #75aadb;
+}
+
+/* 
+---------------------------------------------
+Game Details Style
+--------------------------------------------- 
+*/
+
+.game-details h2 {
+  font-size: 45px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 60px 0px;
+}
+
+.game-details .content {
+  border-radius: 23px;
+  padding: 30px;
+  background-color: #1f2122;
+}
+
+.game-details .content .left-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.game-details .content .left-info .left {
+  float: left;
+}
+
+.game-details .content .left-info h4 {
+  font-size: 15px;
+  display: block;
+}
+
+.game-details .content .left-info span {
+  color: #666;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.game-details .content .left-info ul {
+  text-align: right;
+}
+
+.game-details .content .left-info ul li {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.game-details .content .left-info ul li:first-child i {
+  color: yellow;
+}
+
+.game-details .content .left-info ul li:last-child i {
+  color: #75aadb;
+}
+
+.game-details .content .right-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.game-details .content .right-info ul li {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.game-details .content .right-info ul li i {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.game-details .content .right-info ul li:first-child i {
+  color: yellow;
+}
+
+.game-details .content .right-info ul li i {
+  color: #75aadb;
+}
+
+.game-details .main-border-button {
+  margin-top: 35px;
+}
+
+.game-details .main-border-button a {
+  text-align: center;
+  width: 100%;
+}
+
+/* 
+---------------------------------------------
+Other Related Style
+--------------------------------------------- 
+*/
+
+.other-games {
+  border-radius: 23px;
+  padding: 30px 30px 0px 30px;
+  background-color: #1f2122;
+  margin-top: 60px;
+}
+
+.other-games .item {
+  position: relative;
+  border-bottom: 1px solid #27292a;
+  padding-bottom: 52px;
+  margin-bottom: 30px;
+}
+
+.other-games .item img {
+  float: left;
+  margin-right: 15px;
+}
+
+.other-games .item h4 {
+  display: inline-block;
+  font-size: 15px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+}
+
+.other-games .item span {
+  color: #666;
+  font-size: 14px;
+  display: block;
+}
+
+.other-games ul {
+  position: absolute;
+  right: 0;
+  top: 15px;
+}
+
+.other-games ul li {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.other-games ul li:first-child i {
+  color: yellow;
+}
+
+.other-games ul li:last-child i {
+  color: #75aadb;
+}
+
+/* 
+---------------------------------------------
+Top Streamers Style
+--------------------------------------------- 
+*/
+
+.top-streamers {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+  max-height: 567px;
+  min-height: 567px;
+}
+
+.top-streamers ul li {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #353637;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.top-streamers ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.top-streamers ul li span {
+  float: left;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 700;
+  padding-top: 12px;
+  margin-right: 10px;
+}
+
+.top-streamers ul li h6 {
+  display: inline;
+  font-size: 14px;
+  color: #75aadb;
+  font-weight: 400;
+}
+
+.top-streamers ul li h6 i {
+  color: #fff;
+  background-color: #75aadb;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 3px;
+}
+
+.top-streamers ul li .main-button {
+  float: right;
+}
+
+.top-streamers ul li .main-button a {
+  padding: 8px 20px;
+}
+
+/* 
+---------------------------------------------
+Profile Style
+--------------------------------------------- 
+*/
+
+.main-profile {
+  border-radius: 23px;
+  padding: 30px;
+  background-color: #1f2122;
+}
+
+.main-profile .main-info span {
+  font-size: 14px;
+  color: #fff;
+  background-color: #75aadb;
+  padding: 8px 20px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+.main-profile .main-info h4 {
+  margin-bottom: 0px;
+}
+
+.main-profile .main-info .main-border-button {
+  margin-top: 25px;
+}
+
+.main-profile .datos-counters span {
+  font-size: 14px;
+  color: #fff;
+  padding: 8px 20px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+.container-attaks {
+  margin-top: 0;
+}
+
+.header-text {
+  height: 100%;
+}
+
+.header-text > .counter-details {
+  height: 100%;
+}
+
+.header-text > .counter-details > .content {
+  height: 100%;
+  display: grid;
+}
+
+.main-profile .datos-counters h4 {
+  margin-bottom: 0px;
+}
+
+.main-profile .datos-counters .main-border-button {
+  margin-top: 25px;
+}
+
+.main-profile ul {
+  border-radius: 23px;
+  padding: 27px;
+  background-color: #27292a;
+  margin-bottom: 0;
+}
+
+.main-profile ul li {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #666;
+}
+
+.main-profile ul li span {
+  float: right;
+  color: #75aadb;
+  font-family: "DinProBold", sans-serif;
+  font-size: 16px;
+}
+
+.main-profile ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.main-profile .hover-effect .live a {
+  position: absolute;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  right: 15px;
+  top: 15px;
+}
+
+.main-profile .item-poke .hover-effect .live a {
+  position: absolute;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  right: 110px;
+  top: 10px;
+}
+
+.main-profile .thumb {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.main-profile .hover-effect ul {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 0%;
+  padding: 0;
+}
+
+.main-profile .hover-effect ul li {
+  display: inline-block;
+  margin: 0px 5px;
+  width: auto;
+  border-bottom: none;
+}
+
+.main-profile .hover-effect ul li a {
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.counter-details h2 {
+  font-size: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.counter-details .content {
+  border-radius: 23px;
+  padding: 0px;
+  background-color: #1f2122;
+}
+
+.counter-details .content .left-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 15px;
+  margin-bottom: 3px;
+}
+
+.counter-details .content .left-info .left {
+  float: left;
+}
+
+.counter-details .content .left-info h4 {
+  font-size: 15px;
+  display: block;
+}
+
+.counter-details .content .left-info span {
+  color: #666;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.tablatipos {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 2px 6px 2px 2px !important;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.strong-group {
+  padding: 2px 6px 2px 2px !important;
+  border-radius: 25px;
+  background-color: rgba(
+    117,
+    170,
+    219,
+    1
+  ); /* Fondo azul para resistencias x2 */
+  width: max-content;
+}
+
+.counter-details .content .left-info ul {
+  text-align: right;
+  display: ruby;
+}
+
+.counter-details .content .left-info ul li {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 3px;
+  border-bottom: none;
+}
+
+.counter-details .content .left-info ul li:first-child i {
+  color: yellow;
+}
+
+.counter-details .content .left-info ul li:last-child i {
+  color: #75aadb;
+}
+
+.counter-details .content .right-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.counter-details .content .right-info ul li {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  border-bottom: none;
+}
+
+.counter-details .content .right-info ul li img {
+  display: block;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.counter-details .content .right-info ul li:first-child i {
+  color: yellow;
+}
+
+.counter-details .content .right-info ul li i {
+  color: #75aadb;
+}
+
+.counter-details ul {
+  border-radius: 23px;
+  padding: 0px;
+  background-color: #27292a;
+}
+
+.counter-details ul li {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #666;
+}
+
+.counter-details ul li span {
+  float: right;
+  font-weight: 500;
+  color: #75aadb;
+}
+
+.counter-details ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.left-info {
+  max-width: 100%; /* Asegura que no sobrepase el ancho del contenedor padre */
+}
+
+.resistance-list {
+  display: flex; /* Utiliza flexbox para controlar el diseño de la lista */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas adicionales si es necesario */
+  list-style: none; /* Elimina los estilos de la lista predeterminados */
+  padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+.resistance-list li {
+  width: calc(
+    33.33% - 10px
+  ); /* Establece el ancho de cada elemento li, ajusta según sea necesario */
+  margin: 5px; /* Agrega un pequeño margen entre los elementos */
+  text-align: center; /* Centra el contenido dentro de cada elemento */
+}
+
+.separador {
+  border-top: 2px solid #27292a;
+  margin-top: 15px;
+}
+
+.separador .heading-section {
+  margin-top: 15px;
+}
+
+.clips {
+  margin-top: 15px;
+  border-top: 2px solid #27292a;
+}
+
+.clips .heading-section,
+.clips .heading-section-arrows {
+  margin-top: 30px;
+}
+
+.clips .select-tipos {
+  margin-top: 0px;
+}
+
+.clips .item {
+  border-radius: 23px;
+  padding: 20px 15px;
+  background-color: #27292a;
+  margin-bottom: 30px;
+}
+
+.data-counters .item {
+  border-radius: 23px;
+  padding: 20px 15px;
+  background-color: #27292a;
+  margin-bottom: 15px;
+}
+
+.clips .item-poke {
+  border-radius: 23px;
+  background-color: #27292a;
+  margin-bottom: 30px;
+}
+
+.clips .item .thumb {
+  position: relative;
+}
+
+.clips .item .thumb img {
+  border-radius: 10%;
+}
+
+.clips .item .thumb a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-23px, -23px);
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 46px;
+  color: #75aadb;
+}
+
+.clips .item h4 {
+  font-size: 15px;
+  display: inline-block;
+}
+
+.clips .item span i {
+  color: #75aadb;
+}
+
+.clips .item span {
+  float: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.clips .main-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.data-counters .item-poke {
+  border-radius: 23px;
+  background-color: #27292a;
+  margin-bottom: 15px;
+}
+
+.data-counters .item .thumb {
+  position: relative;
+}
+
+.difficulty-section {
+  display: flex;
+  justify-content: center; /* Espaciado uniforme */
+  align-items: center;
+  padding: 0 10px;
+}
+
+.difficulty-item {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.difficulty-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.difficulty-icon {
+  width: 24px;
+  height: 30px;
+  margin-bottom: 2px; /* Espacio entre el icono y el número */
+}
+
+.difficulty-trainers {
+  margin-left: 1px;
+}
+
+.data-counters .item .thumb a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-23px, -23px);
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 46px;
+  color: #75aadb;
+}
+
+.data-counters .item h4 {
+  font-size: 15px;
+  display: inline-block;
+}
+
+.data-counters .item span i {
+  color: #75aadb;
+}
+
+.data-counters .item span {
+  float: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.data-counters .main-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 
+---------------------------------------------
+Pages Counters Style
+--------------------------------------------- 
+*/
+.name-counter {
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.name-counter:hover {
+  white-space: normal;
+  overflow: visible;
+}
+
+.name-atk {
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.thumb-counters {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px; /* Ajusta la altura según sea necesario */
+}
+
+.thumb .overlay-image {
+  position: absolute;
+  top: 0; /* Ajusta la posición dependiendo de dónde la quieras */
+  left: 0;
+  width: 100%; /* La nueva imagen cubrirá la imagen principal */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Evita que interfiera con la interacción del usuario */
+}
+
+.thumb .overlay-image img {
+  width: 100%; /* Ajusta el tamaño de la imagen superpuesta */
+  opacity: 0.6; /* Transparencia opcional */
+}
+
+.col-lg-4.col-sm-6 .thumb-counters > img {
+  width: 70%;
+}
+
+.col-lg-3.col-sm-6 .thumb-counters > img {
+  width: 100%;
+}
+
+.thumb-counters > img {
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que cubra completamente el contenedor */
+  object-position: center; /* Centra la imagen */
+  border-radius: 10px;
+}
+
+.tipos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px; /* Espacio entre los iconos */
+}
+
+.tipos-title {
+  display: inline-block;
+  margin-right: 15px;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.full-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Hereda el color de texto */
+  background-color: transparent !important;
+}
+
+.full-link .item {
+  background-color: #27292a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px 15px;
+  border-radius: 23px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.item-link {
+  cursor: pointer;
+}
+
+.counter-select .item-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(117, 170, 219);
+}
+
+.full-link .btncounters {
+  pointer-events: auto; /* Permite que los enlaces internos sean clickeables */
+}
+
+.dates-counters {
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.mtelite {
+  width: 30px;
+  margin-left: 2px;
+}
+
+/* Estilos para la vista de escritorio */
+.orden-rangos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.orden-rangos-container b {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.secciontitle {
+  align-items: center;
+  justify-content: center;
+  margin-top: 0 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(117, 170, 219);
+  border-radius: 23px;
+  padding: 20px;
+  width: 100%;
+}
+
+.sub-secciontitle {
+  margin-top: 0 !important;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 23px;
+  padding: 10px;
+  margin-bottom: 15px !important;
+}
+
+.seccioncontainer .thumb:hover .hover-effect {
+  opacity: 1;
+  visibility: visible;
+}
+
+.seccioncontainer span i {
+  color: #fff;
+  background-color: #75aadb;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 3px;
+}
+
+.seccioncontainer span {
+  font-size: 16px;
+  color: #75aadb;
+}
+
+.seccioncontainer .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}
+
+.titulo-icono {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+  font-family: "DinProBold", sans-serif;
+  box-shadow: 0 1px 10px rgb(255 255 255 / 30%);
+  border-radius: 60px;
+}
+
+.titulo-icono h3 {
+  color: #ffffff !important;
+  font-size: 22px !important;
+}
+
+.titulo-icono span {
+  color: #75aadb !important;
+  font-size: 20px !important;
+}
+
+.titulo-bonus h3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "DinProBold", sans-serif;
+  color: #ffffff !important;
+  font-size: 22px;
+}
+
+.seccioncontainer .imagenes-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.seccioncontainer .imagenes-grid .item {
+  background-color: #27292a;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccioncontainer .info-adicional {
+  color: #c0c0c0;
+  font-family: "DinProRegular", sans-serif;
+  font-style: oblique;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.bonus-horadestacada {
+  color: #75aadb;
+  font-family: "DinProRegular", sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  margin-top: 5px;
+  font-style: oblique;
+}
+
+.subtitles-blancos {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px !important;
+  font-family: "DinProBold", sans-serif;
+  color: #000;
+  line-height: normal;
+}
+
+.seccioncontainer .imagenes-grid .thumb {
+  position: relative;
+}
+
+.seccioncontainer .imagenes-grid .thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.seccioncontainer .imagenes-grid .shiny-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.seccioncontainer .imagenes-grid .shiny-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seccioncontainer .investigations-grid .shiny-icon {
+  position: absolute;
+  top: -3px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.seccioncontainer .investigations-grid .shiny-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seccioncontainer .teamrocket-grid .shiny-icon {
+  position: absolute;
+  top: -3px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.seccioncontainer .teamrocket-grid .shiny-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seccioncontainer .imagenes-grid .item {
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+}
+
+.seccioncontainer .pokemon-name,
+.attack-name {
+  font-family: "DinProRegular", sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.attack-info {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.attack-badge {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  font-family: "DinProRegular", sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.attack-badge img {
+  width: 30px !important;
+  object-fit: contain;
+}
+
+.attack-badge span {
+  font-size: 12px;
+  font-family: "DinProBold", sans-serif;
+}
+
+.bg-pelea {
+  background-color: rgba(199, 76, 88, 0.4);
+}
+
+.bg-hielo {
+  background-color: rgba(122, 207, 198, 0.4);
+}
+
+.bg-planta {
+  background-color: rgba(99, 192, 115, 0.4);
+}
+
+.bg-electrico {
+  background-color: rgba(245, 226, 118, 0.4);
+}
+
+.bg-agua {
+  background-color: rgba(86, 159, 208, 0.4);
+}
+
+.bg-fuego {
+  background-color: rgba(245, 147, 62, 0.4);
+}
+
+.bg-dragon {
+  background-color: rgba(8, 109, 191, 0.4);
+}
+
+.bg-acero {
+  background-color: rgba(81, 136, 158, 0.4);
+}
+
+.bg-normal {
+  background-color: rgba(160, 166, 173, 0.4);
+}
+
+.bg-siniestro {
+  background-color: rgba(102, 104, 115, 0.4);
+}
+
+.bg-fantasma {
+  background-color: rgba(95, 108, 183, 0.4);
+}
+
+.bg-insecto {
+  background-color: rgba(164, 199, 40, 0.4);
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px; /* Espaciado entre los elementos */
+  justify-content: center; /* Centra horizontalmente los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  height: 100%; /* Asegúrate de que tenga suficiente altura para centrar */
+}
+
+.footer-banner {
+  background-color: rgba(117, 170, 219, 0.75);
+  color: #000 !important;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  max-width: max-content;
+  margin: 20px auto;
+  font-weight: bold;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-banner .shiny-icon,
+.footer-banner .brillante-icon
+ {
+  width: 22px;
+  height: 22px;
+}
+
+.footer-banner span {
+  font-size: 14px !important;
+  color: #000 !important;
+}
+
+.bonus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: rgb(117 170 219 / 75%);
+  border-radius: 23px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bonus-list p {
+  font-family: "DinProBold", sans-serif;
+  color: #000 !important;
+  margin: 0;
+  flex: 1;
+  line-height: 2rem !important;
+}
+
+.bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bonus-item-cd {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.bonus-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0; /* Evita que el ícono se reduzca */
+}
+
+.investigations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.inv-capturas {
+  background-color: rgb(215 181 130) !important;
+}
+
+.inv-lanzamientos {
+  background-color: rgb(187 210 143) !important;
+}
+
+.inv-batallas {
+  background-color: rgb(242 152 144) !important;
+}
+
+.inv-exploracion {
+  background-color: rgb(150 223 181) !important;
+}
+
+.inv-entrenamiento {
+  background-color: rgb(167 214 229) !important;
+}
+
+.inv-amistad {
+  background-color: rgb(247 183 218) !important;
+}
+
+.inv-rocket {
+  background-color: rgb(138, 136, 136) !important;
+}
+
+.investigation-item {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.investigation-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.investigation-details {
+  padding-top: 10px;
+}
+
+/* .investigation-details .rewards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+} */
+
+/* .investigation-details .reward-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* .investigation-details .reward-image {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+} */
+
+.investigation-details .rewards {
+  display: flex; /* Usa flexbox */
+  gap: 10px; /* Espacio entre elementos */
+  overflow-x: auto; /* Scroll horizontal */
+  max-width: 100%; /* Ajusta al ancho del contenedor */
+  padding-bottom: 10px; /* Espacio adicional */
+}
+
+.reward-item {
+  position: relative;
+  flex: 0 0 calc(25% - 10px); /* Máximo 4 elementos visibles (25% del contenedor) */
+  text-align: center; /* Centrar contenido */
+  box-sizing: border-box; /* Mantener márgenes dentro del tamaño */
+  max-width: 70px;
+}
+
+.reward-item .reward-image {
+  width: 100%; /* Ajusta la imagen */
+  max-width: 70px; /* Controla el tamaño máximo de la imagen */
+  margin: 0 auto; /* Centra horizontalmente */
+  border-radius: 10px;
+}
+
+.cp-overlay {
+  position: static; /* Cambia de absoluta a estática */
+  transform: none; /* Elimina el desplazamiento horizontal */
+  margin-top: 5px; /* Espaciado entre la imagen y el texto */
+  width: auto; /* Deja que el texto se ajuste automáticamente */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 10px; /* Redondea los bordes del fondo */
+  text-align: center;
+  font-family: "DinProBold", sans-serif;
+}
+.investigation-item .investigation-title {
+  color: #000 !important;
+}
+
+/* Estructura principal de la cuadrícula */
+.teamrocket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Estilo de cada líder */
+.teamrocket-item {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+}
+
+.character-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.character-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.character-name {
+  font-size: 18px;
+  color: #000;
+  font-family: "DinProBold", sans-serif;
+}
+
+/* Estilo para la alineación de Pokémon */
+.alignment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slot1,
+.slot2,
+.slot3 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Estilos para cada recuadro de Pokémon */
+.pokemon-slot {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pokemon-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Para esquinas redondeadas */
+}
+
+/* Estilo para los números dentro del recuadro */
+.slot1::before,
+.slot2::before,
+.slot3::before {
+  content: attr(data-slot);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  font-family: "DinProBold";
+}
+
+/* Estilo para el icono de Poké Ball */
+.pokeball-icon {
+  position: absolute;
+  top: 30px; /* Ajusta la posición vertical según sea necesario */
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeball-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.slot-active {
+  background-color: rgb(0 118 227);
+}
+
+.communityday {
+  margin-top: 60px;
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+}
+
+.communityday .thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.communityday .thumb img {
+  border-radius: 23px;
+}
+
+.communityday .thumb:hover .hover-effect {
+  opacity: 1;
+  visibility: visible;
+}
+
+.communityday .hover-effect {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+}
+
+.communityday .hover-effect .live a {
+  position: absolute;
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+  right: 15px;
+  top: 15px;
+}
+
+.communityday .hover-effect ul {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.communityday .hover-effect ul li {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.communityday .hover-effect ul li a {
+  background-color: rgba(236, 96, 144, 0.9);
+  padding: 5px 10px;
+  border-radius: 23px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.communityday .avatar img {
+  margin-right: 15px;
+}
+
+.communityday span i {
+  color: #fff;
+  background-color: #75aadb;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 3px;
+}
+
+.communityday span {
+  font-size: 16px;
+  color: #75aadb;
+}
+
+.communityday .down-content h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 61px;
+}
+
+.communityday .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}
+
+.communityday .imagenes-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.communityday .imagenes-grid .item {
+  background-color: #27292a;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.communityday .imagenes-grid .thumb {
+  position: relative;
+}
+
+.communityday .imagenes-grid .thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.communityday .imagenes-grid .shiny-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.communityday .imagenes-grid .shiny-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.communityday .imagenes-grid .item {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.communityday .pokemon-name {
+  font-family: "DinProRegular", sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.communityday .bonus-list {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.bonus-title {
+  background-color: #f8f8f8;
+  color: #333;
+  font-family: "DinProBlack", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.communityday .bonus-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+.communityday .bonus-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px; /* Ajusta el ancho según tu diseño */
+}
+
+.communityday .bonus-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.communityday .bonus-item p {
+  font-size: 14px;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+.evolution-path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.evolution-step {
+  position: relative;
+  text-align: center;
+}
+
+.evolution-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc; /* Ajusta el color del borde */
+}
+
+.evolution-arrow {
+  font-size: 24px;
+  color: #666;
+}
+
+.evolution-requirements {
+  width: 100%;
+}
+
+.evolution-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.evolution-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  color: #555;
+  font-size: 18px;
+}
+
+.evolution-table td {
+  background-color: #ffffff;
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.evolution-table td img {
+  vertical-align: middle;
+}
+
+.evolution-table td .candy-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  color: #7b8ba3;
+  font-size: 14px;
+}
+
+.evolution-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.evolution-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.requirement-info {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a columna */
+  align-items: center; /* Centra el icono y el texto */
+  gap: 5px;
+}
+
+.requirement-info span {
+  font-size: 18px;
+  color: #000;
+  font-family: "DinProMedium", sans-serif;
+}
+
+.pokemon-info,
+.requirement-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pokemon-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.requirement-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.special-requirement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #666;
+  font-size: 14px;
+}
+
+.thumb-pkmCD {
+  cursor: pointer;
+}
+
+.item-pkmEvent.raro {
+  background-color: #a52a2a !important;
+}
+
+.team-container {
+  margin-top: 25px;
+  border-radius: 15px;
+}
+
+.team-container h3 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 15px;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.team-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.team-info {
+  flex: 1;
+}
+
+.team-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.legal-notice {
+  text-align: center !important;
+  font-size: 10px !important;
+  color: #ffffff !important;
+  margin-top: 20px !important;
+  padding: 10px !important;
+  border-top: 1px solid #ddd !important; /* Línea divisoria sutil */
+}
+
+.legal-notice .text-notice {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.social-icon {
+  font-size: 24px; /* Cambia el tamaño según lo necesites */
+  color: #75aadb;
+  margin-right: 5px;
+}
+
+.sub-secciongoogle {
+  margin-top: 0 !important;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 23px;
+  padding: 10px;
+  margin-bottom: 15px !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%; /* Asegura que ocupe el alto completo del contenedor */
+}
+
+.sub-secciongoogle {
+  text-align: center;
+}
+
+.login-info {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px; /* Espaciado entre el texto y el botón */
+  line-height: 1.5;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#loginButton {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #1F2122;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px; /* Ancho del botón */
+  height: 50px; /* Alto del botón */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#loginButton:hover {
+  background-color: #e4e4e4;
+}
+
+#loginButton .google-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  margin-right: 10px; /* Espaciado entre el ícono y el texto */
+}
+
+#loginButton .google-icon img {
+  width: 18px; /* Tamaño del logo de Google */
+  height: 18px;
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-sign-out-alt{
+  color: #ff0000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%; /* Centrar verticalmente */
+  left: 50%; /* Centrar horizontalmente */
+  transform: translate(-50%, -50%); /* Ajustar el punto de referencia */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px; /* Limitar el ancho máximo */
+  width: 90%; /* Ajustar ancho en pantallas pequeñas */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+.modal-container h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modal-container p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap; /* Ajustar los botones si no caben */
+}
+
+button {
+  cursor: pointer;
+}
+
+#loginButtonModal {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 20px;
+  background-color: #4285f4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px; /* Ancho del botón */
+  height: 50px; /* Alto del botón */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#loginButtonModal:hover {
+  background-color: #357ae8;
+}
+
+#loginButtonModal .google-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  margin-right: 10px; /* Espaciado entre el ícono y el texto */
+}
+
+#loginButtonModal .google-icon img {
+  width: 18px; /* Tamaño del logo de Google */
+  height: 18px;
+}
+
+.secondary-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: #e2e2e2;
+}
+
+.pc-counters-info {
+  display: grid !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+/* Animación de entrada del modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 
+---------------------------------------------
+Responsive Style
+--------------------------------------------- 
+*/
+
+@media (min-width: 1800px) {
+  .col-xl-pantalla {
+    flex: 0 0 auto !important;
+    width: 15% !important;
+  }
+
+  .col-xl-pantalla .thumb-counters > img {
+    width: 100% !important; 
+  }
+
+  .col-lg-4.col-sm-6 .thumb-counters > img {
+    width: 100% !important;
+  }
+
+  .col-xl-counters.thumb-counters > img {
+    width: 100% !important; 
+  }
+
+  .col-xl-counters {
+    flex: 0 0 auto !important;
+    width: 16.5% !important;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .header-area .main-nav .logo {
+    border-right: none;
+  }
+
+  .bloqueado a {
+    color: gray !important;
+  }
+
+  .header-area .main-nav .nav li {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+
+  .header-area .main-nav .nav li a {
+    font-size: 14px;
+    padding: 10px 0px;
+  }
+
+  .header-area .main-nav .logo img {
+    width: 260px;
+  }
+
+  .header-area .main-nav:before {
+    display: none;
+  }
+
+  .col-lg-3.col-sm-6 {
+    flex: 1 1 calc(35% - 20px);
+    max-width: calc(35% - 20px);
+    box-sizing: border-box;
+  }
+
+  .event-list .col-lg-4 {
+    flex: 0 0 47% !important;
+    max-width: 47% !important;
+    padding: 0px;
+  }
+
+  #containerSeason{
+    justify-content: center;
+  }
+
+  #indexEventList {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .background-header {
+    display: inline-block;
+  }
+  .bloqueado a {
+    color: gray !important;
+  }
+  .header-area .main-nav #search {
+    display: none;
+  }
+  .heading-section h4,
+  .heading-section-arrows h4 {
+    font-size: 22px;
+  }
+  .featured-games {
+    margin-bottom: 60px;
+  }
+  .start-stream .item {
+    margin: 15px 0px;
+  }
+  .feature-banner .thumb {
+    margin-top: 30px;
+  }
+  .header-area .main-nav {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+  .header-area .main-nav .nav {
+    height: auto;
+    flex-basis: 100%;
+  }
+  .header-area .main-nav .logo {
+    position: absolute;
+    top: 15px; /* Ajusta según sea necesario */
+    left: 20px;
+    z-index: 10; /* Asegura que esté encima del menú */
+  }
+  .background-header .main-nav .logo {
+    top: 0px;
+  }
+  .background-header .main-nav .border-button {
+    top: 0px !important;
+  }
+  .header-area .main-nav .border-button {
+    position: absolute;
+    top: 15px;
+    right: 70px;
+  }
+  .header-area.header-sticky .nav li a:hover,
+  .header-area.header-sticky .nav li a.active {
+    color: #75aadb !important;
+    opacity: 1;
+  }
+  .header-area.header-sticky .nav li.search-icon a {
+    width: 100%;
+  }
+  .header-area {
+    padding: 0px 15px;
+    height: 80px;
+    box-shadow: none;
+    text-align: center;
+  }
+  .header-area .container {
+    padding: 0px;
+  }
+  .header-area .logo {
+    margin-left: 0px;
+  }
+  .header-area .menu-trigger {
+    display: block !important;
+  }
+  .header-area .main-nav {
+    overflow: hidden;
+  }
+  .header-area .main-nav .nav {
+    float: none;
+    width: 100%;
+    display: none;
+    -webkit-transition: all 0s ease 0s;
+    -moz-transition: all 0s ease 0s;
+    -o-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+    margin-left: 0px;
+  }
+  .header-area.header-sticky .nav {
+    margin-top: 95px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  .background-header.header-sticky .nav {
+    margin-top: 70px !important;
+  }
+
+  .header-area .main-nav .nav li:first-child {
+    border-top: 1px solid #eee;
+    border-radius: 23px 23px 0px 0px;
+  }
+
+  .header-area .main-nav .nav li:last-child {
+    border-top: 1px solid #eee;
+    border-radius: 0px 0px 23px 23px;
+  }
+
+  .header-area .main-nav .nav li {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .header-area .main-nav .nav li a {
+    height: 50px !important;
+    line-height: 50px !important;
+    padding: 0px !important;
+    border: none !important;
+    background: #fff !important;
+    color: #1e1e1e;
+  }
+  .header-area .main-nav .nav li a:hover {
+    background: #fff !important;
+    color: #75aadb !important;
+  }
+
+  .header-area .main-nav .nav li:last-child a:hover {
+    color: #75aadb !important;
+    background-color: transparent !important;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    position: relative;
+    visibility: inherit;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    top: 0px;
+    width: 100%;
+    box-shadow: none;
+    height: 0px;
+    transition: all 0s;
+  }
+  .header-area .main-nav .nav li.submenu ul li a {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .header-area .main-nav .nav li.submenu ul li a:hover:before {
+    width: 0px;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    height: auto;
+  }
+  .header-area .main-nav .nav li.has-sub:after {
+    color: #3b566e;
+    right: 30px;
+    font-size: 14px;
+    top: 15px;
+  }
+  .header-area .main-nav .nav li.submenu:hover ul,
+  .header-area .main-nav .nav li.submenu:focus ul {
+    height: 0px;
+  }
+  .seccioncontainer .imagenes-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .selecttype.fixed {
+    width: 80%;
+  }
+
+  .tipos-dpstdo {
+    width: 35px !important;
+  }
+  
+  .col-lg-3.col-sm-6 {
+    flex: 1 1 calc(50% - 20px); /* Cuatro elementos por fila con espacio */
+  max-width: calc(50% - 20px);
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+  }
+
+  .evolution-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  #donacion {
+    color: #918f03 !important
+  }
+  
+  #donacion:hover {
+    color: #aba803 !important
+  }
+
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 95% !important;
+  }
+  .bloqueado a {
+    color: gray !important;
+  }
+
+  body .page-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .dropdown-menu {
+    display: none;
+    max-height: 54vh; /* Limita la altura al 60% de la pantalla */
+    overflow-y: auto; /* Permite hacer scroll si el contenido es largo */
+    padding-left: 15px;
+    background: #fff; /* Asegura que el fondo sea visible */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    color: #1e1e1e !important; /* Color del texto cuando el menú está abierto */
+    text-decoration: none; /* Evita el subrayado predeterminado */
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .dropdown-menu a:hover {
+    color: #75aadb !important; /* Color del texto cuando pasas el cursor */
+    background: rgba(117, 170, 219, 0.1); /* Un fondo suave para resaltar */
+  }
+
+  .main-banner, .main-banner-404 {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .main-banner h4, .main-banner-404 h4 {
+    font-size: 30px;
+  }
+
+  .titulo-evento {
+    display: none !important;
+  }
+
+  footer {
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  footer .col-3 {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  footer .col-6 {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  footer .col-6 a {
+    padding: 5px;
+  }
+
+  footer .col-3.text-right {
+    text-align: center;
+    width: 100%;
+  }
+
+  .top-downloaded ul li .download i {
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .top-downloaded ul li img {
+    margin-right: 10px;
+  }
+  .top-downloaded ul li span {
+    font-size: 14px;
+  }
+  .top-streamers ul li .main-button {
+    float: none;
+    margin-top: 10px;
+  }
+  .top-streamers ul li .main-button a {
+    width: 100%;
+    text-align: center;
+  }
+  .top-streamers,
+  .top-downloaded {
+    max-height: 100%;
+    min-height: 100%;
+  }
+  .season .item .inner-item {
+    margin-bottom: 20px;
+  }
+
+  .season .item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: #27292a;
+  }
+
+  .season .item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 15px;
+  }
+
+  .season .item h4 {
+    flex: 1;
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .seccioncontainer .item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #27292a;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+
+  .seccioncontainer .thumb {
+    width: 90px;
+    height: auto;
+    border-radius: 15px;
+    margin-right: 5px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    margin-bottom: 0 !important;
+  }
+
+  .seccioncontainer .item-pkmEvent,
+  .seccioncontainer .item-pkmCD {
+    padding: 0 !important;
+  }
+
+  .seccioncontainer .thumb-pkmEvent,
+  .seccioncontainer .thumb-pkmCD {
+    width: auto !important;
+    margin-right: 0px !important;
+  }
+
+  .seccioncontainer .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .seccioncontainer .hover-effect {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+  }
+
+  .seccioncontainer .hover-effect ul {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    padding: 0;
+    margin: 0 auto;
+    width: auto;
+    max-width: 80px;
+  }
+
+  .seccioncontainer .hover-effect ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .seccioncontainer .hover-effect ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+
+  .seccioncontainer .hover-effect ul li a img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  .seccioncontainer .down-content {
+    flex: 1;
+  }
+
+  .seccioncontainer .down-content span {
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .seccioncontainer .down-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .seccioncontainer .hover-effect ul {
+    position: static;
+  }
+
+  .seccioncontainer .avatar img {
+    margin-right: 5px;
+  }
+
+  .seccioncontainer .hover-effect .live a {
+    top: -55px;
+    right: 10px;
+  }
+
+  .seccioncontainer .avatar img {
+    margin-right: 5px;
+  }
+
+  .btnseccioncontainer {
+    width: 15px !important;
+  }
+
+  .btncounters {
+    width: 40px !important;
+  }
+
+  .date-eggs {
+    display: flex;
+  }
+
+  .container-list {
+    gap: 5px;
+  }
+
+  .container-list .box {
+    width: 30%;
+    padding: 3px;
+  }
+
+  .container-list .box img {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .container-list .box p {
+    font-size: 10px;
+  }
+
+  .container-list input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    top: 3px;
+    right: 3px;
+  }
+
+  .event-list .col-lg-4,
+  .event-list .col-sm-6 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 15px !important;
+  }
+
+  .col-lg-2.col-sm-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .thumb-counters {
+    height: 150px;
+  }
+
+  .thumb-counters > img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que cubra completamente el contenedor */
+    object-position: center; /* Centra la imagen */
+    border-radius: 10px;
+  }
+
+  .btnrangos img {
+    width: 18px;
+  }
+
+  .clips .item .thumb a {
+    left: 60% !important;
+    top: 15px !important;
+  }
+
+  .name-counter {
+    font-size: 16px;
+  }
+
+  .name-counters-selected {
+    font-size: 16px;
+  }
+
+  .tipos-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .tipos-wrapper b {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .row-counters {
+    scroll-margin-top: 150px;
+  }
+
+  .tipos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .selecttype.fixed {
+    width: 85%;
+  }
+
+  .tipos-dpstdo {
+    width: 36px !important;
+    height: 36px;
+    margin: 2px;
+  }
+
+  .align-self-center {
+    margin-top: 15px;
+  }
+
+  .main-profile .datos-counters {
+    margin: 0px;
+  }
+
+  .container-attaks {
+    margin-top: 3px !important;
+  }
+
+  .main-profile .main-info {
+    margin: 5px;
+  }
+
+  .main-profile ul {
+    margin-bottom: 3px;
+  }
+
+  .data-counters .item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .data-counters .name-counter {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .data-counters .thumb-counters {
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+  }
+
+  .data-counters .thumb-counters img {
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .data-counters .down-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .data-counters .down-content div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .data-counters .down-content img {
+    margin-right: 0px;
+  }
+
+  .data-counters .item .thumb a {
+    left: 60% !important;
+    top: 15px !important;
+  }
+
+  .mtelite {
+    width: 20px;
+    margin-left: 3px;
+  }
+
+  .icono-counters {
+    width: 25px; /* Ajusta el tamaño del ícono */
+    height: 25px;
+  }
+
+  .ataque-counters {
+    font-size: 12px !important;
+  }
+
+  .ivs-text-counters{
+    font-size: 12px !important;
+  }
+
+  .separador {
+    margin-top: 10px;
+  }
+
+  .separador .heading-section {
+    margin-top: 10px;
+  }
+
+  .heading-section h4,
+  .heading-section-arrows h4 {
+    margin-bottom: 15px;
+  }
+
+  .ordenrangos {
+    width: 20px;
+  }
+
+  .orden-rangos-container {
+    display: block;
+    text-align: center;
+  }
+
+  .orden-rangos-container b {
+    display: block;
+    margin: 0 auto 3px auto;
+  }
+
+  .orden-rangos-container .ordenrangos {
+    display: inline-block;
+    margin: 0 -1px;
+  }
+
+  .seccioncontainer .hover-effect ul li a img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  .seccioncontainer .down-content {
+    flex: 1;
+  }
+
+  .seccioncontainer .down-content span {
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .seccioncontainer .hover-effect .live a {
+    top: -55px;
+    right: 10px;
+  }
+
+  .seccioncontainer .imagenes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .communityday .imagenes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .seccioncontainer .pokemon-name,
+  .attack-name {
+    font-size: 10px;
+  }
+
+  .seccioncontainer .imagenes-grid .item {
+    margin-bottom: 0px;
+  }
+
+  .communityday .imagenes-grid .item {
+    margin-bottom: 0px;
+  }
+
+  .titulo-icono h3 {
+    color: #ffffff !important;
+    font-size: 16px !important;
+  }
+
+  .titulo-icono span {
+    color: #75aadb;
+    font-size: 14px !important;
+  }
+
+  .investigation-details .rewards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  .titulo-bonus h3 {
+    font-size: 20px;
+  }
+
+  .bonus-list p {
+    line-height: 1.3rem !important;
+    font-size: 12px;
+  }
+
+  .investigations-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .seccioncontainer .investigations-grid .shiny-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .teamrocket-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .seccioncontainer .teamrocket-grid .shiny-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .slot1,
+  .slot2,
+  .slot3 {
+    gap: 4px;
+  }
+
+  .communityday .item {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    background-color: #27292a;
+    border-radius: 15px;
+  }
+
+  .communityday .thumb {
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .communityday .item-pkmEvent,
+  .communityday .item-pkmCD {
+    padding: 0 !important;
+  }
+
+  .communityday .thumb-pkmEvent,
+  .communityday .thumb-pkmCD {
+    width: auto !important;
+    margin-right: 0px !important;
+  }
+
+  .communityday .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .communityday .hover-effect {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+  }
+
+  .communityday .hover-effect ul {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    padding: 0;
+    margin: 0 auto;
+    width: auto;
+    max-width: 80px;
+  }
+
+  .communityday .hover-effect ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .communityday .hover-effect ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+
+  .communityday .hover-effect ul li a img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  .communityday .down-content {
+    flex: 1;
+  }
+
+  .communityday .down-content span {
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .communityday .down-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .communityday .thumb {
+    margin-bottom: 0 !important;
+  }
+
+  .communityday .hover-effect ul {
+    position: static;
+  }
+
+  .communityday .hover-effect .live a {
+    top: -55px;
+    right: 10px;
+  }
+
+  .communityday .avatar img {
+    margin-right: 5px;
+  }
+
+  .communityday .pokemon-name {
+    font-size: 10px;
+  }
+
+  .communityday .imagenes-grid .shiny-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .communityday .bonus-item {
+    text-align: left;
+    flex-direction: row;
+    width: max-content !important;
+  }
+
+  .communityday .bonus-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  .communityday .bonus-text {
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .evolution-path {
+    gap: 5px;
+  }
+
+  .evolution-image {
+    width: 75px;
+    height: 75px;
+  }
+
+  .evolution-arrow {
+    font-size: 14px;
+  }
+
+  .pokemon-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .requirement-info span {
+    font-size: 12px;
+  }
+
+  .requirement-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .evolution-table {
+    width: 100%;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .evolution-table th {
+    font-size: 12px;
+  }
+
+  .evolution-table th,
+  .evolution-table td {
+    padding: 10px 6px;
+  }
+
+  .candy-icon {
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .evolution-container {
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+
+  .bonus-title {
+    font-size: 14px;
+  }
+
+  .pokemon-shiny {
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical */
+    left: 6px; /* Ajusta la posición horizontal */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shiny-icon,
+  .brillante-icon {
+    width: 18px !important; /* Ajusta el tamaño del ícono */
+    height: 18px !important;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto 3D */
+  }
+
+  .shiny-check {
+    position: absolute;
+    top: 30px; /* Justo debajo del icono shiny */
+    right: 6px;
+  }
+  
+  /* Estilos base del checkbox */
+  .shiny-checkbox {
+    appearance: none; /* Ocultar el checkbox por defecto */
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 2px; /* Esquinas redondeadas */
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    background-color: transparent; /* Fondo transparente por defecto */
+    transition: background-color 0.3s ease;
+  }
+
+  .number-spinda {
+    bottom: -24px;
+    right: -1px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .pokemon-types {
+    position: absolute;
+    top: 8px !important; /* Ajusta la posición vertical */
+    right: 6px !important; /* Ajusta la posición horizontal */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .type-icon {
+    width: 16px !important; /* Ajusta el tamaño del ícono */
+    height: 16px !important;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto 3D */
+  }
+
+  .attack-info {
+    justify-content: center; /* Centra las cápsulas */
+  }
+
+  .attack-badge {
+    flex-direction: column; /* Cambia de fila a columna */
+    text-align: center;
+    padding: 2px;
+  }
+
+  .attack-badge img {
+    width: 16px !important; /* Aumenta el tamaño del icono para mayor visibilidad */
+    height: auto;
+  }
+
+  .attack-badge span {
+    font-size: 8px; /* Incrementa el tamaño del texto */
+  }
+
+  .subtitles-blancos {
+    font-size: 14px !important;
+  }
+
+  .col-lg-3.col-sm-6 {
+    flex: 1 1 100%; /* Cada tarjeta ocupa el 100% del ancho */
+    max-width: 100%;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  
+  .event-list .main-button {
+    margin-bottom: -40px;
+  }
+
+  .footer-container {
+    display: block;
+  }
+
+  .pc-counters-info {
+    display: grid !important;
+    text-align: center;
+    align-items: center;
+    justify-content: left;
+    align-content: space-around;
+    justify-items: flex-start;
+    margin-left: 10px;
+  }
+
+  .team-card {
+    padding: 10px;
+  }
+
+  .team-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .legal-notice .text-notice {
+    margin: 0 !important;
+    line-height: 1.5 !important;
+    font-size: 8px !important;
+    color: #ffffff !important;
+  }
+
+  .scroll-bar-sections {
+    gap: 5px;
+    justify-content: flex-start;
+    padding: 10px 15px;
+  }
+  
+}
+
+@media (max-width: 530px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+    visibility: visible;
+    width: 75% !important;
+  }
+
+  .header-area .main-nav .logo img {
+    width: 240px;
+  }
+
+  .selecttype.fixed {
+    width: 80%;
+    margin-top: 10px;
+    outline: 10px solid #5980a4;
+  }
+  .bloqueado a {
+    color: gray !important;
+  }
+
+  .col-lg-3.col-sm-6 {
+    flex: 1 1 100%; /* Cada tarjeta ocupa el 100% del ancho */
+    max-width: 100%;
+  }
+
+  .evolution-image {
+    width: 55px;
+    height: 55px;
+  }
+
+  #incursionsContainer,
+  #batallasMaxContainer,
+  #horasDestacadasContainer,
+  #horasLegendariasContainer,
+  #communityDaysContainer,
+  #eventContainer,
+  #indexEventList #pokemonDataContainer,
+  #countersContainer {
+    justify-content: flex-start; /* Alinear las tarjetas a la izquierda */
+    gap: 0px;
+  }
+}
+
+@media (max-width: 334px) {
+  .header-area .main-nav .logo img {
+    width: 140px;
+  }
+  .bloqueado a {
+    color: gray !important;
+  }
+}
+
+/* @media (orientation: landscape) and (max-width: 768px) {
+  .desktop {
+    display: block;
+    width: 60%;
+  }
+
+  .mobile {
+    display: none;
+  }
+} */
+
+/* =========================
+   Layout general del medallero
+========================= */
+.medallas-wrap{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:20px;
+}
+@media (max-width:992px){
+  .medallas-wrap{ grid-template-columns:1fr; }
+}
+
+/* =========================
+   Toolbar (contador / tabs / sesión)
+========================= */
+.medal-toolbar{
+  background:#111;
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:space-between;
+  margin-top:16px;     
+  margin-bottom:8px;
+}
+
+/* Contador (0/4) como pill */
+.owned-pill{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:44px;
+  padding:0 14px;
+  border-radius:12px;
+  font-family:"DinProBold",sans-serif;
+  color:#fff;
+  background:#1e1e1e;
+  border:1px solid #2a2a2a;
+}
+.owned-pill i{ color:#ffee00; }
+
+/* Tira de tabs con scroll horizontal en móvil */
+.tabs-strip{
+  flex:1 1 auto;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  white-space:nowrap;
+}
+.tabs-strip::-webkit-scrollbar{ display:none; }
+
+/* Pill base (Todos / Obtenidas / Faltantes / Google) */
+.pill,
+.pill-session{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex:0 0 142px;      /* mismo ancho para todos */
+  height:44px;
+  padding:0 14px;
+  border-radius:12px;
+  font-family:"DinProBold",sans-serif;
+  font-size:18px;
+  color:#fff;
+  background:#1e1e1e;
+  border:1px solid #2a2a2a;
+  white-space:nowrap;
+}
+.pill.is-active{
+  background:#75aadb; /* azul del activo */
+  color:#000;
+  border-color:transparent;
+  box-shadow:0 2px 0 rgba(0,0,0,.25);
+}
+.pill.is-muted{ opacity:.95; }
+
+/* Botón sesión con mismo tamaño */
+#sessionBtn{
+  flex:0 0 auto;
+  height:44px;
+  padding:0 14px;
+  border-radius:12px;
+  border:1px solid #2a2a2a;
+  background:#1e1e1e;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+#sessionBtn:hover{ background:#222; }
+#sessionBtn .user{
+  max-width:160px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Compactación en pantallas pequeñas */
+@media (max-width:900px){
+  .pill,.pill-session{ flex-basis:128px; height:42px; padding:0 12px; font-size:16px; }
+  #sessionBtn .user{ display:none; } /* sólo ícono en móvil */
+  #sessionBtn{ padding:0 10px; }
+}
+
+/* =========================
+   Grid de tarjetas
+========================= */
+#medalsGrid,.medal-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+}
+@media (max-width:900px){
+  #medalsGrid,.medal-grid{
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+/* Móvil: siempre 2 columnas */
+@media (max-width:700px){
+  #medalsGrid,.medal-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+/* =========================
+   Tarjetas
+========================= */
+.medal-card{
+  background:#1f2122;
+  border-radius:16px;
+  padding:14px;
+  box-shadow:rgba(0,0,0,.35) 0 2px 6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  min-height:260px;
+  box-sizing:border-box;
+}
+.medal-title{
+  font-family:"DinProBold",sans-serif;
+  color:#fff;
+  margin:2px 0 8px;
+  line-height:1.2;
+  min-height:2.6em; /* aprox 2 líneas */
+}
+
+/* Imagen (no desborda) */
+.medal-img{
+  width:clamp(120px, 60%, 180px);
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:contain;
+  border-radius:12px;
+  margin:6px 0 10px;
+  display:block;
+}
+
+/* Subtexto (coordenadas/radio) */
+.medal-sub{
+  color:#8aa7c2;
+  font-size:12px;
+  line-height:1.25;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* =========================
+   Botones de acción (mismo alto)
+========================= */
+.action-btn{
+  width:100%;
+  height:44px;
+  line-height:44px;
+  padding:0 18px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  border:none;
+  margin-top:auto;      /* al fondo de la card */
+}
+@media (max-width:900px){
+  .action-btn{ font-size:12px; }
+}
+.action-btn:active{ transform:translateY(1px); }
+
+.btn-primary{ background:linear-gradient(180deg,#2b64ff,#02074b); color:#fff; }
+.btn-success{ background:linear-gradient(180deg,#22c55e,#044e1f); color:#fff; }
+.btn-gray   { background:linear-gradient(180deg,#7b9c04,#252500); color:#fff; }
+.btn-dark   { background:linear-gradient(180deg,#181717,#302f2f); color:#d1d5db; }
+
+.action-btn[disabled]{ opacity:.95; cursor:not-allowed; }
+
+/* =========================
+   Estados visuales
+========================= */
+.medal-card.is-pending .medal-img{
+  filter:grayscale(100%) brightness(0.88);
+  opacity:.7;
+  transition:filter .2s ease, opacity .2s ease;
+}
+.medal-card.is-pending .medal-title,
+.medal-card.is-pending .medal-sub{ opacity:.85; }
+.medal-card.is-obtained .medal-img{ filter:none; opacity:1; }
+
+/* (Opcional) etiqueta flotante si la usabas arriba */
+.badge-obtained{
+  position:absolute; right:10px; top:10px;
+  background:#1fbf75; color:#001e0f;
+  font-family:"DinProBold"; font-size:12px;
+  padding:4px 8px; border-radius:10px;
+}
+
+/* =========================
+   Progreso
+========================= */
+.progress-wrap{
+  background:rgba(18,19,20,.5);
+  border-radius:16px;
+  padding:12px 14px;
+  margin-top:16px;
+}
+.progress-title{
+  color:#dfe9f6;
+  font-family:"DinProBold";
+  text-align:center;
+  margin-bottom:8px;
+}
+.progress-hint{
+  color:#dfe9f6;
+  text-align:center;
+  margin-top:8px;
+}
+
+/* =========================
+   CTA Medallero (MEDALLERO INDEX)
+========================= */
+.medallero-cta{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:#1f2122;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:14px 16px;
+  margin:16px 0;
+  box-shadow: rgba(0,0,0,.35) 0 2px 6px;
+}
+.medallero-cta.is-loading{ opacity:.85; }
+
+.medallero-cta .cta-badge{
+  flex:0 0 auto;
+  width:64px; height:64px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#27292a;
+  display:flex; align-items:center; justify-content:center;
+}
+.medallero-cta .cta-badge img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+.medallero-cta .cta-info{
+  flex:1 1 auto; min-width:0;
+}
+.medallero-cta .cta-title{
+  font-family:"DinProBlack",sans-serif;
+  color:#fff; font-size:18px; line-height:1.25;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.medallero-cta .cta-sub{
+  color:#9fb6cc; font-size:13px; margin-top:2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+.medallero-cta .cta-count{
+  flex:0 0 auto; text-align:right; margin-left:8px; min-width:140px;
+}
+.medallero-cta .count-label{
+  color:#dce7f5; font-size:12px; opacity:.9;
+}
+.medallero-cta .count-down{
+  font-family:"DinProBold",sans-serif;
+  color:#75aadb; font-size:16px; letter-spacing:.3px;
+}
+
+/* Botón PARTICIPAR dentro del CTA, con azul del sitio */
+.medallero-cta .cta-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:44px;
+  padding:0 18px !important;
+  border-radius:12px !important;
+  background: linear-gradient(180deg, #75AADB 0%, #3E6F98 100%) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+.medallero-cta .cta-action:hover{
+  filter: brightness(1.05);
+  box-shadow: 0 3px 10px rgba(0,0,0,.45);
+}
+.medallero-cta .cta-action span{
+  color:#fff !important;
+  font-family:"DinProBold", sans-serif;
+  font-size:14px;
+  line-height:1;
+}
+
+/* ===== CTA Medallero: badge grande izq, textos der (mobile y tablets) ===== */
+@media (max-width: 992px){
+  .medallero-cta{
+    display: grid;
+    grid-template-columns: 112px 1fr;         /* ↑ tamaño de la medalla */
+    grid-template-rows: auto auto auto;       /* info, count, botón */
+    grid-template-areas:
+      "badge info"
+      "badge count"
+      "action action";
+    gap: 10px 12px;
+    align-items: start;
+    padding: 12px;
+  }
+
+  /* Medalla más grande a la izquierda */
+  .medallero-cta .cta-badge{
+    grid-area: badge;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .medallero-cta .cta-badge img{
+    width: 100%; height: 100%; object-fit: contain; display: block;
+  }
+
+  /* Título + subtítulo (derecha, líneas completas) */
+  .medallero-cta .cta-info{
+    grid-area: info;
+    min-width: 0;
+  }
+  .medallero-cta .cta-title{
+    font-size: 16px;
+    line-height: 1.3;
+    white-space: normal;      /* permite varias líneas */
+    overflow: visible;
+    word-break: break-word;
+  }
+  .medallero-cta .cta-sub{
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.35;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+  }
+
+  /* Tiempo debajo del subtítulo, en la misma columna derecha */
+  .medallero-cta .cta-count{
+    grid-area: count;
+    margin-top: 2px;
+    text-align: left;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    white-space: nowrap;  
+    margin-left:0px;
+  }
+  .medallero-cta .count-label{ font-size: 12px; }
+  .medallero-cta .count-down{ font-size: 14px; }
+
+  /* Botón abajo, full width */
+  .medallero-cta .cta-action{
+    grid-area: action;
+    width: 100%;
+    margin: 6px 0 0 0;
+  }
+  .medallero-cta .cta-action a{
+    width: 100%;
+    height: 42px;
+    padding: 0 14px !important;
+    border-radius: 12px !important;
+  }
+}
+
+
+
+
+/*NUEVAS SECCIONES DE INDEX*/
+/* Cards de enlaces (Guías y Listas / Eventos Locales) */
+.five-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.five-grid .col-card {
+  flex: 1 1 calc(20% - 20px);   /* 5 por fila */
+  max-width: calc(20% - 20px);
+  box-sizing: border-box;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
+  .five-grid .col-card {        /* 4 por fila */
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+  }
+}
+@media (max-width: 992px) {
+  .five-grid .col-card {        /* 3 por fila */
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .five-grid .col-card {        /* 2 por fila */
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* ===== CSS Ditto===== */
+.guide-intro{
+  background:#fff; color:#0f1113; border-radius:18px; padding:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,.15); border:1px solid rgba(0,0,0,.06);
+  margin-bottom:12px;
+}
+.guide-intro h5{ font-family:"DinProBlack",sans-serif; margin:0 0 6px; font-size: 16px; }
+.guide-intro p{ color:#1d232a; line-height:1.5; font-size: 14px; }
+
+/* Toolbar de filtros */
+.guide-toolbar{
+  background:#111; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:12px;
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:12px 0;
+}
+.guide-toolbar .chip{
+  background:#1f2122; border:1px solid #2a2a2a; color:#e6eef7;
+  border-radius:12px; height:40px; padding:0 12px; display:flex; align-items:center; gap:8px;
+  font-family:"DinProBold",sans-serif;
+}
+.guide-toolbar input[type="search"]{
+  background:#1f2122; border:1px solid #2a2a2a; color:#e6eef7; height:40px; border-radius:12px;
+  padding:0 12px; min-width:220px;
+}
+.guide-toolbar .main-button a{ height:40px; display:flex; align-items:center; }
+
+.ditto-grid{
+  display:grid; gap:20px;
+  grid-template-columns: repeat(6, minmax(0,1fr));
+}
+@media (max-width:1200px)
+{ 
+  .ditto-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } 
+}
+@media (max-width:992px) 
+{ 
+  .ditto-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } 
+  .guide-intro h5{ font-family:"DinProBlack",sans-serif; margin:0 0 6px; font-size: 14px; }
+  .guide-intro p{ color:#1d232a; line-height:1.5; font-size: 12px; }
+}
+@media (max-width:768px) 
+{ 
+  .ditto-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } 
+  .guide-intro h5{ font-family:"DinProBlack",sans-serif; margin:0 0 6px; font-size: 14px; }
+  .guide-intro p{ color:#1d232a; line-height:1.5; font-size: 12px; }
+}
+
+.ditto-card{
+  background:#27292a; border-radius:23px; padding:18px 12px; text-align:center; transition:.2s ease;
+}
+.ditto-card:hover{ transform:translateY(-2px); background:rgb(117,170,219); }
+.ditto-img{ width:92px; height:92px; object-fit:contain; border-radius:12px; display:block; margin:0 auto 8px; }
+.ditto-name{ font-family:"DinProMedium"; font-size:15px; color:#fff; }
+.ditto-tag{
+  margin-top:6px; display:inline-block; font-size:12px; color:#111; background:#bde0ff; border-radius:10px; padding:2px 8px;
+}
+.ditto-card.is-inactive{ opacity:.55; filter:grayscale(80%); }
+
+/* Lista tips */
+.guide-tips li{ color:#e6eef7; margin-bottom:6px; }
+
+/* ===== CSS Vivillon===== */
+.vivillon-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 992px){
+  .vivillon-list{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+.v-card{
+  background:#27292a;
+  border-radius:23px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  transition: transform .2s ease, background .2s ease;
+}
+.v-card:hover{ transform: translateY(-2px); background: rgb(117,170,219); }
+
+.v-text{
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.v-name{
+  font-family:"DinProBold", sans-serif;
+  color:#fff;
+  font-size:18px;
+  margin:0 0 6px;
+  line-height:1.25;
+}
+.v-regions{
+  color:#dfe9f6;
+  font-size:14px;
+  line-height:1.4;
+  margin:0;
+}
+
+.v-img{
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius:16px;
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1f2122;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.v-img img{
+  width:100%; height:100%; object-fit: contain; display:block;
+}
+
+@media (max-width: 768px){
+  .v-card{ padding:14px; }
+  .v-img{ width: 96px; height: 96px; }
+  .v-name{ font-size:16px; }
+  .v-regions{ font-size:13px; }
+}
+
+/*solo para pagina de regionales ya que reusamos lo de vivillon*/
+.regional-list{ display:grid; grid-template-columns:1fr; gap:16px; }
+@media (min-width: 992px){ .regional-list{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+.v-tag{
+  display:inline-block;
+  margin:4px 0 6px;
+  font-size:12px;
+  line-height:1;
+  color:#111;
+  background:#bde0ff;
+  border-radius:10px;
+  padding:4px 8px;
+  font-family:"DinProMedium", sans-serif;
+}
+
+/* ====== Unown CSS====== */
+.unown-grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  gap:18px;
+}
+
+
+.unown-card{
+  background:#27292a;
+  border-radius:18px;
+  padding:10px 12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:.2s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  min-height:140px;
+}
+.unown-card:hover{ background:rgb(117,170,219); }
+
+.unown-letter{
+  font-family:"DinProBold",sans-serif;
+  color:#fff;
+  font-size:16px;
+  margin-bottom:6px;
+  line-height:1.2;
+}
+
+.unown-pair{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+}
+
+.unown-img{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  border-radius:10px;
+  background:#1f2122;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+.unown-disabled{
+  opacity:.45;
+  filter:grayscale(100%) blur(1px);
+  background:linear-gradient(135deg,rgba(150,150,150,.25),rgba(40,40,40,.4));
+}
+
+.unown-note{
+  color:#dfe9f6; font-size:14px; margin:8px 0 0; opacity:.9;
+}
+
+@media(max-width:1200px){ .unown-grid{ grid-template-columns: repeat(4,1fr); } }
+@media(max-width:992px){  .unown-grid{ grid-template-columns: repeat(3,1fr); } }
+@media(max-width:768px){  .unown-grid{ grid-template-columns: repeat(1,1fr); .unown-img{width:100px;height:100px;}} }
+/* ===== Megaevoluciones CSS ===== */
+.mega-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:16px;
+}
+@media (max-width: 1200px){ .mega-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px){  .mega-grid{ grid-template-columns: 1fr; } }
+
+/* Estado deshabilitado (no liberado) — igual estilo que Unown shiny pendiente */
+.v-card.is-disabled {
+  opacity: 0.85;
+  pointer-events: none; /* opcional */
+}
+.v-card.is-disabled .v-img img {
+  filter: grayscale(100%) blur(1px) brightness(0.85);
+}
+
+/* ===== Fondos Especiales (acordeón) ===== */
+
+/* La grilla de secciones: 1 col por defecto, 2 cols en desktop */
+.fe-accordion{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;               /* móvil / tablet */
+}
+@media (min-width: 1100px){
+  .fe-accordion{ grid-template-columns: repeat(2, minmax(0,1fr)); } /* desktop */
+}
+
+/* Cada sección actúa como una “tarjeta” que vive en una celda de la grilla */
+.fe-section{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cabecera con imagen del fondo */
+.fe-header{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  background: #1f2122;
+  transition: transform .12s ease;
+}
+.fe-header:hover{ transform: translateY(-1px); }
+
+.fe-banner{
+  width: 100%;
+  height: 160px;             /* un pelín más alta queda mejor en 2 columnas */
+  display: block;
+  object-fit: cover;
+  filter: brightness(.92);
+}
+
+.fe-headbar{
+  position: absolute; inset: auto 0 0 0;
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 65%, rgba(0,0,0,.85) 100%);
+  color: #fff;
+}
+.fe-title{
+  font-family: "DinProBold", sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+.fe-count{
+  font-size: 13px;
+  opacity: .9;
+}
+
+/* Contenido (grid de pokémon) dentro de la tarjeta */
+.fe-panel{
+  display: none;             /* se muestra al abrir */
+  background:#27292a;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+.fe-panel.is-open{ display:block; }
+
+/* Grid de pokémon */
+.fe-grid{
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@media (max-width: 992px){ .fe-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px){ .fe-grid { grid-template-columns: 1fr; } }
+
+/* Tarjeta de pokémon */
+.fe-card{
+  background:#1f2122;
+  border-radius: 16px;
+  padding: 10px 12px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+
+.fe-card .poke-thumb{
+  width: 64px; height: 64px; flex:0 0 auto;
+  background: #0f1113;
+  border-radius: 12px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.fe-card .poke-thumb img{ width:100%; height:100%; object-fit: contain; border-radius: 12px; }
+.fe-card .poke-text{ min-width:0; }
+.fe-card .poke-name{
+  color:#fff; font-family:"DinProBold"; font-size:14px; line-height:1.2; margin:0;
+  white-space: normal; overflow: hidden; text-overflow: ellipsis;
+}
+.fe-card .poke-dex{ color:#c9d7e7; font-size:12px; opacity:.9; }
+
+
+/* ========== Estilos para GUIA CITY SAFARI ========== */
+.accordion,
+.accordion * {
+  color: #ffffff !important;
+}
+
+/* Botones del acordeón (título de cada sección) */
+.accordion .accordion-button {
+  background-color: #27292a;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+
+/* Botón cuando está abierto */
+.accordion .accordion-button:not(.collapsed) {
+  background-color: #27292a;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+
+/* Cuerpo del acordeón */
+.accordion .accordion-body {
+  background-color: #1f2122;
+  color: #ffffff !important;
+}
+
+/* Textos específicos dentro del contenido */
+.accordion .accordion-body p,
+.accordion .accordion-body li,
+.accordion .accordion-body span,
+.accordion .accordion-body td,
+.accordion .accordion-body th {
+  color: #ffffff !important;
+}
+
+/* Si querés que los links también se vean blancos */
+.accordion .accordion-body a {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* Estilo para enlaces dentro del acordeón */
+.accordion .accordion-body a {
+  color: #75aadb !important;
+  text-decoration: underline;
+}
+
+/* Opcional: color al pasar el mouse */
+.accordion .accordion-body a:hover {
+  color: #a5d4f5 !important;
+}
+
+/* CTA Guía City Safari */
+.city-safari-cta {
+  position: relative;
+  margin: 15px 0 25px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f2122, #111111);
+  border: 1px solid rgba(117, 170, 219, 0.6);
+  box-shadow: 0 0 12px rgba(117, 170, 219, 0.5);
+  animation: citySafariPulse 1.7s ease-in-out infinite;
+}
+
+.city-safari-cta a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.city-safari-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.city-safari-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(117, 170, 219, 0.15);
+  color: #75aadb;
+}
+
+.city-safari-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.city-safari-subtitle {
+  font-size: 12px;
+  color: #cccccc;
+}
+
+/* Hover */
+.city-safari-cta a:hover .city-safari-title {
+  color: #75aadb;
+}
+
+.city-safari-cta a:hover .city-safari-subtitle {
+  color: #e1f0ff;
+}
+
+/* Animación de latido en TODO el div */
+@keyframes citySafariPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(117, 170, 219, 0.5);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 24px rgba(117, 170, 219, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(117, 170, 219, 0.5);
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .city-safari-cta a {
+    padding: 12px 14px;
+  }
+  .city-safari-title {
+    font-size: 14px;
+  }
+  .city-safari-subtitle {
+    font-size: 11px;
+  }
+}
+
+/* Banner específico para la guía City Safari */
+.main-banner-citysafari {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Imagen cuadrada 1080x1080 adaptada al layout */
+.citysafari-hero-img {
+  display: block;
+  width: 100%;
+  max-width: 420px;        /* límite en desktop para que no se vea gigante */
+  margin: 0 auto;
+  border-radius: 20px;
+  object-fit: cover;       /* por si en algún momento no es exactamente cuadrada */
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Ajuste suave en pantallas pequeñas */
+@media (max-width: 576px) {
+  .citysafari-hero-img {
+    max-width: 320px;
+    border-radius: 18px;
+  }
+}
+
+/* =========================
+   POPUP PROMO TIENDA
+========================= */
+
+.promo-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.promo-modal.is-open {
+  display: block;
+}
+
+/* Fondo oscuro */
+.promo-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+/* Tarjeta */
+.promo-card {
+  position: relative;
+  width: min(520px, 92vw);
+  margin: 8vh auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0e1a2b;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  animation: promoIn 0.2s ease-out forwards;
+}
+
+/* Animación */
+@keyframes promoIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Botón cerrar */
+.promo-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.promo-close:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Imagen */
+.promo-image-link {
+  display: block;
+  background: #0e1a2b;
+}
+
+.promo-image-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Acciones */
+.promo-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 18px 18px;
+  background: #0e1a2b;
+}
+
+/* Botón principal */
+.promo-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: rgb(66, 184, 221);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.promo-btn:hover {
+  background: rgb(56, 165, 198);
+  transform: translateY(-1px);
+}
+
+/* Botón secundario */
+.promo-secondary {
+  padding: 9px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #dddddd;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.promo-secondary:hover {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 420px) {
+  .promo-card {
+    margin-top: 6vh;
+  }
+
+  .promo-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .promo-btn,
+  .promo-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
