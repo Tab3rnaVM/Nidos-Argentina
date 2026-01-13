@@ -1,0 +1,41 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Build / Dist folders
+dist/
+build/
+public/
+
+# Config files
+.env
+.env.local
+.env.*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# Editor folders and files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+
+# Git specific files
+*.orig
+
+# No subir herramientas/credenciales locales
+/doc/
+/doc/**
