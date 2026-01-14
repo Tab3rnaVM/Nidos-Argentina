@@ -3,11 +3,9 @@
   // BASE PATH (local + GitHub Pages + dominio)
   // =========================
   function getBasePath() {
-    // En GitHub Pages de repo: https://usuario.github.io/REPO/...
     const isGithubIo = location.hostname.endsWith("github.io");
     if (!isGithubIo) return "/";
 
-    // pathname: /Nidos-Argentina/algo...
     const parts = location.pathname.split("/").filter(Boolean);
     const repo = parts.length ? parts[0] : "";
     return repo ? `/${repo}/` : "/";
@@ -15,7 +13,6 @@
 
   const BASE = getBasePath();
 
-  // helper: une BASE + path sin dobles slashes
   function withBase(path) {
     path = String(path || "").replace(/^\/+/, "");
     return `${BASE}${path}`;
@@ -38,7 +35,6 @@
           </a>
 
           <ul class="nav">
-
             <!-- SOLO MOBILE -->
             <li class="mobile-only dropdown">
               <a href="#" class="dropdown-toggle">Más Info</a>
@@ -80,22 +76,11 @@
 </header>`;
 
   // =========================
-  // Insertar header
-  // =========================
-  function insertHeader() {
-    document.body.insertAdjacentHTML("afterbegin", headerHTML);
-    markActiveLink();
-    bindDropdown();
-  }
-
-  // =========================
   // Active link (compara rutas normalizadas)
   // =========================
   function normalizePath(p) {
-    // quita BASE si existe, asegura trailing slash para comparar
     p = (p || "").split("?")[0].split("#")[0];
 
-    // convierte a path absoluto para comparar
     try {
       p = new URL(p, location.origin).pathname;
     } catch {}
@@ -103,7 +88,6 @@
     // quita base del repo si aplica
     if (BASE !== "/" && p.startsWith(BASE)) p = p.slice(BASE.length - 1);
 
-    // normaliza /eventos y /eventos/ a /eventos/
     if (!p.endsWith("/")) p += "/";
     return p;
   }
@@ -121,7 +105,7 @@
   }
 
   // =========================
-  // Dropdown mobile
+  // Dropdown mobile "Más Info"
   // =========================
   function bindDropdown() {
     const dropdownToggle = document.querySelector(".dropdown-toggle");
@@ -145,10 +129,65 @@
     });
   }
 
-  // Arranque
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", insertHeader);
-  } else {
+  // =========================
+  // FIX: Asegurar menú hamburguesa siempre
+  // =========================
+  function bindHamburger() {
+    const trigger = document.querySelector(".menu-trigger");
+    const nav = document.querySelector(".header-area .nav");
+    if (!trigger || !nav) return;
+
+    // Evita doble binding (si entras a la misma página o reinsertas)
+    if (trigger.dataset.bound === "1") return;
+    trigger.dataset.bound = "1";
+
+    // Handler sin jQuery
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      trigger.classList.toggle("active");
+
+      // Si jQuery existe, usa el slideToggle del template
+      if (window.jQuery && window.jQuery(nav).slideToggle) {
+        window.jQuery(nav).stop(true, true).slideToggle(200);
+        return;
+      }
+
+      // Fallback vanilla
+      const isHidden = getComputedStyle(nav).display === "none";
+      nav.style.display = isHidden ? "block" : "none";
+    });
+  }
+
+  // =========================
+  // Insertar header
+  // =========================
+  function insertHeader() {
+    // Si por alguna razón ya existe header, no lo dupliques
+    if (document.querySelector("header.header-area")) return;
+
+    document.body.insertAdjacentHTML("afterbegin", headerHTML);
+
+    markActiveLink();
+    bindDropdown();
+
+    // Importante: aseguramos binding del menú hamburguesa
+    bindHamburger();
+  }
+
+  // =========================
+  // Arranque correcto
+  // - Si cargas menu.js con defer, body ya existe => insertHeader inmediato
+  // =========================
+  if (document.body) {
     insertHeader();
+
+    // Por si custom.js ejecuta después y hace cosas, reintentamos una vez
+    // (esto no duplica por dataset.bound)
+    setTimeout(bindHamburger, 0);
+  } else {
+    document.addEventListener("DOMContentLoaded", () => {
+      insertHeader();
+      setTimeout(bindHamburger, 0);
+    });
   }
 })();
