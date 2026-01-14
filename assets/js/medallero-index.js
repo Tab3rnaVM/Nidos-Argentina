@@ -100,51 +100,59 @@
 
   // Traer algunos próximos y quedarnos con el primero activo o futuro
   async function fetchNext(){
-    try{
-      const qs = await db.collection("eventos")
-        .orderBy("startAt","asc").limit(10).get();
+  try{
+    const nowTs = firebase.firestore.Timestamp.fromMillis(Date.now());
 
-      const now = Date.now();
-      const items = [];
+    // Solo eventos no terminados
+    const qs = await db.collection("eventos")
+      .where("endAt", ">", nowTs)
+      .orderBy("endAt", "asc")
+      .limit(10)
+      .get();
 
-      for (const doc of qs.docs) {
-        const ev = doc.data();
-        const startMs = ev.startAt?.toMillis ? ev.startAt.toMillis() :
-                        (ev.startAt?.toDate ? +ev.startAt.toDate() :
-                        (ev.startAt ? +new Date(ev.startAt) : null));
-        const endMs   = ev.endAt?.toMillis ? ev.endAt.toMillis() :
-                        (ev.endAt?.toDate ? +ev.endAt.toDate() :
-                        (ev.endAt ? +new Date(ev.endAt) : null));
+    const items = [];
 
-        if (startMs == null || endMs == null) continue;
+    for (const doc of qs.docs) {
+      const ev = doc.data();
 
-        // nos interesa el primero que no haya terminado
-        if (endMs > now) {
-          items.push({ id: doc.id, startMs, endMs, badgeId: ev.badgeId, geofence: ev.geofence });
-        }
+      const startMs = ev.startAt?.toMillis ? ev.startAt.toMillis()
+                    : ev.startAt?.toDate ? +ev.startAt.toDate()
+                    : ev.startAt ? +new Date(ev.startAt) : null;
+
+      const endMs   = ev.endAt?.toMillis ? ev.endAt.toMillis()
+                    : ev.endAt?.toDate ? +ev.endAt.toDate()
+                    : ev.endAt ? +new Date(ev.endAt) : null;
+
+      if (startMs == null || endMs == null) {
+        console.warn("[MedalleroCTA] Evento con fechas inválidas:", doc.id, ev.startAt, ev.endAt);
+        continue;
       }
 
-      if (!items.length) { setEmpty(); return; }
-
-      const next = items.sort((a,b)=>a.startMs-b.startMs)[0];
-      const badge = await getBadge(next.badgeId);
-
-      const lat = next.geofence?.center?.latitude ?? next.geofence?.center?._lat ?? null;
-      const lng = next.geofence?.center?.longitude ?? next.geofence?.center?._long ?? null;
-
-      setData({
-        titleText: badge?.title || "Próximo evento",
-        subText: (lat!=null && lng!=null) ? `${lat.toFixed(5)}, ${lng.toFixed(5)}` : "Ubicación por anunciar",
-        imgUrl: assetPath(badge?.imageUrl || "assets/images/guias/medallero.webp"),
-        startAt: next.startMs,
-        endAt: next.endMs
-      });
-
-    }catch(e){
-      console.error("[MedalleroCTA] Error trayendo próximos:", e);
-      setEmpty();
+      items.push({ id: doc.id, startMs, endMs, badgeId: ev.badgeId, geofence: ev.geofence });
     }
+
+    if (!items.length) { setEmpty(); return; }
+
+    const next = items.sort((a,b)=>a.startMs-b.startMs)[0];
+    const badge = await getBadge(next.badgeId);
+
+    const lat = next.geofence?.center?.latitude ?? next.geofence?.center?._lat ?? null;
+    const lng = next.geofence?.center?.longitude ?? next.geofence?.center?._long ?? null;
+
+    setData({
+      titleText: badge?.title || "Próximo evento",
+      subText: (lat!=null && lng!=null) ? `${lat.toFixed(5)}, ${lng.toFixed(5)}` : "Ubicación por anunciar",
+      imgUrl: assetPath(badge?.imageUrl || "assets/images/guias/medallero.webp"),
+      startAt: next.startMs,
+      endAt: next.endMs
+    });
+
+  }catch(e){
+    console.error("[MedalleroCTA] Error trayendo próximos:", e);
+    setEmpty();
   }
+}
+
 
   // Arranque
   fetchNext();
