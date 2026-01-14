@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Nidos Argentina: Medallero" />
+    <meta name="keywords" content="Pokémon GO, Nidos Argentina, Check-in" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Nidos Argentina | Medallero" />
+    <meta property="og:description" content="Obten medallas por participar en nuestro eventos locales" />
+    <meta property="og:image" content="../assets/images/logo/favicon.png" />
+    <meta property="og:url" content="https://nidosargentina.com/shinycheck" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nidos Argentina | Medallero" />
+    <meta name="twitter:description" content="Obten medallas por participar en nuestro eventos locales" />
+    <meta name="twitter:image" content="assets/images/logo/favicon.png" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="../assets/css/templatemo-cyborg-gaming.css?v=1.5" />
+    <link rel="stylesheet" href="../assets/css/owl.css" />
+    <link rel="stylesheet" href="../assets/css/animate.css" />
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <title>Nidos Argentina | Medallero </title>
+</head>
+<body>
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+          <div class="secciontitle">
+              <div class="col-lg-12">
+                <div class="heading-section">
+                  <h4>Medallero de la Comunidad</h4>
+                </div>
+              </div>
+            </div>
+
+        <!-- Sorteos (con mes dinámico) -->
+        <div class="guide-intro" style="margin-top:15px;">
+          <h5 style="color:#2a2a2a">¡Completa el Medallero de <span id="raffleMonth"></span> y participa!</h5>
+          <p>
+            Si consigues <b>todas las medallas del mes en curso</b>, entrarás automáticamente
+            en nuestro <b>sorteo mensual</b> de grandes premios.
+          </p>
+          <p>
+            A las personas ganadoras les enviaremos un <b>correo electrónico</b> con los detalles para
+            recibir su premio (lugar, fecha y horario). También anunciaremos los resultados en
+            nuestras <b>redes sociales</b>.
+          </p>
+          <p style="margin-bottom:0;color:#4b5563;">
+            Requisitos: Iniciar sesión con Google para guardar tu progreso.
+          </p>
+        </div>
+        
+         <!-- ===== TOOLBAR ===== -->
+        <div class="medal-toolbar">
+          <!-- Contador -->
+          <div class="owned-pill">
+            <i class="fas fa-medal"></i>
+            <span><span id="ownedNow">0</span> / <span id="ownedTotal">0</span></span>
+          </div>
+
+          <!-- Tabs con scroll horizontal en móvil -->
+          <div class="tabs-strip">
+            <button id="tabTodos" class="pill is-active">
+              <span>Todos</span>
+            </button>
+            <button id="tabObtenidas" class="pill is-muted">
+              <span>Obtenidas</span>
+            </button>
+            <button id="tabFaltantes" class="pill is-muted">
+              <span>Faltantes</span>
+            </button>
+          </div>
+
+          <!-- Sesión (mismo tamaño que los pills) -->
+          <button id="sessionBtn" class="pill-session">
+            <i class="fab fa-google pill-icon"></i>
+            <span class="user">Iniciar sesión</span>
+          </button>
+        </div>
+
+        <!-- ===== GRID DE MEDALLAS ===== -->
+        <div id="medalsGrid" class="medal-grid">
+          <!-- Las tarjetas se inyectan desde JS -->
+        </div>
+
+        <!-- ===== PROGRESO ===== -->
+        <div class="progress-wrap">
+          <div class="progress-title">PROGRESO</div>
+          <div style="background:#0f1012;border-radius:10px;height:12px;overflow:hidden">
+            <div id="progressBar" style="background:#75aadb;height:100%;width:0%"></div>
+          </div>
+          <div class="progress-hint">
+            Para obtener una medalla debes estar dentro del radio indicado y haber iniciado sesión.
+          </div>
+        </div>
+        
+       </div>
+      </div>
+    </div>
+
+     <footer class="text-white mt-4 p-2" style="background-color:#ffffff; border-radius:23px"></footer>
+  </div>
+
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+    
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/footer.js"></script>
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/isotope.min.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/tabs.js"></script>
+    <script src="../assets/js/popup.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/medallero.js"></script>
+    <script src="../assets/js/politicas.js"></script>
+    
+
+</body>
+</html>

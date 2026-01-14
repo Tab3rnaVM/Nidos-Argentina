@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Nidos Argentina: Lista de Pokémon Brillantes" />
+    <meta name="keywords" content="Pokémon GO, Nidos Argentina, Shinycheck, Shinylist, Lista de pokémon Shiny, Colección Shiny" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Nidos Argentina | Shiny Check" />
+    <meta property="og:description" content="Revisa rápidamente los Pokémon shiny disponibles en Pokémon GO. ¡Comienza a completar tu colección ahora!" />
+    <meta property="og:image" content="../assets/images/logo/favicon.png" />
+    <meta property="og:url" content="https://nidosargentina.com/shinycheck" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nidos Argentina | Shiny Check" />
+    <meta name="twitter:description" content="Revisa rápidamente los Pokémon shiny disponibles en Pokémon GO. ¡Comienza a completar tu colección ahora!" />
+    <meta name="twitter:image" content="assets/images/logo/favicon.png" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="../assets/css/templatemo-cyborg-gaming.css?v=1.5" />
+    <link rel="stylesheet" href="../assets/css/owl.css" />
+    <link rel="stylesheet" href="../assets/css/animate.css" />
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- Preload de imágenes de regiones -->
+    <link rel="preload" href="../assets/images/regiones/kanto.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/johto.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/hoenn.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/sinnoh.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/unova.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/kalos.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/alola.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/galar.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/hisui.png" as="image">
+    <link rel="preload" href="../assets/images/regiones/paldea.png" as="image">
+
+    <title>Nidos Argentina | Shiny Check</title>
+</head>
+
+
+  <body>
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-content">
+            <div class="secciontitle">
+              <div class="col-lg-12">
+                <div class="heading-section">
+                  <h4>Lista de Pokémon Brillantes</h4>
+                </div>
+                <p class="update-bar">
+                  (Última actualización: <span id="updateDate"></span>)
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-12" style="margin-top: 15px;">            
+                <!-- Botón para mostrar el popup -->
+                <div class="login-button-container">
+                  <button id="loginButton">
+                    <span class="google-icon">
+                      <i class="fab fa-google"></i>
+                    </span>
+                    Iniciar sesión
+                  </button>
+                </div>
+            </div>
+            
+            <div class="selecttype-placeholder"></div>
+            <div class="scroll-bar-sections">
+              <img src="../assets/images/regiones/kanto.png" alt="Kanto" data-target="kanto" />
+              <img src="../assets/images/regiones/johto.png" alt="Johto" data-target="johto" />
+              <img src="../assets/images/regiones/hoenn.png" alt="Hoenn" data-target="hoenn" />
+              <img src="../assets/images/regiones/sinnoh.png" alt="Sinnoh" data-target="sinnoh" />
+              <img src="../assets/images/regiones/unova.png" alt="Unova" data-target="unova" />
+              <img src="../assets/images/regiones/kalos.png" alt="Kalos" data-target="kalos" />
+              <img src="../assets/images/regiones/alola.png" alt="Alola" data-target="alola" />
+              <img src="../assets/images/regiones/galar.png" alt="Galar" data-target="galar" />
+              <img src="../assets/images/regiones/hisui.png" alt="Hisui" data-target="hisui" />
+              <img src="../assets/images/regiones/paldea.png" alt="Paldea" data-target="paldea" />
+            </div>                        
+
+            <div class="event-list">
+              <div id="mainContainer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer
+        class="text-white mt-4 p-2"
+        style="background-color: #ffffff; border-radius: 23px"
+      >
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lastUpdated = "21/Oct/2025"; // Cambia esta fecha según sea necesario
+        document.getElementById("updateDate").textContent = lastUpdated;
+      });
+    </script>
+    
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/footer.js"></script>
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/isotope.min.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/tabs.js"></script>
+    <script src="../assets/js/popup.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/shinylist.js"></script>
+    <script src="../assets/js/politicas.js"></script>
+
+  </body>
+</html>

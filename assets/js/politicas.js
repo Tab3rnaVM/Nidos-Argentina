@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Este sitio web no está afiliado oficialmente con Pokémon GO y está diseñado para un uso similar a cualquier otro sitio informativo como una wiki.<br>
         Pokémon y sus marcas registradas son ©1995-2025 Nintendo, Creatures y GAMEFREAK.<br>
         Todas las imágenes y nombres son propiedad de sus respectivos dueños: Nintendo, Niantic, The Pokémon Company y GAMEFREAK. <br/>
-         <a href="/politicas-de-privacidad">Política de Privacidad</a>
+         <a href="/politicasdeprivacidad">Política de Privacidad</a>
       </p>
      
     `;
