@@ -85,7 +85,7 @@
     setData({
       titleText: "No hay eventos próximos",
       subText: "Muy pronto anunciaremos nuevas medallas.",
-      imgUrl: assetPath("assets/images/guias/medallero.webp"),
+      imgUrl: assetPath("assets/images/badges/medallas.webp"),
       startAt: null, endAt: null
     });
   }
