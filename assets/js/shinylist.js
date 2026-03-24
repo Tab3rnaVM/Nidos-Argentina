@@ -235,8 +235,8 @@ const alolaVariants = {
 const galarVariants = {
   849: ["Grave", "Aguda"],
   876: ["Macho", "Hembra"],
-  888: ["Guerrero", "EspadaSuprema"],
-  889: ["Guerrero", "EscudoSupremo"],
+  888: ["GUERRERO", "ESPADASUPREMA"],
+  889: ["GUERRERO", "ESCUDOSUPREMO"],
 };
 
 const paldeaVariants = {
