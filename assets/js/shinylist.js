@@ -235,8 +235,8 @@ const alolaVariants = {
 const galarVariants = {
   849: ["Grave", "Aguda"],
   876: ["Macho", "Hembra"],
-  888: ["Normal", "Hero"],
-  889: ["Normal", "Hero"],
+  888: ["Guerrero", "EspadaSuprema"],
+  889: ["Guerrero", "EscudoSupremo"],
 };
 
 const paldeaVariants = {
@@ -364,7 +364,8 @@ const displayTextMapping = {
   Grave: "0849 Grave",
   Aguda: "0849 Aguda",
   Filo: "0681",
-  Normal: "0888",
+  EspadaSuprema: "0888 Espada Suprema",
+  EscudoSupremo: "0889 Escudo Supremo",
   Familia3: "0925 Familia de 3",
   Familia4: "0925 Familia de 4",
 };
