@@ -132,6 +132,7 @@ const johtoVariants = {
     "H",
     "I",
     "J",
+    "K",
     "L",
     "M",
     "N",
@@ -142,8 +143,10 @@ const johtoVariants = {
     "T",
     "U",
     "V",
+    "W",
     "X",
     "Y",
+    "Z",
     "!",
     "PREGUNTA",
   ],
@@ -216,7 +219,7 @@ const kalosVariants = {
     "Senorita",
     "Faraonico",
   ],
-  681: ["Filo", "Escudo"],
+  681: ["Filo"],
   710: ["Pequeno", "Normal", "Grande", "Extragrande"],
   711: ["Pequeno", "Normal", "Grande", "Extragrande"],
   718: ["10Porciento", "50Porciento", "Completo"],
@@ -232,10 +235,14 @@ const alolaVariants = {
 const galarVariants = {
   849: ["Grave", "Aguda"],
   876: ["Macho", "Hembra"],
+  888: ["Normal", "Hero"],
+  889: ["Normal", "Hero"],
 };
 
 const paldeaVariants = {
   916: ["Macho", "Hembra"],
+  925: ["Familia4", "Familia3"],
+  982: ["Binodular", "Trinodular"],
 };
 
 
@@ -312,24 +319,20 @@ const paldeaCustomVariants = {
 
 //Definir pokémon faltantes
 const sinnohFaltantes = [489, 490, 493];
-const telesiaFaltantes = [494, 647];
-const kalosFaltantes = [679, 680, 681, 701, 707, 718, 719, 720, 721,];
-const alolaFaltantes = [
-  731, 732, 733, 746, 764, 771,
-  772, 773, 774, 778, 781, 789, 790, 791, 792, 801, 802, 803, 804, 807,
-];
+const telesiaFaltantes = [494];
+const kalosFaltantes = [718, 720, 721];
+const alolaFaltantes = [746, 764, 771, 772, 773, 774, 778, 789, 790, 791, 792, 801, 802, 803, 804, 807];
 const galarFaltantes = [
-  810, 811, 812, 813, 814, 815, 816, 817, 818, 824, 825, 826,
+  816, 817, 818, 824, 825, 826,
   827, 828, 829, 830, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843,
-  844, 845, 846, 847, 850, 851, 852, 853, 856, 857, 858, 859, 860,
-  861, 868, 869, 871, 872, 873, 874, 875, 877, 878, 879, 880, 881, 882,
+  844, 845, 846, 847, 852, 853, 868, 869, 871, 872, 873, 874, 875, 878, 879, 880, 881, 882,
   883, 885, 886, 887, 890, 891, 892, 893, 896, 897, 898,
 ];
 const hisuiFaltantes = [705, 706, 902, 905];
 const paldeaFaltantes = [
-  917, 918, 926, 927, 931, 932, 933, 934, 938, 939, 940,
+  917, 918, 931, 932, 933, 934, 940,
   941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955,
-  956, 957, 958, 959, 963, 964, 965, 966, 967, 968, 969, 970, 971,
+  956, 963, 964, 965, 966, 967, 968, 969, 970, 971,
   972, 973, 976, 978, 981, 984, 985, 986, 987, 988,
   989, 990, 991, 992, 993, 994, 995, 1001, 1002, 1003,
   1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016,
@@ -360,6 +363,10 @@ const displayTextMapping = {
   AlasdelAlba: "0800 Alas del Alba",
   Grave: "0849 Grave",
   Aguda: "0849 Aguda",
+  Filo: "0681",
+  Normal: "0888",
+  Familia3: "0925 Familia de 3",
+  Familia4: "0925 Familia de 4",
 };
 
 // Función para generar el arreglo de ítems con variantes y exclusiones
