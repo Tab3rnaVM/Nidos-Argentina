@@ -15,7 +15,7 @@
       content="Pokémon GO, Nidos Argentina, shiny check, eventos Pokémon GO, counters Pokémon GO, atacantes Pokémon GO"
     />
     <meta name="robots" content="index, follow" />
-
+    <link rel="canonical" href="https://nidosargentina.com/" />
     <title>Nidos Argentina | Inicio</title>
 
     <!-- =========================
@@ -40,7 +40,7 @@
     <!-- =========================
          ICON
     ========================== -->
-    <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+    <link rel="icon" href="assets/images/logo/favicon-64.png" type="image/png" />
 
     <!-- =========================
          FONTS
@@ -61,9 +61,8 @@
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css?v=1.5" />
-    <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/nidos-system.css?v=1.0" />
+
 
     <!-- =========================
          PRELOAD (solo lo crítico)
@@ -92,6 +91,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="page-content">
+            <h1 class="sr-only">Nidos Argentina</h1>
             <!-- =========================
                  BANNER PRINCIPAL
             ========================== -->
@@ -113,6 +113,21 @@
                 </div>
               </div>
             </div>
+
+            <nav class="quick-actions" aria-label="Accesos rápidos">
+              <a href="./eventos/">
+                <span>Eventos</span>
+              </a>
+              <a href="./shinycheck/">
+                <span>Shiny Check</span>
+              </a>
+              <a href="./counters/">
+                <span>Counters</span>
+              </a>
+              <a href="./medallero/">
+                <span>Medallero</span>
+              </a>
+            </nav>
 
             <!-- =========================
                  MEDALLERO (CTA)
@@ -155,6 +170,7 @@
                 <div class="heading-section">
                   <h4>Recuerdos en Marcha</h4>
                 </div>
+                <p class="section-kicker">Temporada actual</p>
               </div>
             </div>
 
@@ -338,6 +354,7 @@
                 <div class="heading-section">
                   <h4>Guías y Colecciones</h4>
                 </div>
+                <p class="section-kicker">Herramientas y listas</p>
               </div>
             </div>
 
@@ -485,6 +502,7 @@
                 <div class="heading-section">
                   <h4>Eventos destacados</h4>
                 </div>
+                <p class="section-kicker">Actividad reciente</p>
               </div>
             </div>
 
@@ -560,31 +578,30 @@
     ========================== -->
     <!-- UI común -->
     <script defer  src="assets/js/menu.js"></script>
-    <script src="assets/js/footer.js"></script>
-    <script src="assets/js/politicas.js"></script>
+    <script defer src="assets/js/footer.js"></script>
+    <script defer src="assets/js/politicas.js"></script>
 
     <!-- Vendor -->
-    <script src="libs/jquery/jquery.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="libs/jquery/jquery.min.js"></script>
 
     <!-- Plugins / Template -->
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/custom.js"></script>
+
+
+
+
+    <script defer src="assets/js/custom.js"></script>
 
     <!-- Feature scripts -->
-    <script src="assets/js/promo-tienda.js" ></script>
-    <script src="assets/js/eventos.js" ></script>
-    <script src="assets/js/events-past.js"></script>
+    <script defer src="assets/js/promo-tienda.js" ></script>
+    <script defer src="assets/js/eventos.js" ></script>
+    <script defer src="assets/js/events-past.js"></script>
 
     <!-- Firebase (Firestore/Auth) -->
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
 
     <!-- Medallero -->
-    <script src="assets/js/medallero-index.js"></script>
+    <script defer src="assets/js/medallero-index.js"></script>
   </body>
 </html>

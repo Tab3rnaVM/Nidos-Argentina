@@ -40,23 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
     //   }
   });
 
-  $(".filters ul li").click(function () {
-    $(".filters ul li").removeClass("active");
-    $(this).addClass("active");
-
-    var data = $(this).attr("data-filter");
-    $grid.isotope({
-      filter: data,
+  var $grid = null;
+  if ($.fn.isotope && $(".grid").length) {
+    $grid = $(".grid").isotope({
+      itemSelector: ".all",
+      percentPosition: true,
+      masonry: {
+        columnWidth: ".all",
+      },
     });
-  });
 
-  var $grid = $(".grid").isotope({
-    itemSelector: ".all",
-    percentPosition: true,
-    masonry: {
-      columnWidth: ".all",
-    },
-  });
+    $(".filters ul li").click(function () {
+      $(".filters ul li").removeClass("active");
+      $(this).addClass("active");
+
+      var data = $(this).attr("data-filter");
+      $grid.isotope({
+        filter: data,
+      });
+    });
+  }
 
   var width = $(window).width();
   $(window).resize(function () {
@@ -86,74 +89,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  $(".owl-features").owlCarousel({
-    items: 3,
-    loop: true,
-    dots: false,
-    nav: true,
-    autoplay: true,
-    margin: 30,
-    responsive: {
-      0: {
-        items: 1,
+  if ($.fn.owlCarousel) {
+    $(".owl-features").owlCarousel({
+      items: 3,
+      loop: true,
+      dots: false,
+      nav: true,
+      autoplay: true,
+      margin: 30,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1200: {
+          items: 3,
+        },
+        1800: {
+          items: 3,
+        },
       },
-      600: {
-        items: 2,
-      },
-      1200: {
-        items: 3,
-      },
-      1800: {
-        items: 3,
-      },
-    },
-  });
+    });
 
-  $(".owl-collection").owlCarousel({
-    items: 3,
-    loop: true,
-    dots: false,
-    nav: true,
-    autoplay: true,
-    margin: 30,
-    responsive: {
-      0: {
-        items: 1,
+    $(".owl-collection").owlCarousel({
+      items: 3,
+      loop: true,
+      dots: false,
+      nav: true,
+      autoplay: true,
+      margin: 30,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        800: {
+          items: 2,
+        },
+        1000: {
+          items: 3,
+        },
       },
-      800: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  });
+    });
 
-  $(".owl-banner").owlCarousel({
-    items: 1,
-    loop: true,
-    dots: false,
-    nav: true,
-    autoplay: true,
-    margin: 30,
-    responsive: {
-      0: {
-        items: 1,
+    $(".owl-banner").owlCarousel({
+      items: 1,
+      loop: true,
+      dots: false,
+      nav: true,
+      autoplay: true,
+      margin: 30,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 1,
+        },
+        1000: {
+          items: 1,
+        },
       },
-      600: {
-        items: 1,
-      },
-      1000: {
-        items: 1,
-      },
-    },
-  });
-
-  // Menu Dropdown Toggle
-  if ($(".menu-trigger").length) {
-    $(".menu-trigger").on("click", function () {
-      $(this).toggleClass("active");
-      $(".header-area .nav").slideToggle(200);
     });
   }
 

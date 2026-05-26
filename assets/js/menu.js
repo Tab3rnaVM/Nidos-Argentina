@@ -34,11 +34,11 @@
             <img src="${withBase("assets/images/logo/logomobile.png")}" alt="Nidos Argentina" />
           </a>
 
-          <ul class="nav">
+          <ul class="nav" id="primary-navigation">
             <!-- SOLO MOBILE -->
             <li class="mobile-only dropdown">
-              <a href="#" class="dropdown-toggle">Más Info</a>
-              <ul class="dropdown-menu">
+              <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-info-menu">Más Info</button>
+              <ul class="dropdown-menu" id="more-info-menu">
                 <li><a href="${withBase("rotacion-de-temporada/")}">Rotación de temporada</a></li>
                 <li><a href="${withBase("incursiones/")}">Incursiones</a></li>
                 <li><a href="${withBase("batallas-max/")}">Batallas Max</a></li>
@@ -66,9 +66,9 @@
             </li>
           </ul>
 
-          <a class="menu-trigger">
+          <button class="menu-trigger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-navigation">
             <span>Menu</span>
-          </a>
+          </button>
         </nav>
       </div>
     </div>
@@ -115,16 +115,27 @@
 
     dropdownToggle.addEventListener("click", function (e) {
       e.preventDefault();
-      dropdownMenu.classList.toggle("open");
+      const isOpen = dropdownMenu.classList.toggle("open");
+      dropdownToggle.setAttribute("aria-expanded", String(isOpen));
 
       document.querySelectorAll(".dropdown-menu").forEach((menu) => {
-        if (menu !== dropdownMenu) menu.classList.remove("open");
+        if (menu !== dropdownMenu) {
+          menu.classList.remove("open");
+        }
       });
     });
 
     document.addEventListener("click", function (event) {
       if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
         dropdownMenu.classList.remove("open");
+        dropdownToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        dropdownMenu.classList.remove("open");
+        dropdownToggle.setAttribute("aria-expanded", "false");
       }
     });
   }
@@ -145,6 +156,9 @@
     trigger.addEventListener("click", function (e) {
       e.preventDefault();
       trigger.classList.toggle("active");
+      const isExpanded = trigger.classList.contains("active");
+      trigger.setAttribute("aria-expanded", String(isExpanded));
+      trigger.setAttribute("aria-label", isExpanded ? "Cerrar menú" : "Abrir menú");
 
       // Si jQuery existe, usa el slideToggle del template
       if (window.jQuery && window.jQuery(nav).slideToggle) {
@@ -155,6 +169,19 @@
       // Fallback vanilla
       const isHidden = getComputedStyle(nav).display === "none";
       nav.style.display = isHidden ? "block" : "none";
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || !trigger.classList.contains("active")) return;
+      trigger.classList.remove("active");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.setAttribute("aria-label", "Abrir menú");
+
+      if (window.jQuery && window.jQuery(nav).slideUp) {
+        window.jQuery(nav).stop(true, true).slideUp(200);
+      } else {
+        nav.style.display = "none";
+      }
     });
   }
 

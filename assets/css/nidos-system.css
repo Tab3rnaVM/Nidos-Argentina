@@ -1,0 +1,451 @@
+/*
+  Nidos Argentina - sistema visual local
+  Esta capa contiene tokens, utilidades y ajustes UX agregados sobre el template base.
+  Mantener este archivo después de templatemo-cyborg-gaming.css en cada página.
+*/
+
+:root {
+  --nidos-blue: #75aadb;
+  --nidos-blue-dark: #3e6f98;
+  --nidos-ink: #111418;
+  --nidos-panel: #1f2122;
+  --nidos-panel-soft: #27292a;
+  --nidos-text: #ffffff;
+  --nidos-text-muted: #c9d7e7;
+  --nidos-border: rgba(255, 255, 255, 0.1);
+  --nidos-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  --nidos-shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.18);
+  --nidos-radius-lg: 18px;
+  --nidos-radius-md: 12px;
+  --nidos-radius-sm: 8px;
+  --nidos-space-xs: 6px;
+  --nidos-space-sm: 10px;
+  --nidos-space-md: 16px;
+  --nidos-space-lg: 24px;
+  --nidos-space-xl: 32px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =========================
+   FASE 2 - Sistema visual base
+========================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(117, 170, 219, 0.45);
+}
+
+body .page-content {
+  background: rgba(117, 170, 219, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--nidos-shadow);
+}
+
+.heading-section,
+.heading-section-arrows {
+  min-height: 44px;
+}
+
+.heading-section h4,
+.heading-section-arrows h4 {
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.secciontitle {
+  border-radius: var(--nidos-radius-lg);
+}
+
+.main-button a,
+.main-border-button a,
+.promo-btn,
+.promo-secondary,
+.action-btn,
+.pill,
+.pill-session,
+#sessionBtn,
+.guide-toolbar .chip,
+.guide-toolbar input[type="search"] {
+  border-radius: var(--nidos-radius-md);
+  letter-spacing: 0;
+}
+
+.main-button a {
+  background: linear-gradient(180deg, var(--nidos-blue), var(--nidos-blue-dark));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--nidos-shadow-soft);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.main-button a:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+  color: var(--nidos-blue-dark);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+.main-banner,
+.main-banner-404 {
+  border-radius: var(--nidos-radius-lg);
+  box-shadow: var(--nidos-shadow);
+}
+
+.main-banner h6,
+.main-banner-404 h6 {
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.main-banner h4,
+.main-banner-404 h4 {
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.season,
+.event-list,
+.seccioncontainer,
+.seccioncontainer-counters,
+.data-counters,
+.clips,
+.main-profile,
+.medal-toolbar,
+.guide-toolbar,
+.progress-wrap {
+  border-radius: var(--nidos-radius-lg);
+}
+
+.season,
+.seccioncontainer,
+.seccioncontainer-counters,
+.medal-toolbar,
+.guide-toolbar,
+.progress-wrap {
+  border: 1px solid var(--nidos-border);
+  box-shadow: var(--nidos-shadow-soft);
+}
+
+.season .item,
+.event-list .item,
+.data-counters .item,
+.clips .item,
+.ditto-card,
+.v-card,
+.unown-card,
+.fe-card,
+.medal-card,
+.medallero-cta,
+.guide-intro,
+.team-card,
+.bonus-item,
+.bonus-item-cd,
+.investigation-item,
+.teamrocket-item {
+  border-radius: var(--nidos-radius-lg);
+  border: 1px solid var(--nidos-border);
+  box-shadow: var(--nidos-shadow-soft);
+}
+
+.season .item,
+.event-list .item,
+.data-counters .item,
+.clips .item,
+.ditto-card,
+.v-card,
+.unown-card,
+.fe-card,
+.medal-card {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.season .item:hover,
+.event-list .item:hover,
+.data-counters .item:hover,
+.clips .item:hover,
+.ditto-card:hover,
+.v-card:hover,
+.unown-card:hover,
+.fe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.season .item img,
+.event-list .event-image img,
+.thumb-counters > img,
+.ditto-img,
+.v-img,
+.unown-img,
+.fe-card .poke-thumb,
+.medal-img {
+  border-radius: var(--nidos-radius-md);
+}
+
+.event-list .item {
+  min-height: 100%;
+}
+
+.event-list .event-details h4,
+.season .item h4,
+.data-counters .item h4,
+.clips .item h4,
+.medal-title,
+.v-name,
+.ditto-name,
+.unown-letter {
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.guide-intro {
+  border-color: rgba(17, 20, 24, 0.08);
+}
+
+.guide-intro p {
+  margin-top: 6px;
+}
+
+.legal-notice .text-notice {
+  line-height: 1.45;
+}
+
+@media (max-width: 992px) {
+  body .page-content {
+    padding: 28px;
+  }
+
+  .heading-section h4,
+  .heading-section-arrows h4 {
+    font-size: 26px;
+  }
+
+  .main-banner,
+  .main-banner-404 {
+    padding: 52px 28px;
+  }
+
+  .main-banner h4,
+  .main-banner-404 h4 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  body .page-content {
+    padding: 16px;
+    border-radius: var(--nidos-radius-lg);
+  }
+
+  .heading-section h4,
+  .heading-section-arrows h4 {
+    font-size: 24px;
+  }
+
+  .season,
+  .seccioncontainer,
+  .seccioncontainer-counters,
+  .guide-toolbar,
+  .medal-toolbar,
+  .progress-wrap {
+    padding: 14px;
+  }
+
+  .season .item,
+  .event-list .item,
+  .data-counters .item,
+  .clips .item,
+  .ditto-card,
+  .v-card,
+  .unown-card,
+  .fe-card,
+  .medal-card {
+    border-radius: var(--nidos-radius-md);
+  }
+
+  .main-banner,
+  .main-banner-404 {
+    min-height: 320px;
+    height: auto;
+    padding: 36px 18px;
+  }
+
+  .main-banner h4,
+  .main-banner-404 h4 {
+    font-size: 30px;
+  }
+
+  .main-banner h6,
+  .main-banner-404 h6 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+/* =========================
+   FASE 3 - UX páginas clave
+========================= */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.quick-actions a,
+.ux-link-pill {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-radius: var(--nidos-radius-md);
+  background: rgba(31, 33, 34, 0.92);
+  border: 1px solid var(--nidos-border);
+  color: #ffffff;
+  font-family: "DinProBold", sans-serif;
+  line-height: 1.15;
+  text-align: center;
+  box-shadow: var(--nidos-shadow-soft);
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.quick-actions a:hover,
+.ux-link-pill:hover {
+  transform: translateY(-2px);
+  background: var(--nidos-blue);
+  color: #111418;
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.section-kicker {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "DinProMedium", sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.ux-page-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 15px 0;
+  padding: 16px 18px;
+  border-radius: var(--nidos-radius-lg);
+  background: rgba(31, 33, 34, 0.92);
+  border: 1px solid var(--nidos-border);
+  box-shadow: var(--nidos-shadow-soft);
+}
+
+.ux-page-intro-compact {
+  margin-top: 12px;
+}
+
+.ux-page-intro h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.ux-page-intro p {
+  margin-top: 5px;
+  color: var(--nidos-text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.ux-link-pill {
+  flex: 0 0 auto;
+  min-width: 132px;
+  text-transform: none;
+}
+
+.heading-section-arrows .arrow {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--nidos-radius-md);
+}
+
+.scroll-bar-sections img[role="button"] {
+  cursor: pointer;
+}
+
+.scroll-bar-sections img[role="button"]:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(117, 170, 219, 0.45);
+}
+
+@media (max-width: 992px) {
+  .quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ux-page-intro {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .quick-actions {
+    gap: 10px;
+  }
+
+  .quick-actions a,
+  .ux-link-pill {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .ux-page-intro {
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .ux-page-intro h2 {
+    font-size: 18px;
+  }
+
+  .ux-page-intro p {
+    font-size: 13px;
+  }
+
+  .ux-link-pill {
+    width: 100%;
+  }
+}

@@ -31,6 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     });
+
+    img.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        this.click();
+      }
+    });
   });
 });
 
