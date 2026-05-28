@@ -1260,7 +1260,7 @@ body .page-content {
   position: relative;
   margin-top: 22px;
   padding: clamp(26px, 3.6vw, 48px);
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(117, 170, 219, 0.22);
   background:
     radial-gradient(circle at 18% 15%, rgba(53, 219, 197, 0.14), transparent 28%),
@@ -1270,7 +1270,8 @@ body .page-content {
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-#indexEventList {
+#indexEventList,
+#eventContainer {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 22px;
@@ -1281,7 +1282,8 @@ body .page-content {
   box-shadow: none;
 }
 
-#indexEventList > [class*="col-"] {
+#indexEventList > [class*="col-"],
+#eventContainer > [class*="col-"] {
   width: 100% !important;
   max-width: none !important;
   flex: none !important;
@@ -1290,13 +1292,15 @@ body .page-content {
   margin: 0 !important;
 }
 
-#indexEventList a {
+#indexEventList .event-card-link,
+#eventContainer .event-card-link {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
-#indexEventList .item {
+#indexEventList .item,
+#eventContainer .item {
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -1304,7 +1308,7 @@ body .page-content {
   grid-template-rows: auto 1fr;
   gap: 16px;
   padding: 14px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 24px;
   background:
@@ -1320,7 +1324,13 @@ body .page-content {
     background 0.18s ease;
 }
 
-#indexEventList .item:hover {
+#indexEventList .item.calendar-open,
+#eventContainer .item.calendar-open {
+  z-index: 30;
+}
+
+#indexEventList .item:hover,
+#eventContainer .item:hover {
   transform: translateY(-5px);
   border-color: rgba(117, 170, 219, 0.5);
   background:
@@ -1330,7 +1340,8 @@ body .page-content {
     0 0 0 1px rgba(117, 170, 219, 0.14);
 }
 
-#indexEventList .date-active {
+#indexEventList .date-active,
+#eventContainer .date-active {
   border-color: rgba(53, 219, 197, 0.76);
   animation: none;
   box-shadow:
@@ -1338,7 +1349,8 @@ body .page-content {
     0 0 34px rgba(53, 219, 197, 0.22);
 }
 
-#indexEventList .event-image img {
+#indexEventList .event-image img,
+#eventContainer .event-image img {
   width: 100%;
   max-width: none;
   aspect-ratio: 16 / 9;
@@ -1350,14 +1362,16 @@ body .page-content {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
 }
 
-#indexEventList .event-details {
+#indexEventList .event-details,
+#eventContainer .event-details {
   display: grid;
   gap: 12px;
   align-content: start;
   text-align: left;
 }
 
-#indexEventList .event-status {
+#indexEventList .event-status,
+#eventContainer .event-status {
   width: fit-content;
   min-height: 28px;
   display: inline-flex;
@@ -1373,11 +1387,13 @@ body .page-content {
   text-transform: uppercase;
 }
 
-#indexEventList .date-active .event-status {
+#indexEventList .date-active .event-status,
+#eventContainer .date-active .event-status {
   background: rgba(53, 219, 197, 0.96);
 }
 
-#indexEventList .event-details h4 {
+#indexEventList .event-details h4,
+#eventContainer .event-details h4 {
   margin: 0;
   color: #ffffff;
   font-family: "DinProBlack", sans-serif;
@@ -1386,7 +1402,15 @@ body .page-content {
   text-align: left;
 }
 
-#indexEventList .tiempo-restante {
+#indexEventList .event-title-link,
+#eventContainer .event-title-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+#indexEventList .tiempo-restante,
+#eventContainer .tiempo-restante {
   width: 100%;
   min-height: 58px;
   display: flex;
@@ -1405,16 +1429,108 @@ body .page-content {
 }
 
 #indexEventList .tiempo-restante strong,
-#indexEventList .tiempo-restante span {
+#indexEventList .tiempo-restante span,
+#eventContainer .tiempo-restante strong,
+#eventContainer .tiempo-restante span {
   display: block;
 }
 
-#indexEventList .date-active .tiempo-restante {
+#indexEventList .date-active .tiempo-restante,
+#eventContainer .date-active .tiempo-restante {
   color: #ffdf5c;
 }
 
-#indexEventList .date-future .tiempo-restante {
+#indexEventList .date-future .tiempo-restante,
+#eventContainer .date-future .tiempo-restante {
   color: #35dbc5;
+}
+
+.event-card-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.event-view-button,
+.calendar-toggle {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, var(--nidos-blue), var(--nidos-blue-dark));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  font-family: "DinProBold", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.event-view-button:hover,
+.calendar-toggle:hover,
+.calendar-toggle[aria-expanded="true"] {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-actions {
+  position: relative;
+}
+
+.calendar-toggle {
+  background: linear-gradient(180deg, rgba(53, 219, 197, 0.98), rgba(28, 151, 139, 0.98));
+  color: #071225 !important;
+}
+
+.calendar-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  z-index: 20;
+  width: max-content;
+  min-width: 190px;
+  overflow: hidden;
+  border: 1px solid rgba(53, 219, 197, 0.34);
+  border-radius: 16px;
+  background: rgba(9, 18, 34, 0.98);
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.calendar-menu button {
+  width: 100%;
+  display: block;
+  padding: 13px 16px;
+  border: 0;
+  color: #ffffff;
+  background: transparent;
+  font-family: "DinProBold", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.calendar-menu button:hover,
+.calendar-menu button:focus-visible {
+  color: #071225;
+  background: rgba(53, 219, 197, 0.92);
 }
 
 .events-hub .event-actions {
@@ -1560,7 +1676,8 @@ body .page-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  #indexEventList {
+  #indexEventList,
+  #eventContainer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1688,12 +1805,14 @@ body .page-content {
     padding: 22px 14px;
   }
 
-  #indexEventList {
+  #indexEventList,
+  #eventContainer {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  #indexEventList .item {
+  #indexEventList .item,
+  #eventContainer .item {
     border-radius: 20px;
   }
 }
