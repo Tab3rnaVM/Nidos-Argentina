@@ -95,9 +95,9 @@
             <!-- =========================
                  BANNER PRINCIPAL
             ========================== -->
-            <div class="main-banner">
+            <div class="main-banner home-hero">
               <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-7 home-hero-copy">
                   <div class="header-text">
                     <h6>Bienvenidos a Nidos Argentina</h6>
                     <h4>
@@ -107,45 +107,19 @@
 
                     <!-- links relativos (GitHub Pages en repo proyecto) -->
                     <div class="main-button">
-                      <a href="./nosotros/">Síguenos</a>
+                      <a href="./nosotros/">SÍGUENOS</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <nav class="quick-actions" aria-label="Accesos rápidos">
-              <a href="./eventos/">
-                <span>Eventos</span>
-              </a>
-              <a href="./shinycheck/">
-                <span>Shiny Check</span>
-              </a>
-              <a href="./counters/">
-                <span>Counters</span>
-              </a>
-              <a href="./medallero/">
-                <span>Medallero</span>
-              </a>
-            </nav>
-
             <!-- =========================
                  MEDALLERO (CTA)
             ========================== -->
             <div id="medalleroCTA" class="medallero-cta is-loading">
-              <div class="cta-badge">
-                <img
-                  id="ctaBadgeImg"
-                  src="assets/images/badges/medallas.webp"
-                  alt="Próxima medalla"
-                  width="120"
-                  height="120"
-                  decoding="async"
-                  loading="eager"
-                />
-              </div>
-
               <div class="cta-info">
+                <span class="cta-kicker">Medallero Nidos</span>
                 <div class="cta-title" id="ctaTitle">Buscando próxima medalla…</div>
                 <div class="cta-sub" id="ctaSub">
                   Pronto verás aquí el próximo evento con check-in.
@@ -160,45 +134,59 @@
               <a id="ctaButton" class="main-button cta-action" href="./medallero/">
                 <span>Participar</span>
               </a>
+
+              <div class="cta-badge" aria-hidden="true">
+                <img
+                  id="ctaBadgeImg"
+                  src="assets/images/badges/medallas.webp"
+                  alt=""
+                  width="220"
+                  height="220"
+                  decoding="async"
+                  loading="eager"
+                />
+              </div>
             </div>
 
             <!-- =========================
                  TEMPORADA
             ========================== -->
-            <div class="secciontitle" style="margin-top: 15px !important">
-              <div class="col-lg-12">
-                <div class="heading-section">
-                  <h4>Recuerdos en Marcha</h4>
+            <div class="secciontitle season-showcase-title" style="margin-top: 15px !important">
+              <p class="season-showcase-date">
+                Desde el 2 de junio, a las 10:00, hasta el 8 de septiembre de 2026,
+                a las 10:00 (hora local)
+              </p>
+
+              <div class="season-showcase-media">
+                <img
+                  src="assets/images/temporada/siempre_adelante.png"
+                  alt=""
+                  width="1280"
+                  height="664"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="main-button season-showcase-action">
+                  <a href="./rotacion-de-temporada/">Ver contenido de la temporada</a>
                 </div>
-                <p class="section-kicker">Temporada actual</p>
+              </div>
+
+              <div class="season-showcase-copy">
+                <div class="heading-section">
+                  <h4>Temporada Siempre Adelante</h4>
+                </div>
               </div>
             </div>
 
-            <div class="season">
+            <div class="season season-hub">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="row" id="containerSeason">
                     <div class="col-xl-pantalla col-lg-3 col-sm-6">
-                      <a href="./rotacion-de-temporada/">
-                        <div class="item">
-                          <img
-                            src="assets/images/temporada/temporada-recuerdosenmarcha.png"
-                            alt="Rotación de temporada"
-                            width="480"
-                            height="270"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <h4>Rotación de temporada</h4>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div class="col-xl-pantalla col-lg-3 col-sm-6">
                       <a href="./incursiones/">
                         <div class="item">
                           <img
-                            src="assets/images/temporada/incursiones.png"
+                            src="assets/images/temporada/raids.webp"
                             alt="Incursiones"
                             width="480"
                             height="270"
@@ -206,6 +194,8 @@
                             decoding="async"
                           />
                           <h4>Incursiones</h4>
+                          <p>Jefes actuales, próximas rotaciones y enlaces para prepararte.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -214,7 +204,7 @@
                       <a href="./batallas-max/">
                         <div class="item">
                           <img
-                            src="assets/images/temporada/batallasMax.png"
+                            src="assets/images/temporada/max.webp"
                             alt="Batallas Max"
                             width="480"
                             height="270"
@@ -222,54 +212,8 @@
                             decoding="async"
                           />
                           <h4>Batallas Max</h4>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div class="col-xl-pantalla col-lg-3 col-sm-6">
-                      <a href="./horas-destacadas/">
-                        <div class="item">
-                          <img
-                            src="assets/images/temporada/hora-destacada.png"
-                            alt="Horas destacadas"
-                            width="480"
-                            height="270"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <h4>Horas destacadas</h4>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div class="col-xl-pantalla col-lg-3 col-sm-6">
-                      <a href="./horas-legendarias/">
-                        <div class="item">
-                          <img
-                            src="assets/images/temporada/hora-legendaria.png"
-                            alt="Horas legendarias"
-                            width="480"
-                            height="270"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <h4>Horas legendarias</h4>
-                        </div>
-                      </a>
-                    </div>
-
-                    <div class="col-xl-pantalla col-lg-3 col-sm-6">
-                      <a href="./lunes-max/">
-                        <div class="item">
-                          <img
-                            src="assets/images/temporada/maxMonday.png"
-                            alt="Lunes Max"
-                            width="480"
-                            height="270"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <h4>Lunes Max</h4>
+                          <p>Combates Dinamax y Gigamax activos durante la temporada.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -278,7 +222,7 @@
                       <a href="./investigaciones-de-campo/">
                         <div class="item">
                           <img
-                            src="assets/images/temporada/misiones-de-campo.png"
+                            src="assets/images/temporada/investigaciones.webp"
                             alt="Investigaciones de campo"
                             width="480"
                             height="270"
@@ -286,6 +230,8 @@
                             decoding="async"
                           />
                           <h4>Investigaciones de campo</h4>
+                          <p>Tareas, recompensas y encuentros que podés buscar este mes.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -294,7 +240,7 @@
                       <a href="./equipo-go-rocket/">
                         <div class="item">
                           <img
-                            src="assets/images/temporada/team-go-rocket.png"
+                            src="assets/images/temporada/teamgorocket.webp"
                             alt="Equipo GO Rocket"
                             width="480"
                             height="270"
@@ -302,6 +248,8 @@
                             decoding="async"
                           />
                           <h4>Equipo GO Rocket</h4>
+                          <p>Rotación Rocket, líderes y datos clave para armar equipos.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -310,7 +258,7 @@
                       <a href="./dias-de-la-comunidad/">
                         <div class="item">
                           <img
-                            src="assets/images/temporada/communityday.png"
+                            src="assets/images/temporada/communityday.webp"
                             alt="Días de la comunidad"
                             width="480"
                             height="270"
@@ -318,6 +266,8 @@
                             decoding="async"
                           />
                           <h4>Días de la comunidad</h4>
+                          <p>Fechas, bonus, ataques destacados y encuentros especiales.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -330,7 +280,7 @@
                       >
                         <div class="item">
                           <img
-                            src="assets/images/temporada/gofest-2026.png"
+                            src="assets/images/temporada/gofest2026.webp"
                             alt="GO Fest 2026 - Global"
                             width="480"
                             height="270"
@@ -338,6 +288,8 @@
                             decoding="async"
                           />
                           <h4>GO Fest 2026 - Global</h4>
+                          <p>Información oficial del gran evento global de Pokémon GO.</p>
+                          <span class="season-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -349,16 +301,18 @@
             <!-- =========================
                  GUÍAS Y COLECCIONES
             ========================== -->
-            <div class="secciontitle" style="margin-top: 15px !important">
+            <div class="secciontitle guides-showcase-title" style="margin-top: 15px !important">
               <div class="col-lg-12">
                 <div class="heading-section">
                   <h4>Guías y Colecciones</h4>
                 </div>
-                <p class="section-kicker">Herramientas y listas</p>
+                <p class="section-kicker">
+                  Herramientas rápidas para consultar, completar y planificar tu aventura.
+                </p>
               </div>
             </div>
 
-            <div class="season">
+            <div class="season guides-hub">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="row" id="containerGuides">
@@ -366,14 +320,17 @@
                       <a href="./como-conseguir-ditto/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/ditto.png"
+                            src="assets/images/guias/ditto.webp"
                             alt="¿Cómo conseguir a Ditto?"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Guía</span>
                           <h4>¿Cómo conseguir a Ditto?</h4>
+                          <p>Disfraces activos, pistas y encuentros que pueden transformarse.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -382,14 +339,17 @@
                       <a href="./como-conseguir-vivillon/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/vivillon.png"
+                            src="assets/images/guias/vivillon.webp"
                             alt="¿Cómo conseguir a Vivillon?"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Colección</span>
                           <h4>¿Cómo conseguir a Vivillon?</h4>
+                          <p>Patrones, regiones y progreso para completar la colección.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -398,14 +358,17 @@
                       <a href="./pokemon-regionales/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/regionales.png"
+                            src="assets/images/guias/regionales.webp"
                             alt="Pokémon Regionales"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Mapa</span>
                           <h4>Pokémon Regionales</h4>
+                          <p>Consulta qué Pokémon aparecen por región alrededor del mundo.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -414,14 +377,17 @@
                       <a href="./shinycheck/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/shiny-check.png"
+                            src="assets/images/guias/shiny.webp"
                             alt="Shiny Check"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Herramienta</span>
                           <h4>Pokémon Shiny</h4>
+                          <p>Revisa disponibilidad shiny y variantes liberadas.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -430,14 +396,17 @@
                       <a href="./atacantes/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/mejores-atacantes.png"
+                            src="assets/images/guias/mejores_atacantes.webp"
                             alt="Mejores Atacantes"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Ranking</span>
                           <h4>Mejores Atacantes</h4>
+                          <p>Listas por tipo para elegir equipos con mejor rendimiento.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -446,14 +415,17 @@
                       <a href="./lista-unowns/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/unown.png"
+                            src="assets/images/guias/unowns.webp"
                             alt="Lista de Unown liberados"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Lista</span>
                           <h4>Lista de Unowns</h4>
+                          <p>Seguimiento de letras, formas y apariciones disponibles.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -462,14 +434,17 @@
                       <a href="./lista-megaevoluciones/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/megas.png"
+                            src="assets/images/guias/mega_evolucion.webp"
                             alt="Lista de Mega-Evoluciones"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Lista</span>
                           <h4>Lista de Mega-Evoluciones</h4>
+                          <p>Megas disponibles, pendientes y detalles para planificar.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -478,14 +453,17 @@
                       <a href="./fondos-especiales/">
                         <div class="item">
                           <img
-                            src="assets/images/guias/fondos-especiales.png"
+                            src="assets/images/guias/fondos_especiales.webp"
                             alt="Lista de Fondos Especiales"
                             width="480"
                             height="270"
                             loading="lazy"
                             decoding="async"
                           />
+                          <span class="guide-card-tag">Colección</span>
                           <h4>Lista de Fondos Especiales</h4>
+                          <p>Fondos, eventos y variantes especiales para coleccionistas.</p>
+                          <span class="guide-card-cta">Ver</span>
                         </div>
                       </a>
                     </div>
@@ -497,21 +475,21 @@
             <!-- =========================
                  EVENTOS DESTACADOS
             ========================== -->
-            <div class="secciontitle" style="margin-top: 15px !important">
+            <div class="secciontitle events-showcase-title" style="margin-top: 15px !important">
               <div class="col-lg-12">
                 <div class="heading-section">
                   <h4>Eventos destacados</h4>
                 </div>
-                <p class="section-kicker">Actividad reciente</p>
+                <p class="section-kicker">Lo más cercano para jugar, planear y no perderte nada.</p>
               </div>
             </div>
 
-            <div class="event-list">
+            <div class="event-list events-hub">
               <div class="seccioncontainer-counters counter-select" id="indexEventList">
                 <!-- Aquí se cargarán los eventos dinámicamente -->
               </div>
 
-              <div class="row" style="margin-top: -30px !important">
+              <div class="row event-actions">
                 <div class="text-center">
                   <div class="main-button">
                     <a href="./eventos/">Ver todos</a>

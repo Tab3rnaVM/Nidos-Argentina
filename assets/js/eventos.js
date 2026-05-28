@@ -146,7 +146,7 @@ const eventos = {
       endDate: "2025-10-18T17:00:00",
       image: "../assets/images/eventos/eventodestacado64.webp",
       link: "https://pokemongo.com/es_MX/news/mega-rayquaza-raid-day-2025",
-    },  
+    },
     {
       name: "Halloween 2025: Parte I",
       startDate: "2025-10-21T10:00:00",
@@ -189,8 +189,6 @@ const eventos = {
       image: "../assets/images/eventos/eventodestacado65.webp",
       link: "https://pokemongo.com/gowildarea/global",
     },
-
-    
     {
       name: "Safari de Ciudad: Buenos Aires, Argentina",
       startDate: "2025-12-13T10:00:00",
@@ -198,7 +196,27 @@ const eventos = {
       image: "../assets/images/eventos/eventodestacado71.webp",
       link: "https://pokemongo.com/es_MX/events/citysafari/buenos-aires",
     },
-    
+    {
+      name: "Blanche y la búsqueda del conocimiento",
+      startDate: "2026-05-26T10:00:00",
+      endDate: "2026-06-01T20:00:00",
+      image: "../assets/images/eventos/eventodestacado73.webp",
+      link: "https://pokemongo.com/es_MX/news/enchanted-hollow-2025",
+    },
+    {
+      name: "Día de la Comunidad de junio de 2026: Frigibax",
+      startDate: "2026-06-20T14:00:00",
+      endDate: "2026-06-20T17:00:00",
+      image: "../assets/images/eventos/eventodestacado74.webp",
+      link: "https://pokemongo.com/es_MX/news/enchanted-hollow-2025",
+    },
+    {
+      name: "Pase de GO: junio",
+      startDate: "2026-06-02T10:00:00",
+      endDate: "2026-07-07T10:00:00",
+      image: "../assets/images/eventos/eventodestacado75.webp",
+      link: "https://pokemongo.com/es_MX/news/enchanted-hollow-2025",
+    },
   ],
   pasados: [],
 };
@@ -283,12 +301,12 @@ function actualizarTiempoRestante() {
     const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    let texto = `<strong>${label}</strong><br>`;
-    if (dias > 0) texto += `${dias} día${dias > 1 ? "s" : ""}, `;
-    if (horas > 0 || dias > 0) texto += `${horas} hora${horas > 1 ? "s" : ""}, `;
-    texto += `${minutos} minuto${minutos > 1 ? "s" : ""}`;
+    let tiempo = "";
+    if (dias > 0) tiempo += `${dias} día${dias > 1 ? "s" : ""}, `;
+    if (horas > 0 || dias > 0) tiempo += `${horas} hora${horas > 1 ? "s" : ""}, `;
+    tiempo += `${minutos} minuto${minutos > 1 ? "s" : ""}`;
 
-    el.innerHTML = texto;
+    el.innerHTML = `<strong>${label}</strong><span>${tiempo}</span>`;
   });
 }
 
@@ -329,6 +347,8 @@ function renderEventos(isIndex = false) {
     else if (now > endDate) itemClass = "date-past";
     else itemClass = "date-active";
 
+    const statusLabel = itemClass === "date-active" ? "En curso" : itemClass === "date-future" ? "Próximo" : "Finalizado";
+
     const isHigh = renderCount < HIGH_PRIORITY_LIMIT;
     renderCount++;
 
@@ -345,6 +365,7 @@ function renderEventos(isIndex = false) {
             <img src="${evento.image}" alt="${evento.name}" ${priorityAttr} ${decodingAttr}/>
           </div>
           <div class="event-details">
+            <span class="event-status">${statusLabel}</span>
             <h4>${evento.name}</h4>
             <p class="tiempo-restante"></p>
           </div>

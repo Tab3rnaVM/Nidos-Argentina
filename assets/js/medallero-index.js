@@ -55,7 +55,7 @@
 
   function setData({titleText, subText, imgUrl, startAt, endAt}){
     title.textContent = titleText || "Próximo evento";
-    sub.textContent   = "Haz check-in durante el horario del evento para ganar está medalla";
+    sub.textContent   = subText || "Haz check-in durante el horario del evento para ganar esta medalla";
     if (imgUrl) imgEl.src = imgUrl;
 
     function paint(){
@@ -63,15 +63,15 @@
       if (startAt && now < startAt) {
         state.textContent = "Comienza en";
         cdown.textContent = fmtCountdown(startAt - now);
-        btn.querySelector("span").textContent = "Participar";
+        btn.querySelector("span").textContent = "PARTICIPAR";
       } else if (endAt && now <= endAt) {
         state.textContent = "¡Activo!";
         cdown.textContent = fmtCountdown(endAt - now);
-        btn.querySelector("span").textContent = "Participar";
+        btn.querySelector("span").textContent = "PARTICIPAR";
       } else {
         state.textContent = "Finalizado";
         cdown.textContent = "—";
-        btn.querySelector("span").textContent = "Ver medallero";
+        btn.querySelector("span").textContent = "VER MEDALLERO";
       }
     }
     clearInterval(tick);
