@@ -1798,16 +1798,19 @@ body .page-content {
   gap: 12px;
 }
 
-.raid-weather-icons {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.raid-weather-label {
+  font-family: "DinProBold", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.raid-weather-icons img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+.raid-weather-label-neutral {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.raid-weather-label-boosted {
+  color: #75aadb;
 }
 
 .raid-weather-row b {

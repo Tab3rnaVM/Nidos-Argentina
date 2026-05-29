@@ -1,124 +1,136 @@
 const incursions = {
-  Enero: [
-  // 5–16 de enero (5★)
-  {
-    name: "Genesect (PiroROM)",
-    startDate: "2026-01-05T10:00:00",
-    endDate:   "2026-01-16T10:00:00",
-    image: "../../assets/images/pokemon/pm649.fBURN.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm649.fBURN.s.icon.webp",
-    types: ["../../assets/images/tipos/insecto.png","../../assets/images/tipos/acero.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-  {
-    name: "Genesect (CrioROM)",
-    startDate: "2026-01-05T10:00:00",
-    endDate:   "2026-01-16T10:00:00",
-    image: "../../assets/images/pokemon/pm649.fCHILL.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm649.fCHILL.s.icon.webp",
-    types: ["../../assets/images/tipos/insecto.png","../../assets/images/tipos/acero.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-  // 5–16 de enero (Megas)
-  {
-    name: "Mega - Blaziken",
-    startDate: "2026-01-05T10:00:00",
-    endDate:   "2026-01-16T10:00:00",
-    image: "../../assets/images/pokemon/pm257.fMEGA.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm257.fMEGA.s.icon.webp",
-    types: ["../../assets/images/tipos/fuego.png","../../assets/images/tipos/pelea.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-  // 16–25 de enero (5★)
-  {
-    name: "Thundurus (Forma Encarnada)",
-    startDate: "2026-01-16T10:00:00",
-    endDate:   "2026-01-25T10:00:00",
-    image: "../../assets/images/pokemon/pm642.fINCARNATE.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm642.fINCARNATE.s.icon.webp",
-    types: ["../../assets/images/tipos/electrico.png","../../assets/images/tipos/volador.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-  // 16–25 de enero (Megas)
-  {
-    name: "Mega - Sceptile",
-    startDate: "2026-01-16T10:00:00",
-    endDate:   "2026-01-25T10:00:00",
-    image: "../../assets/images/pokemon/pm254.fMEGA.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm254.fMEGA.s.icon.webp",
-    types: ["../../assets/images/tipos/planta.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-  // 25 Ene – 4 Feb (5★)
-  {
-    name: "Tornadus (Forma Encarnada)",
-    startDate: "2026-01-25T10:00:00",
-    endDate:   "2026-02-04T10:00:00",
-    image: "../../assets/images/pokemon/pm641.fINCARNATE.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm641.fINCARNATE.s.icon.webp",
-    types: ["../../assets/images/tipos/volador.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-  // 25 Ene – 4 Feb (Megas)
-  {
-    name: "Mega - Ampharos",
-    startDate: "2026-01-25T10:00:00",
-    endDate:   "2026-02-04T10:00:00",
-    image: "../../assets/images/pokemon/pm181.fMEGA.icon.webp",
-    shinyImage: "../../assets/images/pokemon/pm181.fMEGA.s.icon.webp",
-    types: ["../../assets/images/tipos/electrico.png","../../assets/images/tipos/dragon.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-
-    // 2 Ene – 1 Feb (Incursiones Oscuras)
-  {
-    name: "Cresselia Oscuro",
-    startDate: "2026-01-02T10:00:00",
-    endDate:   "2026-02-01T10:00:00",
-    image: "../../assets/images/pokemon/pm488.SHADOW.icon.webp",        // ajusta si tu naming es distinto
-    shinyImage: "../../assets/images/pokemon/pm488.SHADOW.s.icon.webp", // ajusta si tu naming es distinto
-    types: ["../../assets/images/tipos/psiquico.png"],
-    shiny: true,
-    eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5-oscura.png",   // ajusta si tu ruta es distinta
-    pc20: 1916,
-    pc25: 2395,
-    link: "#",
-  },
-],
-
+  Junio: [
+    {
+      name: "Dialga Oscuro",
+      startDate: "2026-06-02T10:00:00",
+      endDate: "2026-06-30T10:00:00",
+      image: "../../assets/images/pokemon/pm483.SHADOW.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm483.SHADOW.s.icon.webp",
+      types: ["../../assets/images/tipos/acero.png", "../../assets/images/tipos/dragon.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5-oscura.png",
+      pc20: 2307,
+      pc25: 2884,
+      link: "#",
+    },
+    {
+      name: "Reshiram",
+      startDate: "2026-06-03T10:00:00",
+      endDate: "2026-06-09T10:00:00",
+      image: "../../assets/images/pokemon/pm643.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm643.s.icon.webp",
+      types: ["../../assets/images/tipos/dragon.png", "../../assets/images/tipos/fuego.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+      pc20: 2307,
+      pc25: 2884,
+      link: "#",
+    },
+    {
+      name: "Mega - Audino",
+      startDate: "2026-06-03T10:00:00",
+      endDate: "2026-06-09T10:00:00",
+      image: "../../assets/images/pokemon/pm531.fMEGA.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm531.fMEGA.s.icon.webp",
+      types: ["../../assets/images/tipos/normal.png", "../../assets/images/tipos/hada.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+      pc20: 961,
+      pc25: 1201,
+      link: "#",
+    },
+    {
+      name: "Zekrom",
+      startDate: "2026-06-10T10:00:00",
+      endDate: "2026-06-16T10:00:00",
+      image: "../../assets/images/pokemon/pm644.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm644.s.icon.webp",
+      types: ["../../assets/images/tipos/dragon.png", "../../assets/images/tipos/electrico.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+      pc20: 2307,
+      pc25: 2884,
+      link: "#",
+    },
+    {
+      name: "Mega - Lopunny",
+      startDate: "2026-06-10T10:00:00",
+      endDate: "2026-06-16T10:00:00",
+      image: "../../assets/images/pokemon/pm428.fMEGA.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm428.fMEGA.s.icon.webp",
+      types: ["../../assets/images/tipos/normal.png", "../../assets/images/tipos/pelea.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+      pc20: 1177,
+      pc25: 1471,
+      link: "#",
+    },
+    {
+      name: "Necrozma",
+      startDate: "2026-06-17T10:00:00",
+      endDate: "2026-06-23T10:00:00",
+      image: "../../assets/images/pokemon/pm800.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm800.s.icon.webp",
+      types: ["../../assets/images/tipos/psiquico.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+      pc20: 2104,
+      pc25: 2630,
+      link: "#",
+    },
+    {
+      name: "Mega - Scizor",
+      startDate: "2026-06-17T10:00:00",
+      endDate: "2026-06-23T10:00:00",
+      image: "../../assets/images/pokemon/pm212.fMEGA.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm212.fMEGA.s.icon.webp",
+      types: ["../../assets/images/tipos/insecto.png", "../../assets/images/tipos/acero.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+      pc20: 1714,
+      pc25: 2143,
+      link: "#",
+    },
+    {
+      name: "Celesteela (Hemisferio Sur)",
+      startDate: "2026-06-24T10:00:00",
+      endDate: "2026-06-30T10:00:00",
+      image: "../../assets/images/pokemon/pm797.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm797.s.icon.webp",
+      types: ["../../assets/images/tipos/acero.png", "../../assets/images/tipos/volador.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+      pc20: 1772,
+      pc25: 2216,
+      link: "#",
+    },
+    {
+      name: "Kartana (Hemisferio Norte)",
+      startDate: "2026-06-24T10:00:00",
+      endDate: "2026-06-30T10:00:00",
+      image: "../../assets/images/pokemon/pm798.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm798.s.icon.webp",
+      types: ["../../assets/images/tipos/planta.png", "../../assets/images/tipos/acero.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+      pc20: 2101,
+      pc25: 2626,
+      link: "#",
+    },
+    {
+      name: "Mega - Pidgeot",
+      startDate: "2026-06-24T10:00:00",
+      endDate: "2026-06-30T10:00:00",
+      image: "../../assets/images/pokemon/pm18.fMEGA.icon.webp",
+      shinyImage: "../../assets/images/pokemon/pm18.fMEGA.s.icon.webp",
+      types: ["../../assets/images/tipos/normal.png", "../../assets/images/tipos/volador.png"],
+      shiny: true,
+      eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+      pc20: 1216,
+      pc25: 1521,
+      link: "#",
+    },
+  ],
 };
 
 function setResourceLinks(urls, { rel = "preload", as = "image", dataTag = "inc-hint", limit = 24 } = {}) {
@@ -330,17 +342,11 @@ function renderIncursions(month) {
                 inc.pc20 && inc.pc25
                   ? `<div class="raid-weather-box">
                       <div class="raid-weather-row">
-                        <span class="raid-weather-icons">
-                          <img src="../../assets/images/climas/No_Cubierto.png" alt="Sin clima cubierto" loading="lazy" ${decodingAttr} />
-                          <img src="../../assets/images/climas/No_Lluvioso.png" alt="Sin clima lluvioso" loading="lazy" ${decodingAttr} />
-                        </span>
+                        <span class="raid-weather-label raid-weather-label-neutral">Sin Clima</span>
                         <b>${inc.pc20}</b>
                       </div>
                       <div class="raid-weather-row">
-                        <span class="raid-weather-icons">
-                          <img src="../../assets/images/climas/Si_Cubierto.png" alt="Con clima cubierto" loading="lazy" ${decodingAttr} />
-                          <img src="../../assets/images/climas/Si_Lluvioso.png" alt="Con clima lluvioso" loading="lazy" ${decodingAttr} />
-                        </span>
+                        <span class="raid-weather-label raid-weather-label-boosted">Clima a favor</span>
                         <b>${inc.pc25}</b>
                       </div>
                     </div>`
