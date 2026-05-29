@@ -1,47 +1,52 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const regionBar = document.querySelector(".scroll-bar-sections");
-  const selectTypePlaceholder = document.querySelector(
-    ".selecttype-placeholder"
-  );
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
-  // Hacer que la barra aparezca solo cuando el usuario haga scroll
-  function handleScroll() {
-    const triggerPoint = selectTypePlaceholder.offsetTop;
+function getTypeId(typeName) {
+  return typeName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
-    if (window.scrollY >= triggerPoint) {
-      regionBar.classList.add("show"); // Mostrar la barra fija
-    } else {
-      regionBar.classList.remove("show"); // Ocultar si sube
-    }
-  }
+function getTypeLabel(typeName) {
+  return typeName.charAt(0).toUpperCase() + typeName.slice(1);
+}
 
-  window.addEventListener("scroll", handleScroll);
-});
+function getTypeIconSrc(typeId) {
+  return `../../assets/images/tipos/${typeId}.png`;
+}
 
-function addScrollEventListeners() {
-  document.querySelectorAll(".scroll-bar-sections img").forEach((img) => {
-    img.addEventListener("click", function () {
-      const targetId = this.getAttribute("data-target"); // ID de la sección objetivo
-      console.log(`🔍 Buscando ID: ${targetId}`);
-  
-      const targetSection = document.getElementById(targetId);
-      console.log(`🔎 Sección encontrada:`, targetSection);
-  
-      if (targetSection) {
-        const offset = 80;
-        const targetPosition =
-          targetSection.getBoundingClientRect().top + window.scrollY - offset;
-  
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-      } else {
-        console.warn(`⚠️ No se encontró la sección con ID "${targetId}".`);
-      }
+function hexToRgbParts(hex) {
+  const normalized = hex.replace("#", "");
+  if (normalized.length !== 6) return "117, 170, 219";
+
+  const value = Number.parseInt(normalized, 16);
+  const r = (value >> 16) & 255;
+  const g = (value >> 8) & 255;
+  const b = value & 255;
+  return `${r}, ${g}, ${b}`;
+}
+
+function setActiveType(typeId) {
+  document.querySelectorAll(".type-nav-button").forEach((button) => {
+    const isActive = button.dataset.target === typeId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-current", isActive ? "true" : "false");
+  });
+}
+
+function addTypeSelectorListeners(renderType) {
+  const buttons = document.querySelectorAll(".type-nav-button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      renderType(targetId);
     });
   });
-  
 }
 
 const tipos = {
@@ -2447,86 +2452,80 @@ agua: {
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.querySelector("#container-atacantes");
 
-  function renderAll() {
-  const fragment = document.createDocumentFragment();
-
-  Object.entries(tipos).forEach(([tipoNombre, tipoData], index) => {
+  function createTypeSection(tipoNombre, tipoData) {
     const { color, atacantes } = tipoData;
-    const tipoId = tipoNombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const tipoId = getTypeId(tipoNombre);
+    const typeLabel = getTypeLabel(tipoNombre);
 
-    const tipoDiv = document.createElement("div");
-    tipoDiv.className = "row";
-    tipoDiv.innerHTML = `
-      <div class="col-lg-12">
-        <div class="data-counters">
-          <div class="seccioncontainer-counters" style="background-color: ${color} !important;">
-            <div id="${tipoId}">
-              <div class="tipo-header">
-                <h4>Tipo ${tipoNombre.charAt(0).toUpperCase() + tipoNombre.slice(1)}</h4>
-              </div>
-              <div class="atacantes-container" style="display: flex; margin-top: 20px;"></div>
-            </div>
+    const section = document.createElement("section");
+    section.className = "attacker-type-section";
+    section.id = tipoId;
+    section.style.setProperty("--type-color", color);
+    section.style.setProperty("--type-rgb", hexToRgbParts(color));
+    section.innerHTML = `
+      <div class="attacker-type-header">
+        <div class="attacker-type-title">
+          <span class="attacker-type-icon">
+            <img src="${escapeHTML(getTypeIconSrc(tipoId))}" alt="" loading="lazy" decoding="async" />
+          </span>
+          <div>
+            <span class="attacker-type-kicker">Tipo</span>
+            <h2>${escapeHTML(typeLabel)}</h2>
           </div>
         </div>
+        <span class="attacker-count">${atacantes.length} atacantes</span>
       </div>
+      <div class="attackers-grid"></div>
     `;
 
-    const atacantesContainer = tipoDiv.querySelector(".atacantes-container");
-    const rowHTML = document.createElement("div");
-    rowHTML.className = "row";
+    const attackersGrid = section.querySelector(".attackers-grid");
 
     atacantes.forEach((counter) => {
-      const counterHTML = `
-        <div class="col-xl-counters col-lg-4 col-sm-6">
-          <div class="item">
-            <p class="name-counter">${counter.name}</p>
-            <div class="date-eggs">
-              <div class="thumb thumb-counters">
-                <img class="lazy" data-src="${counter.image}" alt="${counter.name}" loading="lazy"/>
-                <div class="hover-effect">
-                  <div class="content">
-                    <div class="live">
-                      <a class="btnrangos">
-                        <img src="${counter.rankImage}" alt="Rango" />
-                      </a>
-                    </div>
+      const card = document.createElement("article");
+      card.className = "item attacker-card";
+      card.innerHTML = `
+        <div class="attacker-card-media">
+          <img class="lazy attacker-image" data-src="${escapeHTML(counter.image)}" alt="${escapeHTML(counter.name)}" loading="lazy" decoding="async" />
+          <span class="attacker-rank">
+            <img src="${escapeHTML(counter.rankImage)}" alt="Rango" loading="lazy" decoding="async" />
+          </span>
+        </div>
+        <div class="attacker-card-body">
+          <p class="name-counter">${escapeHTML(counter.name)}</p>
+          <div class="attacker-moves">
+            ${counter.attacks
+              .map(
+                (attack) => `
+                  <div class="attacker-move">
+                    <img src="${escapeHTML(attack.typeImage)}" alt="" class="icono-counters" loading="lazy" decoding="async" />
+                    <span class="ataque-counters">${escapeHTML(attack.name)}</span>
+                    ${
+                      attack.eliteImage
+                        ? `<img class="mtelite" src="${escapeHTML(attack.eliteImage)}" alt="MT elite" loading="lazy" decoding="async" />`
+                        : ""
+                    }
                   </div>
-                </div>
-              </div>
-              <div class="down-content">
-                ${counter.attacks
-                  .map(
-                    (attack) => `
-                    <div class="icon-atack-flex">
-                      <img src="${attack.typeImage}" alt="${attack.name}" class="icono-counters" />
-                      <a class="ataque-counters">${attack.name}</a>
-                      ${
-                        attack.eliteImage
-                          ? `<img class="mtelite" src="${attack.eliteImage}" alt="Elite" />`
-                          : ""
-                      }
-                    </div>
-                  `
-                  )
-                  .join("")}
-              </div>
-            </div>
+                `
+              )
+              .join("")}
           </div>
         </div>
       `;
-      rowHTML.innerHTML += counterHTML;
+      attackersGrid.appendChild(card);
     });
 
-    atacantesContainer.appendChild(rowHTML);
-    fragment.appendChild(tipoDiv);
-  });
+    return section;
+  }
 
-  container.appendChild(fragment);
-  activateLazyLoading();
-  addScrollEventListeners();
-  
-}
+  function renderType(tipoNombre = "insecto") {
+    if (!container) return;
+    const typeData = tipos[tipoNombre] || tipos.insecto;
+    const activeType = tipos[tipoNombre] ? tipoNombre : "insecto";
 
+    container.replaceChildren(createTypeSection(activeType, typeData));
+    setActiveType(activeType);
+    activateLazyLoading();
+  }
 
   function activateLazyLoading() {
     const lazyImages = document.querySelectorAll(".lazy");
@@ -2547,5 +2546,6 @@ document.addEventListener("DOMContentLoaded", function () {
     lazyImages.forEach((img) => observer.observe(img));
   }
 
-  renderAll();
+  addTypeSelectorListeners(renderType);
+  renderType("insecto");
 });

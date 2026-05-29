@@ -206,8 +206,7 @@ function getRaidStatus(inc, now) {
 }
 
 function getCounterHref(inc) {
-  if (inc.link && inc.link !== "#") return inc.link;
-  return "../counters/";
+  return inc.link || "#";
 }
 
 /* ---------- Mes actual ---------- */
