@@ -10,6 +10,8 @@ const incursions = {
     types: ["../../assets/images/tipos/insecto.png","../../assets/images/tipos/acero.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
   {
@@ -21,6 +23,8 @@ const incursions = {
     types: ["../../assets/images/tipos/insecto.png","../../assets/images/tipos/acero.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -34,6 +38,8 @@ const incursions = {
     types: ["../../assets/images/tipos/fuego.png","../../assets/images/tipos/pelea.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -47,6 +53,8 @@ const incursions = {
     types: ["../../assets/images/tipos/electrico.png","../../assets/images/tipos/volador.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -60,6 +68,8 @@ const incursions = {
     types: ["../../assets/images/tipos/planta.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -73,6 +83,8 @@ const incursions = {
     types: ["../../assets/images/tipos/volador.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -86,6 +98,8 @@ const incursions = {
     types: ["../../assets/images/tipos/electrico.png","../../assets/images/tipos/dragon.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-mega.png",
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 
@@ -99,6 +113,8 @@ const incursions = {
     types: ["../../assets/images/tipos/psiquico.png"],
     shiny: true,
     eggRaid: "../../assets/images/tipos-incursiones/raid-nivel-5-oscura.png",   // ajusta si tu ruta es distinta
+    pc20: 1916,
+    pc25: 2395,
     link: "#",
   },
 ],
@@ -144,56 +160,51 @@ function injectHintsForMonth(list) {
   setPrefetch([...main.slice(PRELOAD_MAIN), ...shiny.slice(PRELOAD_SHINY)], 64);
 }
 
-/* ---------- Navegación ---------- */
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function getRaidStatus(inc, now) {
+  if (Array.isArray(inc.availability) && inc.availability.length) {
+    const isActive = inc.availability.some((r) => {
+      const rs = new Date(r.startDate);
+      const re = new Date(r.endDate);
+      return now >= rs && now <= re;
+    });
+    const firstRangeStart = new Date(inc.availability[0].startDate);
+    const lastRangeEnd = new Date(inc.availability[inc.availability.length - 1].endDate);
+
+    if (isActive) return { className: "date-active", label: "Activo" };
+    if (now < firstRangeStart) return { className: "date-future", label: "Próximo" };
+    if (now > lastRangeEnd) return { className: "date-past", label: "Finalizado" };
+    return { className: "date-normal", label: "Rotación" };
+  }
+
+  const start = new Date(inc.startDate);
+  const end = new Date(inc.endDate);
+
+  if (now < start) return { className: "date-future", label: "Próximo" };
+  if (now > end) return { className: "date-past", label: "Finalizado" };
+  return { className: "date-active", label: "Activo" };
+}
+
+function getCounterHref(inc) {
+  if (inc.link && inc.link !== "#") return inc.link;
+  return "../counters/";
+}
+
+/* ---------- Mes actual ---------- */
 
 const months = Object.keys(incursions); // ["Diciembre", "Enero", ...]
 let currentMonthIndex = 0;
 
-function updateNavigationState() {
-  const prev = document.getElementById("prevMonth");
-  const next = document.getElementById("nextMonth");
-  if (prev) prev.disabled = currentMonthIndex === 0;
-  if (next) next.disabled = currentMonthIndex === months.length - 1;
-}
-
-const prevBtn = document.getElementById("prevMonth");
-if (prevBtn) {
-  prevBtn.addEventListener("click", () => {
-    currentMonthIndex = (currentMonthIndex - 1 + months.length) % months.length;
-    renderIncursions(months[currentMonthIndex]);
-    applyShinyHoverEffects();
-    updateNavigationState();
-  });
-}
-const nextBtn = document.getElementById("nextMonth");
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => {
-    currentMonthIndex = (currentMonthIndex + 1) % months.length;
-    renderIncursions(months[currentMonthIndex]);
-    applyShinyHoverEffects();
-    updateNavigationState();
-  });
-}
-
-/* ---------- Mes inicial según fecha ---------- */
-
-function checkAndRenderNextMonth() {
-  const currentDate = new Date();
-  currentMonthIndex = months.findIndex((month) =>
-    (incursions[month] || []).some((event) => {
-      // Si tiene availability, usa el último fin de semana; si no, usa endDate
-      if (Array.isArray(event.availability) && event.availability.length) {
-        const last = new Date(event.availability[event.availability.length - 1].endDate);
-        return currentDate <= last;
-      }
-      const end = new Date(event.endDate);
-      return currentDate <= end;
-    })
-  );
-  if (currentMonthIndex === -1) currentMonthIndex = 0;
-
+function renderCurrentMonth() {
   renderIncursions(months[currentMonthIndex]);
-  updateNavigationState();
 }
 
 /* ---------- Utilidades de fecha ---------- */
@@ -209,9 +220,23 @@ function getYearForTitle(list, fallbackDate = new Date()) {
   return new Date(first.startDate).getFullYear();
 }
 
-function formatDayMonth(date) {
+function formatRaidDateTime(date) {
   try {
-    return date.toLocaleDateString("es-ES", { day: "2-digit", month: "short" });
+    const parts = new Intl.DateTimeFormat("es-AR", {
+      day: "2-digit",
+      month: "2-digit",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }).formatToParts(date);
+    const getPart = (type) => parts.find((part) => part.type === type)?.value || "";
+    const day = getPart("day");
+    const month = getPart("month");
+    const hour = getPart("hour");
+    const minute = getPart("minute");
+    const dayPeriod = getPart("dayPeriod").toLowerCase().replace(/\s/g, "");
+
+    return `${day}/${month} ${hour}:${minute}${dayPeriod}`;
   } catch {
     return "";
   }
@@ -247,40 +272,24 @@ function renderIncursions(month) {
     const card = document.createElement("div");
     card.className = "col-xl-pantalla col-lg-3 col-sm-6";
 
-    let itemClass = "";
     let dateInfo = "";
     const isWeekendStyle = Array.isArray(inc.availability) && inc.availability.length;
+    const raidStatus = getRaidStatus(inc, now);
+    const start = new Date(inc.startDate);
+    const end = new Date(inc.endDate);
 
     if (isWeekendStyle) {
-      // Estado dinámico basado en availability
-      const isActive = inc.availability.some((r) => {
-        const rs = new Date(r.startDate);
-        const re = new Date(r.endDate);
-        return now >= rs && now <= re;
-      });
-
-      const firstRangeStart = new Date(inc.availability[0].startDate);
-      const lastRangeEnd = new Date(inc.availability[inc.availability.length - 1].endDate);
-
-      if (isActive) itemClass = "date-active";
-      else if (now < firstRangeStart) itemClass = "date-future";
-      else if (now > lastRangeEnd) itemClass = "date-past";
-      else itemClass = "date-normal";
-
-      dateInfo = `<p style="color:#fff">Fines de Semana</p>`;
+      dateInfo = `<div class="raid-date-pill raid-date-start"><span>Inicio</span><b>Fines de semana</b></div>`;
     } else {
-      const start = new Date(inc.startDate);
-      const end = new Date(inc.endDate);
-
-      if (now < start) itemClass = "date-future";
-      else if (now > end) itemClass = "date-past";
-      else itemClass = "date-active";
-
       dateInfo = `
-        <b class="textdatesalign">
-          <span class="fecha-inicio">${formatDayMonth(start)}</span>
-          <span class="fecha-fin">${formatDayMonth(end)}</span>
-        </b>
+        <div class="raid-date-pill raid-date-start">
+          <span>Inicio</span>
+          <b>${formatRaidDateTime(start)}</b>
+        </div>
+        <div class="raid-date-pill raid-date-end">
+          <span>Fin</span>
+          <b>${formatRaidDateTime(end)}</b>
+        </div>
       `;
     }
 
@@ -288,35 +297,60 @@ function renderIncursions(month) {
     rendered++;
     const priorityAttr = isHigh ? 'fetchpriority="high"' : 'loading="lazy"';
     const decodingAttr = 'decoding="async"';
+    const counterHref = getCounterHref(inc);
 
     card.innerHTML = `
-      <a href="${inc.link || '#'}">
-        <div class="item item-link ${itemClass}" data-inicio="${inc.startDate || 'N/A'}" data-fin="${inc.endDate || 'N/A'}">
-          <p class="name-counter">${inc.name}</p>
-          <div class="date-eggs">
-            <div class="thumb thumb-counters">
+        <div class="item item-link raid-card ${raidStatus.className}" data-inicio="${escapeHTML(inc.startDate || "N/A")}" data-fin="${escapeHTML(inc.endDate || "N/A")}">
+          <div class="raid-card-head">
+            <span class="raid-status">${raidStatus.label}</span>
+            <span class="raid-tier">
+              <img src="${escapeHTML(inc.eggRaid)}" alt="" loading="lazy" ${decodingAttr} />
+            </span>
+          </div>
+          <p class="name-counter">${escapeHTML(inc.name)}</p>
+          <div class="raid-card-body">
+            <div class="thumb thumb-counters raid-thumb">
               ${
                 inc.shiny
-                  ? `<div class="pokemon-shiny" data-images='["${inc.image}", "${inc.shinyImage}"]'>
+                  ? `<div class="pokemon-shiny" data-images='["${escapeHTML(inc.image)}", "${escapeHTML(inc.shinyImage)}"]'>
                        <img src="../../assets/images/simbolos-incursiones/shiny.png" alt="shiny" class="shiny-icon" ${decodingAttr} loading="lazy"/>
                      </div>`
                   : ""
               }
               <div class="pokemon-types">
-                ${(inc.types || []).map((t) => `<img src="${t}" alt="Type" class="type-icon" loading="lazy" ${decodingAttr} />`).join("")}
+                ${(inc.types || []).map((t) => `<img src="${escapeHTML(t)}" alt="Type" class="type-icon" loading="lazy" ${decodingAttr} />`).join("")}
               </div>
-              <img src="${inc.image}" alt="${inc.name}" class="pokemon-imagen" ${priorityAttr} ${decodingAttr} />
+              <img src="${escapeHTML(inc.image)}" alt="${escapeHTML(inc.name)}" class="pokemon-imagen" ${priorityAttr} ${decodingAttr} />
             </div>
-            <div class="down-content">
-              <div class="dates-counters">
-                <img src="${inc.eggRaid}" class="eggs-counters" loading="lazy" ${decodingAttr} />
+            <div class="raid-info">
+              <div class="raid-date-range">
                 ${dateInfo}
               </div>
+              ${
+                inc.pc20 && inc.pc25
+                  ? `<div class="raid-weather-box">
+                      <div class="raid-weather-row">
+                        <span class="raid-weather-icons">
+                          <img src="../../assets/images/climas/No_Cubierto.png" alt="Sin clima cubierto" loading="lazy" ${decodingAttr} />
+                          <img src="../../assets/images/climas/No_Lluvioso.png" alt="Sin clima lluvioso" loading="lazy" ${decodingAttr} />
+                        </span>
+                        <b>${inc.pc20}</b>
+                      </div>
+                      <div class="raid-weather-row">
+                        <span class="raid-weather-icons">
+                          <img src="../../assets/images/climas/Si_Cubierto.png" alt="Con clima cubierto" loading="lazy" ${decodingAttr} />
+                          <img src="../../assets/images/climas/Si_Lluvioso.png" alt="Con clima lluvioso" loading="lazy" ${decodingAttr} />
+                        </span>
+                        <b>${inc.pc25}</b>
+                      </div>
+                    </div>`
+                  : ""
+              }
             </div>
           </div>
+          <a class="raid-counter-button" href="${escapeHTML(counterHref)}">Ver counter</a>
           ${inc.bonus ? `<p class="bonus-horadestacada">${inc.bonus}</p>` : ""}
         </div>
-      </a>
     `;
 
     container.appendChild(card);
@@ -358,7 +392,6 @@ function applyShinyHoverEffects() {
 /* ---------- Init ---------- */
 
 window.addEventListener("load", () => {
-  checkAndRenderNextMonth();
+  renderCurrentMonth();
   applyShinyHoverEffects();
-  updateNavigationState();
 });

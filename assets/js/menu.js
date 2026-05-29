@@ -49,7 +49,6 @@
               <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-info-menu">Más Info</button>
               <ul class="dropdown-menu" id="more-info-menu">
                 <li><a href="${withBase("rotacion-de-temporada/")}">Rotación de temporada</a></li>
-                <li><a href="${withBase("incursiones/")}">Incursiones</a></li>
                 <li><a href="${withBase("batallas-max/")}">Batallas Max</a></li>
                 <li><a href="${withBase("horas-destacadas/")}">Horas destacadas</a></li>
                 <li><a href="${withBase("horas-legendarias/")}">Horas legendarias</a></li>
@@ -61,7 +60,7 @@
             </li>
 
             <li><a href="${withBase("eventos/")}">Eventos</a></li>
-            <li><a href="${withBase("counters/")}">Counters</a></li>
+            <li><a href="${withBase("incursiones/")}">Incursiones</a></li>
             <li><a href="${withBase("atacantes/")}">Mejores Atacantes</a></li>
             <li><a href="${withBase("shinycheck/")}">Shiny Check</a></li>
             <li><a href="${withBase("nosotros/")}">Nosotros</a></li>
