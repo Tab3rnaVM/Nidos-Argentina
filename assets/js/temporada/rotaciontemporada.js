@@ -1,9 +1,11 @@
 const eventosData = {
-  titulo: "Caminos Valiosos",
+  titulo: "Siempre Adelante",
   fechas: {
-    inicio: "2025-12-02T10:00:00",
-    fin: "2026-03-03T10:00:00",
+    inicio: "2026-06-02T10:00:00",
+    fin: "2026-09-08T10:00:00",
   },
+  logo: "../../assets/images/temporada/siempre_adelante.png",
+  fondo: "../../assets/images/temporada/fondo-temporada-siempre-adelante.jpg",
   secciones: [
     {
       titulo: "Logro de investigación",
@@ -11,37 +13,38 @@ const eventosData = {
       icono: "../../assets/images/temporada/logro-de-investigacion.png",
       items: [
         {
-          nombre: "Mr. Mime de Galar",
-          imagen: "../../assets/images/pokemon/pm122.fGALARIAN.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm122.fGALARIAN.s.icon.webp",
+          nombre: "Dragonite",
+          imagen: "../../assets/images/pokemon/pm149.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm149.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Lapras",
-          imagen: "../../assets/images/pokemon/pm131.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm131.s.icon.webp",
-          shiny: true,
-        },
-        {
-          nombre: "Snorlax",
-          imagen: "../../assets/images/pokemon/pm143.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm143.s.icon.webp",
+          nombre: "Axew",
+          imagen: "../../assets/images/pokemon/pm610.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm610.s.icon.webp",
           shiny: true,
         },
         {
           nombre: "Honedge",
           imagen: "../../assets/images/pokemon/pm679.icon.webp",
-          shiny: false,
-        },
-        {
-          nombre: "Sinistea",
-          imagen: "../../assets/images/pokemon/pm854.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm854.s.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm679.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Dreepy",
-          imagen: "../../assets/images/pokemon/pm885.icon.webp",
+          nombre: "Jangmo-o",
+          imagen: "../../assets/images/pokemon/pm782.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm782.s.icon.webp",
+          shiny: true,
+        },
+        {
+          nombre: "Indeedee",
+          imagen: "../../assets/images/pokemon/pm876.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm876.s.icon.webp",
+          shiny: true,
+        },
+        {
+          nombre: "Klawf",
+          imagen: "../../assets/images/pokemon/pm950.icon.webp",
           shiny: false,
         },
       ],
@@ -57,21 +60,21 @@ const eventosData = {
       icono: "../../assets/images/huevos/huevo-2km.png",
       items: [
         {
-          nombre: "Cleffa",
-          imagen: "../../assets/images/pokemon/pm173.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm173.s.icon.webp",
+          nombre: "Exeggcute",
+          imagen: "../../assets/images/pokemon/pm102.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm102.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Smoochum",
-          imagen: "../../assets/images/pokemon/pm238.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm238.s.icon.webp",
+          nombre: "Corphish",
+          imagen: "../../assets/images/pokemon/pm341.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm341.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Bergmite",
-          imagen: "../../assets/images/pokemon/pm712.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm712.s.icon.webp",
+          nombre: "Wynaut",
+          imagen: "../../assets/images/pokemon/pm360.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm360.s.icon.webp",
           shiny: true,
         },
       ],
@@ -82,20 +85,20 @@ const eventosData = {
       icono: "../../assets/images/huevos/huevo-5km.png",
       items: [
         {
-          nombre: "Audino",
-          imagen: "../../assets/images/pokemon/pm531.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm531.s.icon.webp",
+          nombre: "Riolu",
+          imagen: "../../assets/images/pokemon/pm447.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm447.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Elgyem",
-          imagen: "../../assets/images/pokemon/pm605.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm605.s.icon.webp",
+          nombre: "Mantyke",
+          imagen: "../../assets/images/pokemon/pm458.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm458.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Snom",
-          imagen: "../../assets/images/pokemon/pm872.icon.webp",
+          nombre: "Flittle",
+          imagen: "../../assets/images/pokemon/pm955.icon.webp",
           shiny: false,
         },
       ],
@@ -106,21 +109,21 @@ const eventosData = {
       icono: "../../assets/images/huevos/huevo-5km-sincroaventura.png",
       items: [
         {
-          nombre: "Bonsly",
-          imagen: "../../assets/images/pokemon/pm438.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm438.s.icon.webp",
+          nombre: "Tyrogue",
+          imagen: "../../assets/images/pokemon/pm236.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm236.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Riolu",
-          imagen: "../../assets/images/pokemon/pm447.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm447.s.icon.webp",
+          nombre: "Sableye",
+          imagen: "../../assets/images/pokemon/pm302.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm302.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Archen",
-          imagen: "../../assets/images/pokemon/pm566.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm566.s.icon.webp",
+          nombre: "Budew",
+          imagen: "../../assets/images/pokemon/pm406.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm406.s.icon.webp",
           shiny: true,
         },
       ],
@@ -137,15 +140,15 @@ const eventosData = {
           shiny: true,
         },
         {
-          nombre: "Zigzagoon de Galar",
-          imagen: "../../assets/images/pokemon/pm263.fGALARIAN.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm263.fGALARIAN.s.icon.webp",
+          nombre: "Corsola de Galar",
+          imagen: "../../assets/images/pokemon/pm222.fGALARIAN.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm222.fGALARIAN.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Stunfisk de Galar",
-          imagen: "../../assets/images/pokemon/pm618.fGALARIAN.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm618.fGALARIAN.s.icon.webp",
+          nombre: "Darumaka de Galar",
+          imagen: "../../assets/images/pokemon/pm554.fGALARIAN.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm554.fGALARIAN.s.icon.webp",
           shiny: true,
         },
       ],
@@ -162,13 +165,13 @@ const eventosData = {
           shiny: true,
         },
         {
-          nombre: "Slowpoke de Galar",
-          imagen: "../../assets/images/pokemon/pm79.fGALARIAN.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm79.fGALARIAN.s.icon.webp",
+          nombre: "Sneasel de Hisui",
+          imagen: "../../assets/images/pokemon/pm215.fHISUIAN.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm215.fHISUIAN.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Basculin (Raya Blanca)",
+          nombre: "Basculin Forma Raya Blanca",
           imagen: "../../assets/images/pokemon/pm550.fWHITE_STRIPED.icon.webp",
           shinyImage: "../../assets/images/pokemon/pm550.fWHITE_STRIPED.s.icon.webp",
           shiny: true,
@@ -181,15 +184,21 @@ const eventosData = {
       icono: "../../assets/images/huevos/huevo-10km.png",
       items: [
         {
-          nombre: "Beldum",
-          imagen: "../../assets/images/pokemon/pm374.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm374.s.icon.webp",
+          nombre: "Mawile",
+          imagen: "../../assets/images/pokemon/pm303.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm303.s.icon.webp",
           shiny: true,
         },
         {
-          nombre: "Tinkatink",
-          imagen: "../../assets/images/pokemon/pm957.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm957.s.icon.webp",
+          nombre: "Absol",
+          imagen: "../../assets/images/pokemon/pm359.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm359.s.icon.webp",
+          shiny: true,
+        },
+        {
+          nombre: "Frigibax",
+          imagen: "../../assets/images/pokemon/pm996.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm996.s.icon.webp",
           shiny: true,
         },
       ],
@@ -200,9 +209,15 @@ const eventosData = {
       icono: "../../assets/images/huevos/huevo-10km-sincroaventura.png",
       items: [
         {
-          nombre: "Beldum",
-          imagen: "../../assets/images/pokemon/pm374.icon.webp",
-          shinyImage: "../../assets/images/pokemon/pm374.s.icon.webp",
+          nombre: "Bagon",
+          imagen: "../../assets/images/pokemon/pm371.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm371.s.icon.webp",
+          shiny: true,
+        },
+        {
+          nombre: "Druddigon",
+          imagen: "../../assets/images/pokemon/pm621.icon.webp",
+          shinyImage: "../../assets/images/pokemon/pm621.s.icon.webp",
           shiny: true,
         },
         {
@@ -211,27 +226,38 @@ const eventosData = {
           shinyImage: "../../assets/images/pokemon/pm780.s.icon.webp",
           shiny: true,
         },
-        {
-          nombre: "Dreepy",
-          imagen: "../../assets/images/pokemon/pm885.icon.webp",
-          shiny: false,
-        },
       ],
     },
   ],
 
+  bonusIntro:
+    "Alcancen hitos principales en el Pase de GO para desbloquear las siguientes bonificaciones. Una vez desbloqueadas, estas bonificaciones estarán disponibles hasta que el Pase de GO finalice.",
   bonus: [
     {
-      texto: "Un intercambio especial adicional al día.",
-      icono: "../../assets/images/bonus/intercambio-bonus.png",
+      nivel: "Nivel 1",
+      rango: "Rango 1",
+      tono: "purple",
+      items: ["Un Caramelo adicional al intercambiar Pokémon"],
     },
     {
-      texto: "Más Polvos Estrella por la primera captura del día.",
-      icono: "../../assets/images/bonus/polvos-bonus.png",
+      nivel: "Nivel 2",
+      rango: "Rango 25",
+      tono: "bronze",
+      items: [
+        "Aumento de límites de apertura, recepción en Poképaradas y fotodiscos de Gimnasios, y almacenamiento de regalos",
+      ],
     },
     {
-      texto: "Mayor daño causado por los Pokémon en incursiones gracias a la bonificación de amistad.",
-      icono: "../../assets/images/bonus/raid-bonus.png",
+      nivel: "Nivel 3",
+      rango: "Rango 50",
+      tono: "silver",
+      items: ["El doble de duración del Incienso de Aventura Diario"],
+    },
+    {
+      nivel: "Nivel 4",
+      rango: "Rango 75",
+      tono: "gold",
+      items: ["Más EXP y Polvos Estrella por eclosionar Huevos"],
     },
   ],
 };
@@ -331,33 +357,58 @@ function applyShinyHoverEffects() {
     if (!pokemonImage) return;
     icon.addEventListener("mouseover", () => (pokemonImage.src = images[1]));
     icon.addEventListener("mouseout", () => (pokemonImage.src = images[0]));
+    icon.addEventListener("focus", () => (pokemonImage.src = images[1]));
+    icon.addEventListener("blur", () => (pokemonImage.src = images[0]));
   });
 }
 
 /* ---------- Render ---------- */
+
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function formatSeasonDateTime(date) {
+  const formattedDate = date.toLocaleDateString("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const formattedTime = date.toLocaleTimeString("es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  return `${formattedDate}, a las ${formattedTime}`;
+}
 
 function renderEvento(eventData) {
   // Hints de recursos antes de renderizar
   injectResourceHintsForEvent(eventData);
 
   const container = document.getElementById("eventoContainer");
+  const startDate = new Date(eventData.fechas.inicio);
+  const endDate = new Date(eventData.fechas.fin);
 
-  // Renderizar el título y las fechas
   container.innerHTML = `
-    <div class="secciontitle">
-      <div class="col-lg-12">
-        <div class="heading-section">
-          <h4>${eventData.titulo}</h4>
-        </div>
+    <div class="secciontitle season-showcase-title rotation-showcase-title" style="margin-top: 0 !important">
+      <p class="season-showcase-date">
+        Desde el ${escapeHTML(formatSeasonDateTime(startDate))} hasta el ${escapeHTML(formatSeasonDateTime(endDate))} (hora local)
+      </p>
+      <div class="season-showcase-media">
+        <img src="${escapeHTML(eventData.logo)}" alt="Temporada ${escapeHTML(eventData.titulo)}" fetchpriority="high" decoding="async" />
       </div>
-    </div>
-    <div class="col-lg-12" style="margin-top: 15px; padding: 0 !important">
-      <div class="sub-secciontitle" style="margin-bottom: 0 !important">
-        <p class="subtitles-blancos">
-          Del ${new Date(eventData.fechas.inicio).toLocaleDateString("es-ES", { day: "2-digit", month: "long" })}
-          (${new Date(eventData.fechas.inicio).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })})
-          hasta el ${new Date(eventData.fechas.fin).toLocaleDateString("es-ES", { day: "2-digit", month: "long" })}
-          (${new Date(eventData.fechas.fin).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })})
+      <div class="season-showcase-copy">
+        <div class="heading-section">
+          <h4>Temporada ${escapeHTML(eventData.titulo)}</h4>
+        </div>
+        <p class="section-kicker">
+          Rotación de encuentros, huevos y bonus activos durante la temporada.
         </p>
       </div>
     </div>
@@ -374,43 +425,47 @@ function renderEvento(eventData) {
     renderIndex++;
 
     return `
-      <div class="item item-pkmEvent ${item.raro ? "raro" : ""}">
-        <div class="thumb thumb-pkmEvent">
+      <article class="rotation-pokemon-card ${item.raro ? "raro" : ""}">
+        <div class="thumb rotation-pokemon-thumb">
           <img
-            src="${item.imagen}"
-            alt="${item.nombre}"
+            src="${escapeHTML(item.imagen)}"
+            alt="${escapeHTML(item.nombre)}"
             class="pokemon-image"
             ${priorityAttr}
             decoding="async"
+            onerror="this.closest('.rotation-pokemon-card').classList.add('is-missing-image'); this.remove();"
           />
           ${
             item.shiny
-              ? `<div class="shiny-icon">
+              ? `<button class="rotation-shiny-button shiny-icon" type="button" aria-label="Ver shiny de ${escapeHTML(item.nombre)}">
                    <img
                      src="../../assets/images/simbolos-incursiones/shiny.png"
                      alt="shiny"
                      class="shiny-hover"
-                     data-images='["${item.imagen}", "${item.shinyImage}"]'
+                     data-images='["${escapeHTML(item.imagen)}", "${escapeHTML(item.shinyImage)}"]'
                    />
-                 </div>`
+                 </button>`
               : ""
           }
-          <div class="pokemon-name">${item.nombre}</div>
         </div>
-      </div>
+        <h3>${escapeHTML(item.nombre)}</h3>
+      </article>
     `;
   };
 
   // Renderizar secciones
   eventData.secciones.forEach((seccion) => {
     let sectionHTML = `
-      <div class="seccioncontainer" style="margin-top: 15px">
-        <div class="titulo-icono">
-          <div class="avatar">
-            <img src="${seccion.icono}" alt="${seccion.titulo}" style="max-width: 46px; border-radius: 50%" />
+      <section class="rotation-section">
+        <header class="rotation-section-header">
+          <div class="rotation-section-title">
+            <img src="${escapeHTML(seccion.icono)}" alt="" loading="lazy" decoding="async" />
+            <div>
+              <span>${escapeHTML(seccion.titulo)}</span>
+              ${seccion.subtitulo ? `<strong>${escapeHTML(seccion.subtitulo)}</strong>` : ""}
+            </div>
           </div>
-          <h3>${seccion.titulo}<br /><span>${seccion.subtitulo || ""}</span></h3>
-        </div>
+        </header>
     `;
 
     // Secciones con días
@@ -422,10 +477,10 @@ function renderEvento(eventData) {
               ? dia.items.map((item) => renderPokemonCard(item)).join("")
               : `<p class="no-data">No hay elementos disponibles para este día.</p>`;
           return `
-            <div class="sub-secciontitle" style="margin-top: 15px !important">
-              <p class="subtitles-blancos">Los días ${dia.fecha}</p>
+            <div class="rotation-day-group">
+              <h3>Los días ${escapeHTML(dia.fecha)}</h3>
             </div>
-            <div class="imagenes-grid">
+            <div class="rotation-grid">
               ${cards}
             </div>
           `;
@@ -435,7 +490,7 @@ function renderEvento(eventData) {
     // Secciones con items directos
     else if (seccion.items) {
       sectionHTML += `
-        <div class="imagenes-grid">
+        <div class="rotation-grid">
           ${
             seccion.items.length > 0
               ? seccion.items.map((item) => renderPokemonCard(item)).join("")
@@ -444,7 +499,7 @@ function renderEvento(eventData) {
         </div>
         ${
           seccion.textoAdicional
-            ? seccion.textoAdicional.map((linea) => `<p class="info-adicional">${linea}</p>`).join("")
+            ? seccion.textoAdicional.map((linea) => `<p class="info-adicional">${escapeHTML(linea)}</p>`).join("")
             : ""
         }
       `;
@@ -454,14 +509,14 @@ function renderEvento(eventData) {
       sectionHTML += `<p class="no-data">No hay elementos disponibles para esta sección.</p>`;
     }
 
-    sectionHTML += `</div>`;
+    sectionHTML += `</section>`;
     container.innerHTML += sectionHTML;
   });
 
   // Banners antes de los bonus
   container.innerHTML += `
-    <div class="footer-container">
-      <div class="footer-banner">
+    <div class="rotation-legend">
+      <div>
         <span class="shiny-icon-circle">
           <img
             src="../../assets/images/simbolos-incursiones/shiny.png"
@@ -477,21 +532,25 @@ function renderEvento(eventData) {
   // Bonus
   if (eventData.bonus && eventData.bonus.length > 0) {
     container.innerHTML += `
-      <div class="bonus-list">
-        <div class="titulo-bonus" style="margin-bottom: 0 !important">
-          <h3>Bonus del evento<br /></h3>
-        </div>
+      <section class="rotation-bonus-panel">
+        <h2>Bonus de temporada</h2>
+        ${eventData.bonusIntro ? `<p class="rotation-bonus-intro">${escapeHTML(eventData.bonusIntro)}</p>` : ""}
+        <div class="rotation-bonus-grid">
         ${eventData.bonus
           .map(
             (bonus) => `
-              <div class="bonus-item">
-                <img src="${bonus.icono}" alt="Bonus" class="bonus-icon" loading="lazy" decoding="async" />
-                <p>${bonus.texto}</p>
-              </div>
+              <article class="rotation-bonus-card rotation-bonus-${escapeHTML(bonus.tono || "blue")}">
+                <span class="rotation-bonus-level">${escapeHTML(bonus.nivel)}</span>
+                <strong>${escapeHTML(bonus.rango)}</strong>
+                <ul>
+                  ${(bonus.items || []).map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
+                </ul>
+              </article>
             `
           )
           .join("")}
-      </div>
+        </div>
+      </section>
     `;
   }
 
@@ -506,4 +565,3 @@ function renderEvento(eventData) {
 window.addEventListener("load", () => {
   renderEvento(eventosData);
 });
-

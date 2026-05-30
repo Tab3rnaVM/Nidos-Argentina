@@ -1067,6 +1067,356 @@ body .page-content {
   text-align: center !important;
 }
 
+.rotation-page {
+  overflow: visible;
+}
+
+.rotation-showcase-title {
+  margin-top: 0 !important;
+  margin-bottom: 22px !important;
+}
+
+.rotation-showcase-title .season-showcase-media {
+  min-height: 260px;
+}
+
+.rotation-showcase-title .season-showcase-media img {
+  width: min(100%, 420px);
+}
+
+.rotation-section,
+.rotation-bonus-panel {
+  margin-top: 22px;
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(53, 219, 197, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 20px 52px rgba(8, 18, 39, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.rotation-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(39, 43, 45, 0.98), rgba(29, 32, 34, 0.98));
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.rotation-section-title {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.rotation-section-title img {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 999px;
+  background: rgba(8, 18, 39, 0.46);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.26);
+}
+
+.rotation-section-title div {
+  min-width: 0;
+}
+
+.rotation-section-title span {
+  display: block;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(24px, 2.2vw, 36px);
+  line-height: 1;
+}
+
+.rotation-section-title strong {
+  display: block;
+  margin-top: 5px;
+  color: #75aadb;
+  font-family: "DinProBold", sans-serif;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1;
+}
+
+.rotation-section-count {
+  flex: 0 0 auto;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #081227;
+  background: rgba(53, 219, 197, 0.94);
+  font-family: "DinProBlack", sans-serif;
+  line-height: 1;
+}
+
+.rotation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 14px;
+}
+
+.rotation-pokemon-card {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(117, 170, 219, 0.14), transparent 36%),
+    rgba(8, 18, 39, 0.42);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.rotation-pokemon-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(117, 170, 219, 0.56);
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.32),
+    0 0 20px rgba(117, 170, 219, 0.12);
+}
+
+.rotation-pokemon-thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 34%),
+    rgba(255, 255, 255, 0.05);
+}
+
+.rotation-pokemon-thumb > .pokemon-image {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.24));
+}
+
+.rotation-pokemon-card.is-missing-image .rotation-pokemon-thumb::before {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(8, 18, 39, 0.42);
+  content: "?";
+  font-family: "DinProBlack", sans-serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.rotation-shiny-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  box-sizing: border-box;
+  width: 34px;
+  height: 34px;
+  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.rotation-shiny-button img {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: contain;
+  border-radius: 999px !important;
+}
+
+.rotation-shiny-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.rotation-pokemon-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBold", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.rotation-day-group h3 {
+  margin: 18px 0 12px;
+  color: #75aadb;
+  font-family: "DinProBlack", sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rotation-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.rotation-legend > div {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(8, 18, 39, 0.46);
+  font-family: "DinProBold", sans-serif;
+  line-height: 1;
+}
+
+.rotation-legend .shiny-icon-circle {
+  display: inline-flex;
+}
+
+.rotation-legend img {
+  width: 34px;
+  height: 34px;
+}
+
+.rotation-bonus-panel h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(26px, 2.4vw, 38px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rotation-bonus-intro {
+  max-width: 980px;
+  margin: 0 auto 20px;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "DinProBold", sans-serif;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.rotation-bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(117, 170, 219, 0.18), transparent 28%),
+    rgba(8, 18, 39, 0.34);
+}
+
+.rotation-bonus-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 290px;
+  padding: 28px 24px;
+  border-right: 1px solid rgba(117, 170, 219, 0.28);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 36%);
+}
+
+.rotation-bonus-card:last-child {
+  border-right: 0;
+}
+
+.rotation-bonus-level {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  min-width: min(100%, 190px);
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(24px, 2.6vw, 42px);
+  line-height: 1;
+  text-align: center;
+}
+
+.rotation-bonus-purple .rotation-bonus-level {
+  background: linear-gradient(90deg, #9841c7, #563f9e);
+}
+
+.rotation-bonus-bronze .rotation-bonus-level {
+  background: linear-gradient(90deg, #c97942, #a15a38);
+}
+
+.rotation-bonus-silver .rotation-bonus-level {
+  background: linear-gradient(90deg, #b8b8b3, #868985);
+}
+
+.rotation-bonus-gold .rotation-bonus-level {
+  background: linear-gradient(90deg, #d9ba52, #ba8f2c);
+}
+
+.rotation-bonus-card strong {
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1;
+  text-align: center;
+}
+
+.rotation-bonus-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 0 22px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.rotation-bonus-card li::marker {
+  color: #35dbc5;
+}
+
 .guides-showcase-title {
   margin-top: 34px !important;
   padding: clamp(28px, 3.4vw, 44px) !important;
@@ -3442,6 +3792,10 @@ body .page-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .rotation-bonus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   #containerGuides {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3588,6 +3942,72 @@ body .page-content {
 
   .season-hub {
     padding: 22px 14px;
+  }
+
+  .rotation-bonus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rotation-section,
+  .rotation-bonus-panel {
+    padding: 18px 12px;
+    border-radius: 20px;
+  }
+
+  .rotation-section-header {
+    align-items: flex-start;
+    border-radius: 18px;
+  }
+
+  .rotation-section-title img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .rotation-section-title span {
+    font-size: 23px;
+  }
+
+  .rotation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .rotation-pokemon-card {
+    border-radius: 16px;
+  }
+
+  .rotation-shiny-button {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+  }
+
+  .rotation-shiny-button img {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+  }
+
+  .rotation-bonus-card {
+    min-height: 0;
+    padding: 22px 18px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(117, 170, 219, 0.28);
+  }
+
+  .rotation-bonus-card:last-child {
+    border-bottom: 0;
+  }
+
+  .rotation-bonus-card ul {
+    font-size: 15px;
   }
 
   #containerSeason {
