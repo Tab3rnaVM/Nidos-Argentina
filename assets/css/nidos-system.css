@@ -1849,6 +1849,394 @@ body .page-content {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
+.max-page {
+  overflow: visible;
+}
+
+.max-showcase-title {
+  margin-top: 0 !important;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(53, 219, 197, 0.18), transparent 28%),
+    radial-gradient(circle at 86% 20%, rgba(255, 219, 75, 0.16), transparent 24%),
+    linear-gradient(135deg, rgba(73, 126, 176, 0.96), rgba(31, 60, 100, 0.94));
+}
+
+.max-showcase-title .heading-section {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.max-title-badge {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px 0 8px;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(8, 18, 39, 0.66);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  font-family: "DinProBold", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.max-title-badge img {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+}
+
+.max-showcase-title .heading-section h4 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1;
+  text-shadow: 0 4px 10px rgba(8, 18, 39, 0.52);
+}
+
+.max-showcase-title .section-kicker {
+  margin: 0 auto;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.max-notice {
+  width: min(960px, 100%);
+  margin: 20px auto 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(53, 219, 197, 0.82), rgba(117, 170, 219, 0.7));
+  box-shadow:
+    0 14px 28px rgba(8, 18, 39, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  font-family: "DinProBold", sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.max-battles-hub {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+  padding: clamp(22px, 3.4vw, 40px);
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(53, 219, 197, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 0%, rgba(255, 219, 75, 0.1), transparent 30%),
+    linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 20px 52px rgba(8, 18, 39, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.max-battle-card {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(222, 192, 255, 0.17), transparent 34%),
+    linear-gradient(180deg, rgba(39, 43, 45, 0.98), rgba(29, 32, 34, 0.98));
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.max-battle-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(222, 192, 255, 0.58);
+  box-shadow:
+    0 24px 46px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(222, 192, 255, 0.14);
+}
+
+.max-battle-card.date-active {
+  border-color: rgba(53, 219, 197, 0.78);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.36),
+    0 0 34px rgba(53, 219, 197, 0.22);
+}
+
+.max-battle-card.date-past {
+  opacity: 1;
+  filter: none;
+}
+
+.max-battle-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.max-battle-status span {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 11px;
+  border-radius: 999px;
+  color: #081227;
+  background: rgba(117, 170, 219, 0.94);
+  font-family: "DinProBold", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.date-active .max-battle-status span {
+  background: rgba(53, 219, 197, 0.96);
+}
+
+.date-past .max-battle-status span {
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.max-battle-status img {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(8, 18, 39, 0.38);
+}
+
+.max-battle-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 54%, rgba(222, 192, 255, 0.24), transparent 35%),
+    linear-gradient(180deg, rgba(223, 239, 222, 0.22), rgba(117, 170, 219, 0.12));
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.max-battle-thumb::before,
+.max-battle-thumb::after {
+  position: absolute;
+  left: 50%;
+  width: 140%;
+  height: 18%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.max-battle-thumb::before {
+  top: 28%;
+}
+
+.max-battle-thumb::after {
+  bottom: 28%;
+}
+
+.max-battle-thumb > .pokemon-imagen {
+  position: relative;
+  z-index: 2;
+  width: 88% !important;
+  height: 88% !important;
+  padding: 0;
+  object-fit: contain;
+}
+
+.max-battle-thumb .pokemon-types {
+  z-index: 3;
+  right: 10px;
+  bottom: 10px;
+  top: auto;
+  gap: 5px;
+}
+
+.max-battle-thumb .type-icon {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.max-shiny-trigger {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.max-shiny-trigger .shiny-icon {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+.max-shiny-trigger:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.max-battle-copy {
+  text-align: center;
+}
+
+.max-battle-copy h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(22px, 1.7vw, 30px);
+  line-height: 1;
+}
+
+.max-battle-copy p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: "DinProBold", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.max-battles-hub {
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.max-battles-hub > [class*="col-"] {
+  width: 100% !important;
+  max-width: none !important;
+  flex: none !important;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 24px !important;
+}
+
+.max-battles-hub .raid-card {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 13px;
+  padding: 18px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(222, 192, 255, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(39, 43, 45, 0.98), rgba(29, 32, 34, 0.98));
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.max-battles-hub .raid-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(222, 192, 255, 0.58);
+  box-shadow:
+    0 24px 46px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(222, 192, 255, 0.14);
+}
+
+.max-battles-hub .raid-card.date-active {
+  border-color: rgba(53, 219, 197, 0.76);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.38),
+    0 0 34px rgba(53, 219, 197, 0.22);
+}
+
+.max-battles-hub .name-counter {
+  min-height: 48px;
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(20px, 1.4vw, 26px);
+  line-height: 1.12;
+  text-align: center;
+  white-space: normal;
+}
+
+.max-battles-hub .raid-thumb {
+  float: none;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  aspect-ratio: 16 / 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(222, 192, 255, 0.2), transparent 38%),
+    rgba(8, 18, 39, 0.34);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+}
+
+.max-battles-hub .raid-thumb > .pokemon-imagen {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  border-radius: 18px;
+}
+
+.max-battles-hub .pokemon-shiny {
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.max-battles-hub .shiny-icon {
+  width: 34px !important;
+  height: 34px !important;
+}
+
+.max-battles-hub .pokemon-types {
+  gap: 6px;
+  right: 12px;
+  top: 12px;
+  bottom: auto;
+}
+
+.max-battles-hub .type-icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 .attackers-page .page-content,
 .attackers-page {
   overflow: visible;
@@ -2936,6 +3324,10 @@ body .page-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .max-battles-hub {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .attackers-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3060,6 +3452,10 @@ body .page-content {
   }
 
   .raids-hub {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .max-battles-hub {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -3255,6 +3651,51 @@ body .page-content {
 
   .raids-hub > [class*="col-"] {
     margin-bottom: 34px !important;
+  }
+
+  .max-showcase-title {
+    padding: 24px 18px !important;
+  }
+
+  .max-showcase-title .heading-section h4 {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .max-title-badge {
+    min-height: 38px;
+    padding-right: 14px;
+    font-size: 13px;
+  }
+
+  .max-title-badge img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .max-notice {
+    border-radius: 20px;
+  }
+
+  .max-battles-hub {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px 14px;
+    border-radius: 20px;
+  }
+
+  .max-battle-card {
+    grid-template-columns: minmax(92px, 140px) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    border-radius: 20px;
+  }
+
+  .max-battle-status {
+    grid-column: 1 / -1;
+  }
+
+  .max-battle-copy {
+    text-align: left;
   }
 
   .raids-hub .raid-card {
