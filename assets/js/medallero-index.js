@@ -141,7 +141,7 @@
 
     setData({
       titleText: badge?.title || "Próximo evento",
-      subText: (lat!=null && lng!=null) ? `${lat.toFixed(5)}, ${lng.toFixed(5)}` : "Ubicación por anunciar",
+      subText: (lat!=null && lng!=null) ? "Parque Rivadavia" : "Ubicación por anunciar",
       imgUrl: assetPath(badge?.imageUrl || "assets/images/guias/medallero.webp"),
       startAt: next.startMs,
       endAt: next.endMs

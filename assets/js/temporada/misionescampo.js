@@ -802,165 +802,255 @@ const investigations = {
   ],
 };
 
-// ===== Navegación fija por scroll =====
-document.addEventListener("DOMContentLoaded", function () {
-  const regionBar = document.querySelector(".scroll-bar-sections");
-  const selectTypePlaceholder = document.querySelector(".selecttype-placeholder");
+const FIELD_SECTIONS = [
+  {
+    id: "capturas",
+    label: "Capturas",
+    icon: "../../assets/images/inv-campo/capturas.png",
+  },
+  {
+    id: "lanzamientos",
+    label: "Tiros de captura",
+    shortLabel: "Lanzamientos",
+    icon: "../../assets/images/inv-campo/lanzamientos.png",
+  },
+  {
+    id: "batallas",
+    label: "Batallas",
+    icon: "../../assets/images/inv-campo/batallas.png",
+  },
+  {
+    id: "exploracion",
+    label: "Exploración",
+    icon: "../../assets/images/inv-campo/exploracion.png",
+  },
+  {
+    id: "entrenamiento",
+    label: "Entrenamiento",
+    icon: "../../assets/images/inv-campo/entrenamiento.png",
+  },
+  {
+    id: "amistad",
+    label: "Amistad",
+    icon: "../../assets/images/inv-campo/amistad.png",
+  },
+  {
+    id: "rocket",
+    label: "Equipo Rocket",
+    shortLabel: "Rocket",
+    icon: "../../assets/images/inv-campo/gorocket.png",
+  },
+];
 
-  function handleScroll() {
-    if (!selectTypePlaceholder || !regionBar) return;
-    const triggerPoint = selectTypePlaceholder.offsetTop;
-    if (window.scrollY >= triggerPoint) {
-      regionBar.classList.add("show");
-    } else {
-      regionBar.classList.remove("show");
-    }
-  }
+const SHINY_BADGE = "../../assets/images/simbolos-incursiones/shiny.png";
+let currentFieldSection = FIELD_SECTIONS[0].id;
 
-  window.addEventListener("scroll", handleScroll);
-});
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
-// ===== Scroll a secciones desde la barra =====
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".scroll-bar-sections img").forEach((img) => {
-    img.addEventListener("click", function () {
-      const targetId = this.getAttribute("data-target");
-      const targetSection = document.getElementById(targetId);
+function setFieldResourceLinks(urls, { rel = "preload", as = "image", dataTag = "field-hint", limit = 18 } = {}) {
+  document.head
+    .querySelectorAll(`link[rel="${rel}"][data-tag="${dataTag}"]`)
+    .forEach((node) => node.remove());
 
-      console.log("Clic en:", this.alt, "| ID objetivo:", targetId, "| Elemento encontrado:", targetSection);
+  [...new Set(urls)].slice(0, limit).forEach((href) => {
+    if (!href) return;
+    const link = document.createElement("link");
+    link.rel = rel;
+    if (as) link.as = as;
+    link.href = href;
+    link.dataset.tag = dataTag;
+    document.head.appendChild(link);
+  });
+}
 
-      if (targetSection) {
-        const offset = 130; // altura de la barra fija
-        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPosition, behavior: "smooth" });
-      } else {
-        console.warn(`⚠️ No se encontró la sección con ID "${targetId}". Verifica los IDs en el HTML.`);
-      }
+function collectSectionImages(sectionId, { includeShiny = false } = {}) {
+  const urls = new Set([SHINY_BADGE]);
+  (investigations[sectionId] || []).forEach((item) => {
+    (item.rewards || []).forEach((reward) => {
+      if (reward.image) urls.add(reward.image);
+      if (includeShiny && reward.shinyImage) urls.add(reward.shinyImage);
     });
   });
-});
+  return [...urls];
+}
 
-// ======= RENDER =======
-function renderSection(section, containerId) {
-  const container = document.getElementById(containerId);
+function preloadActiveSection(sectionId) {
+  const imageUrls = collectSectionImages(sectionId, { includeShiny: false });
+  setFieldResourceLinks(imageUrls, { rel: "preload", as: "image", dataTag: "field-active", limit: 12 });
+}
+
+function renderFieldNav() {
+  const nav = document.getElementById("fieldCategoryNav");
+  if (!nav) return;
+
+  nav.innerHTML = FIELD_SECTIONS.map(
+    (section) => `
+      <button class="field-category-button" type="button" data-section="${section.id}" aria-pressed="${section.id === currentFieldSection}">
+        <img src="${section.icon}" alt="" loading="lazy" decoding="async" />
+        <span>${section.shortLabel || section.label}</span>
+      </button>
+    `
+  ).join("");
+}
+
+function renderSectionHeader(sectionId) {
+  const header = document.getElementById("fieldSectionHeader");
+  const meta = FIELD_SECTIONS.find((section) => section.id === sectionId);
+  const totalTasks = investigations[sectionId]?.length || 0;
+  if (!header || !meta) return;
+
+  header.innerHTML = `
+    <div class="field-section-title">
+      <img src="${meta.icon}" alt="" loading="lazy" decoding="async" />
+      <div>
+        <span>Categoría</span>
+        <h2>${meta.label}</h2>
+      </div>
+    </div>
+    <strong>${totalTasks} tareas</strong>
+  `;
+}
+
+function renderReward(reward, index) {
+  const priorityAttr = index < 8 ? 'fetchpriority="high"' : 'loading="lazy"';
+
+  return `
+    <article class="reward-item">
+      <img
+        src="${escapeHTML(reward.image)}"
+        alt="${escapeHTML(reward.name)}"
+        class="reward-image"
+        data-original="${escapeHTML(reward.image)}"
+        ${reward.shinyImage ? `data-shiny="${escapeHTML(reward.shinyImage)}"` : ""}
+        ${priorityAttr}
+        decoding="async"
+      />
+      ${
+        reward.shinyImage
+          ? `<button class="field-shiny-button" type="button" aria-label="Ver shiny de ${escapeHTML(reward.name)}">
+              <img src="${SHINY_BADGE}" alt="" class="shiny-icon-image" loading="lazy" decoding="async" />
+            </button>`
+          : ""
+      }
+      <div class="field-reward-copy">
+        <h3>${escapeHTML(reward.name)}</h3>
+        <span>PC ${escapeHTML(reward.cp)}</span>
+      </div>
+    </article>
+  `;
+}
+
+function renderFieldSection(sectionId) {
+  const container = document.getElementById("fieldInvestigationContainer");
+  const items = investigations[sectionId] || [];
   if (!container) return;
 
-  const sectionHTML = investigations[section]
-    .map(
-      (item) => `
-      <div class="investigation-item inv-${section}">
-        <h4 class="investigation-title">${item.title}</h4>
-        <div class="investigation-details">
+  preloadActiveSection(sectionId);
+  renderSectionHeader(sectionId);
+
+  let rewardIndex = 0;
+  container.innerHTML = items
+    .map((item) => {
+      const rewards = (item.rewards || [])
+        .map((reward) => renderReward(reward, rewardIndex++))
+        .join("");
+
+      return `
+        <article class="investigation-item field-task field-${sectionId}">
+          <h4 class="investigation-title">${escapeHTML(item.title)}</h4>
           <div class="rewards">
-            ${item.rewards
-              .map(
-                (reward) => `
-              <div class="reward-item">
-                <img
-                  src="${reward.image}"
-                  alt="${reward.name}"
-                  class="reward-image"
-                  data-original="${reward.image}"
-                  ${reward.shinyImage ? `data-shiny="${reward.shinyImage}"` : ""}
-                  loading="lazy"
-                />
-                ${
-                  reward.shinyImage
-                    ? `<div class="shiny-icon">
-                        <img
-                          src="../../assets/images/simbolos-incursiones/shiny.png"
-                          alt="shiny"
-                          class="shiny-icon-image"
-                        />
-                      </div>`
-                    : ""
-                }
-                <div class="cp-overlay">PC ${reward.cp}</div>
-              </div>`
-              )
-              .join("")}
+            ${rewards}
           </div>
-        </div>
-      </div>`
-    )
+        </article>
+      `;
+    })
     .join("");
 
-  container.innerHTML = sectionHTML;
-  addShinyHoverEffect();
-}
-
-// ===== Hover para variantes shiny =====
-function addShinyHoverEffect() {
-  const shinyIcons = document.querySelectorAll(".shiny-icon-image");
-
-  shinyIcons.forEach((icon) => {
-    const rewardItem = icon.closest(".reward-item");
-    const rewardImage = rewardItem.querySelector(".reward-image");
-    const original = rewardImage.dataset.original;
-    const shiny = rewardImage.dataset.shiny;
-
-    if (!shiny) return;
-
-    icon.addEventListener("mouseover", () => {
-      rewardImage.src = shiny;
-    });
-
-    icon.addEventListener("mouseout", () => {
-      rewardImage.src = original;
-    });
+  document.querySelectorAll(".field-category-button").forEach((button) => {
+    const isActive = button.dataset.section === sectionId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
   });
 }
 
-// ===== PRELOAD EN JS (sustituye los <link rel="preload"> del HTML) =====
-const SHINY_BADGE = "../../assets/images/simbolos-incursiones/shiny.png";
+function bindStickyFieldNav() {
+  const nav = document.querySelector(".field-category-nav");
+  const placeholder = document.querySelector(".selecttype-placeholder");
+  if (!nav || !placeholder) return;
 
-function collectInvestigationImages(sections) {
-  const urls = new Set([SHINY_BADGE]);
+  const handleScroll = () => {
+    nav.classList.toggle("show", window.scrollY >= placeholder.offsetTop);
+  };
 
-  sections.forEach((section) => {
-    const items = investigations[section] || [];
-    items.forEach((item) => {
-      (item.rewards || []).forEach((r) => {
-        if (r.image) urls.add(r.image);
-        if (r.shinyImage) urls.add(r.shinyImage);
-      });
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+}
+
+function bindFieldNav() {
+  const nav = document.getElementById("fieldCategoryNav");
+  if (!nav) return;
+
+  nav.addEventListener("click", (event) => {
+    const button = event.target.closest(".field-category-button");
+    if (!button) return;
+
+    currentFieldSection = button.dataset.section;
+    renderFieldSection(currentFieldSection);
+
+    document.querySelector(".field-hub")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
     });
   });
-
-  // (Opcional) Pre-cargar también los iconos visibles de la barra
-  document.querySelectorAll(".scroll-bar-sections img").forEach((img) => {
-    if (img.src) urls.add(img.src);
-  });
-
-  return Array.from(urls);
 }
 
-function preloadImages(urls) {
-  urls.forEach((src) => {
-    const img = new Image();
-    // ayuditas para el navegador
-    img.decoding = "async";
-    img.loading = "eager";
-    img.src = src;
-  });
+function bindShinyHover() {
+  const container = document.getElementById("fieldInvestigationContainer");
+  if (!container) return;
+
+  const setShiny = (target, useShiny) => {
+    const button = target.closest(".field-shiny-button");
+    if (!button) return;
+    const rewardItem = button.closest(".reward-item");
+    const rewardImage = rewardItem?.querySelector(".reward-image");
+    const original = rewardImage?.dataset.original;
+    const shiny = rewardImage?.dataset.shiny;
+    if (!rewardImage || !original || !shiny) return;
+    rewardImage.src = useShiny ? shiny : original;
+  };
+
+  container.addEventListener("mouseover", (event) => setShiny(event.target, true));
+  container.addEventListener("mouseout", (event) => setShiny(event.target, false));
+  container.addEventListener("focusin", (event) => setShiny(event.target, true));
+  container.addEventListener("focusout", (event) => setShiny(event.target, false));
 }
 
-// ===== Bootstrap =====
+function scheduleIdlePrefetch() {
+  const run = () => {
+    const nextSections = FIELD_SECTIONS.map((section) => section.id).filter((id) => id !== currentFieldSection);
+    const urls = nextSections.flatMap((sectionId) => collectSectionImages(sectionId, { includeShiny: false })).slice(0, 32);
+    setFieldResourceLinks(urls, { rel: "prefetch", as: "", dataTag: "field-prefetch", limit: 32 });
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(run, { timeout: 2500 });
+  } else {
+    window.setTimeout(run, 1600);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = ["capturas", "lanzamientos", "batallas", "exploracion", "entrenamiento", "amistad", "rocket"];
-
-  // Inicia el preload sin bloquear el render
-  const urlsToPreload = collectInvestigationImages(sections);
-  preloadImages(urlsToPreload);
-
-  // Renderiza todas las secciones
-  sections.forEach((section) => {
-    const containerId = `${section}Container`;
-    const container = document.getElementById(containerId);
-    if (container) {
-      renderSection(section, containerId);
-    } else {
-      console.warn(`Contenedor no encontrado para la sección: ${section}`);
-    }
-  });
+  renderFieldNav();
+  renderFieldSection(currentFieldSection);
+  bindStickyFieldNav();
+  bindFieldNav();
+  bindShinyHover();
+  scheduleIdlePrefetch();
 });

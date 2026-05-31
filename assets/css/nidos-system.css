@@ -3343,6 +3343,351 @@ body .page-content {
   text-align: center;
 }
 
+.field-page {
+  overflow: visible;
+}
+
+.field-showcase-title {
+  margin-top: 0 !important;
+}
+
+.field-showcase-title .heading-section {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.field-showcase-title .heading-section h4 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1;
+  text-shadow: 0 4px 10px rgba(8, 18, 39, 0.52);
+}
+
+.field-showcase-title .section-kicker {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.35;
+}
+
+.field-category-nav {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px auto;
+  padding: 12px;
+  overflow-x: auto;
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.field-category-nav.show {
+  position: sticky;
+  top: 92px;
+  z-index: 40;
+}
+
+.field-category-button {
+  flex: 0 0 auto;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  padding: 0 14px 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(8, 18, 39, 0.34);
+  font-family: "DinProBold", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.field-category-button img {
+  min-width: 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.field-category-button:hover,
+.field-category-button.is-active {
+  transform: translateY(-2px);
+  border-color: rgba(53, 219, 197, 0.76);
+  background: rgba(53, 219, 197, 0.14);
+  box-shadow: 0 0 0 4px rgba(53, 219, 197, 0.1);
+}
+
+.field-category-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.field-hub {
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 0 !important;
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(53, 219, 197, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 20px 52px rgba(8, 18, 39, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.field-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  color: #ffffff;
+  background:
+    linear-gradient(180deg, rgba(39, 43, 45, 0.98), rgba(29, 32, 34, 0.98));
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.field-section-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.field-section-title img {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 999px;
+  background: rgba(8, 18, 39, 0.46);
+}
+
+.field-section-title span {
+  display: block;
+  color: #35dbc5;
+  font-family: "DinProBold", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.field-section-title h2 {
+  margin: 5px 0 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(24px, 2.2vw, 36px);
+  line-height: 1;
+}
+
+.field-section-header strong {
+  flex: 0 0 auto;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #081227;
+  background: rgba(53, 219, 197, 0.94);
+  font-family: "DinProBlack", sans-serif;
+  line-height: 1;
+}
+
+.field-page .investigations-grid {
+  min-width: 0;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.field-page .investigation-item {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 12% 0%, var(--field-accent-soft, rgba(117, 170, 219, 0.14)), transparent 34%),
+    linear-gradient(90deg, var(--field-accent-wash, rgba(117, 170, 219, 0.08)), transparent 44%),
+    rgba(8, 18, 39, 0.42);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.field-page .field-capturas {
+  --field-accent-soft: rgba(238, 191, 103, 0.28);
+  --field-accent-wash: rgba(238, 191, 103, 0.14);
+  border-color: rgba(238, 191, 103, 0.35);
+}
+
+.field-page .field-lanzamientos {
+  --field-accent-soft: rgba(118, 196, 255, 0.26);
+  --field-accent-wash: rgba(118, 196, 255, 0.13);
+  border-color: rgba(118, 196, 255, 0.34);
+}
+
+.field-page .field-batallas {
+  --field-accent-soft: rgba(231, 101, 101, 0.26);
+  --field-accent-wash: rgba(231, 101, 101, 0.12);
+  border-color: rgba(231, 101, 101, 0.32);
+}
+
+.field-page .field-exploracion {
+  --field-accent-soft: rgba(87, 219, 170, 0.24);
+  --field-accent-wash: rgba(87, 219, 170, 0.12);
+  border-color: rgba(87, 219, 170, 0.32);
+}
+
+.field-page .field-entrenamiento {
+  --field-accent-soft: rgba(255, 219, 75, 0.23);
+  --field-accent-wash: rgba(255, 219, 75, 0.12);
+  border-color: rgba(255, 219, 75, 0.32);
+}
+
+.field-page .field-amistad {
+  --field-accent-soft: rgba(247, 183, 218, 0.24);
+  --field-accent-wash: rgba(247, 183, 218, 0.12);
+  border-color: rgba(247, 183, 218, 0.32);
+}
+
+.field-page .field-rocket {
+  --field-accent-soft: rgba(172, 176, 186, 0.22);
+  --field-accent-wash: rgba(172, 176, 186, 0.11);
+  border-color: rgba(172, 176, 186, 0.3);
+}
+
+.field-page .investigation-title {
+  margin: 0;
+  color: #ffffff !important;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(18px, 1.35vw, 24px);
+  line-height: 1.15;
+}
+
+.field-page .rewards {
+  min-width: 0;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.field-page .reward-item {
+  position: relative;
+  flex: initial;
+  min-width: 0;
+  max-width: none;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(117, 170, 219, 0.14), transparent 36%),
+    rgba(8, 18, 39, 0.42);
+}
+
+.field-page .reward-image {
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  padding: 10px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.field-shiny-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.field-shiny-button img {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 999px !important;
+}
+
+.field-reward-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.field-reward-copy h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBold", sans-serif;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.field-reward-copy span {
+  flex: 0 0 auto;
+  padding: 4px 7px;
+  border-radius: 999px;
+  color: #081227;
+  background: rgba(255, 219, 75, 0.94);
+  font-family: "DinProBlack", sans-serif;
+  font-size: 11px;
+  line-height: 1;
+}
+
 .about-page {
   overflow: visible;
 }
@@ -3836,6 +4181,17 @@ body .page-content {
 
   .shiny-page .selecttype-placeholder {
     height: 0;
+  }
+
+  .field-category-nav {
+    width: auto;
+    max-width: calc(100vw - 24px);
+    justify-content: flex-start;
+    border-radius: 22px;
+  }
+
+  .field-category-nav.show {
+    top: 78px;
   }
 
   .shiny-region-button {
@@ -4332,6 +4688,76 @@ body .page-content {
     font-size: 11px;
   }
 
+  .field-showcase-title {
+    padding: 24px 18px !important;
+  }
+
+  .field-showcase-title .heading-section h4 {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .field-category-nav {
+    margin: 14px 0 0;
+    padding: 10px;
+  }
+
+  .field-category-button {
+    min-height: 40px;
+    padding: 0 12px 0 7px;
+    font-size: 12px;
+  }
+
+  .field-category-button img {
+    min-width: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .field-hub {
+    padding: 18px 12px;
+    border-radius: 20px;
+  }
+
+  .field-section-header {
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .field-section-title img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .field-section-title h2 {
+    font-size: 24px;
+  }
+
+  .field-section-header strong {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .field-page .investigations-grid {
+    gap: 14px;
+  }
+
+  .field-page .investigation-item {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .field-page .rewards {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .field-reward-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
   .about-showcase-title {
     padding: 24px 18px !important;
   }
@@ -4405,6 +4831,31 @@ body .page-content {
 
   .shiny-page .container-list .box {
     width: calc(33.333% - 8px);
+  }
+
+  .field-category-button {
+    padding-right: 10px;
+  }
+
+  .field-category-button span {
+    font-size: 11px;
+  }
+
+  .field-page .rewards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field-page .reward-item {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .field-reward-copy h3 {
+    font-size: 12px;
+  }
+
+  .field-reward-copy span {
+    font-size: 10px;
   }
 
   .about-page .main-profile ul li a {
