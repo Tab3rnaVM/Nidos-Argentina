@@ -14,24 +14,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
 
-  // Agregar evento de clic para hacer scroll a la sección correcta
-  document.querySelectorAll(".scroll-bar-sections img").forEach((img) => {
-    img.addEventListener("click", function () {
+  document.querySelectorAll(".scroll-bar-sections [data-target]").forEach((button) => {
+    button.addEventListener("click", function () {
       const targetId = this.getAttribute("data-target");
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        const offset = 80; // Espaciado para evitar que quede pegado al borde superior
+        const offset = 120;
         const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - offset;
 
         window.scrollTo({
           top: targetPosition,
           behavior: "smooth",
         });
+        document.querySelectorAll(".scroll-bar-sections [data-target].is-active").forEach((item) => {
+          item.classList.remove("is-active");
+        });
+        this.classList.add("is-active");
       } else {
-        console.warn(`⚠️ No se encontró la sección con ID "${targetId}".`);
+        console.warn(`No se encontró la sección con ID "${targetId}".`);
       }
     });
   });
@@ -49,7 +53,7 @@ const teamRocketData = [
     borderColor: "#000",
     slots: {
       1: {
-        active: true,
+        active: false,
         pokemon: [
           { name: "Persian", image: "../../assets/images/pokemon/pm53.SHADOW.icon.webp" },
         ],
@@ -63,7 +67,7 @@ const teamRocketData = [
         ],
       },
       3: {
-        active: false,
+        active: true,
         pokemon: [
           { name: "Tornadus", image: "../../assets/images/pokemon/pm641.fINCARNATE.SHADOW.icon.webp" },
         ],
@@ -1093,32 +1097,29 @@ const teamRocketData = [
 function renderTeamRocket(containerId) {
   const container = document.getElementById(containerId);
   if (!container) {
-    console.warn(`⚠️ Contenedor no encontrado: ${containerId}`);
+    console.warn(`Contenedor no encontrado: ${containerId}`);
     return;
   }
 
-  container.innerHTML = ""; // Limpiar contenido previo
+  container.textContent = "";
 
-  // 🔹 Cuadrícula principal
   const teamRocketGrid = document.createElement("div");
   teamRocketGrid.className = "teamrocket-grid";
+  const fragment = document.createDocumentFragment();
 
   teamRocketData.forEach(({ character, slots, borderColor }) => {
-    // 🔹 Usamos `character.id` en lugar de `character.type`
-    const sectionId = character.id; 
+    const sectionId = character.id;
 
     if (!sectionId) {
-      console.warn(`⚠️ No se encontró ID para ${character.name}`);
+      console.warn(`No se encontró ID para ${character.name}`);
       return;
     }
 
-    // 🔹 Crear el elemento para cada personaje con su ID correspondiente
     const teamRocketItem = document.createElement("div");
     teamRocketItem.className = "teamrocket-item";
-    teamRocketItem.style.borderColor = borderColor;
-    teamRocketItem.id = sectionId;  // 🔹 Sección con ID único
+    teamRocketItem.style.setProperty("--rocket-accent", borderColor || "#75aadb");
+    teamRocketItem.id = sectionId;
 
-    // Información del personaje
     const characterInfo = document.createElement("div");
     characterInfo.className = "character-info";
 
@@ -1126,6 +1127,8 @@ function renderTeamRocket(containerId) {
     characterImg.dataset.src = character.image;
     characterImg.alt = character.name;
     characterImg.className = "character-image lazy";
+    characterImg.loading = "lazy";
+    characterImg.decoding = "async";
 
     const characterName = document.createElement("h4");
     characterName.className = "character-name";
@@ -1134,7 +1137,6 @@ function renderTeamRocket(containerId) {
     characterInfo.append(characterImg, characterName);
     teamRocketItem.appendChild(characterInfo);
 
-    // 🔹 Alineación de Pokémon
     const alignment = document.createElement("div");
     alignment.className = "alignment";
 
@@ -1156,6 +1158,8 @@ function renderTeamRocket(containerId) {
           shinyImg.dataset.src = "../../assets/images/simbolos-incursiones/shiny.png";
           shinyImg.alt = "shiny";
           shinyImg.className = "lazy";
+          shinyImg.loading = "lazy";
+          shinyImg.decoding = "async";
           shinyIcon.appendChild(shinyImg);
 
           pokemonSlot.appendChild(shinyIcon);
@@ -1165,6 +1169,8 @@ function renderTeamRocket(containerId) {
         pokemonImg.dataset.src = pokemon.image;
         pokemonImg.alt = pokemon.name;
         pokemonImg.className = "pokemon-image lazy";
+        pokemonImg.loading = "lazy";
+        pokemonImg.decoding = "async";
         pokemonSlot.appendChild(pokemonImg);
 
         slotDiv.appendChild(pokemonSlot);
@@ -1181,43 +1187,33 @@ function renderTeamRocket(containerId) {
       characterPhrase.className = "character-phrase";
       characterPhrase.textContent = character.frase;
       characterPhrase.title = character.frase;
+      characterPhrase.dataset.fullText = character.frase;
       teamRocketItem.appendChild(characterPhrase);
     }
 
-    // 🔹 Agregar cada personaje a la cuadrícula principal con su ID
-    teamRocketGrid.appendChild(teamRocketItem);
+    fragment.appendChild(teamRocketItem);
   });
 
-  // 🔹 Agregar `teamRocketGrid` al contenedor principal
+  teamRocketGrid.appendChild(fragment);
   container.appendChild(teamRocketGrid);
 
-  const bannersHTML = `
-    <div class="footer-container">
-      <div class="footer-banner">
-        <span class="shiny-icon-circle">
-          <img
-            src="../../assets/images/simbolos-incursiones/shiny.png"
-            alt="shiny icon"
-            class="brillante-icon"
-          />
-        </span>
-        <span>Posibilidad de Brillante</span>
-      </div>
-      <div class="footer-banner">
-          <span class="shiny-icon-circle">
-            <img
-              src="../../assets/images/simbolos-incursiones/captura-tgr.png"
-              alt="shiny icon"
-              class="brillante-icon"
-            />
-          </span>
-          <span>Posible Captura</span>
-        </div>
+  const footerContainer = document.createElement("div");
+  footerContainer.className = "footer-container rocket-legend";
+  footerContainer.innerHTML = `
+    <div class="footer-banner">
+      <span class="shiny-icon-circle">
+        <img src="../../assets/images/simbolos-incursiones/shiny.png" alt="" class="brillante-icon" loading="lazy" decoding="async" />
+      </span>
+      <span>Posibilidad de Brillante</span>
+    </div>
+    <div class="footer-banner">
+      <span class="shiny-icon-circle">
+        <img src="../../assets/images/simbolos-incursiones/captura-tgr.png" alt="" class="brillante-icon" loading="lazy" decoding="async" />
+      </span>
+      <span>Posible Captura</span>
     </div>
   `;
-
-  // 🔹 Agregar el banner dentro del contenedor después de la cuadrícula
-  container.innerHTML += bannersHTML;
+  container.appendChild(footerContainer);
 
   applyShinyHoverEffects();
   lazyLoadImages();
@@ -1225,6 +1221,14 @@ function renderTeamRocket(containerId) {
 
 function lazyLoadImages() {
   const lazyImages = document.querySelectorAll(".lazy");
+  if (!("IntersectionObserver" in window)) {
+    lazyImages.forEach((img) => {
+      img.src = img.dataset.src;
+      img.classList.remove("lazy");
+    });
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
@@ -1236,25 +1240,12 @@ function lazyLoadImages() {
         }
       });
     },
-    { rootMargin: "200px" } // Aumentamos el margen para cargar imágenes antes de que sean visibles
+    { rootMargin: "160px 0px" }
   );
 
   lazyImages.forEach((img) => observer.observe(img));
 }
 
-
-function preloadShinyImages() {
-  teamRocketData.forEach(({ slots }) => {
-    Object.values(slots).forEach((slot) => {
-      slot.pokemon.forEach((pokemon) => {
-        if (pokemon.shinyImage) {
-          const img = new Image();
-          img.src = pokemon.shinyImage; // Precarga imágenes shiny
-        }
-      });
-    });
-  });
-}
 
 function applyShinyHoverEffects() {
   const shinyIcons = document.querySelectorAll(".shiny-icon");
@@ -1264,18 +1255,16 @@ function applyShinyHoverEffects() {
       .closest(".pokemon-slot")
       .querySelector(".pokemon-image");
 
-    icon.addEventListener("mouseover", () => {
-      pokemonImage.src = images[1]; // Cambiar a shiny
+    icon.addEventListener("mouseenter", () => {
+      pokemonImage.src = images[1];
     });
 
-    icon.addEventListener("mouseout", () => {
-      pokemonImage.src = images[0]; // Cambiar a normal
+    icon.addEventListener("mouseleave", () => {
+      pokemonImage.src = images[0];
     });
   });
 }
 
-// Renderizado al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-  preloadShinyImages();
   renderTeamRocket("rocket-container");
 });

@@ -3992,6 +3992,280 @@ body .page-content {
   line-height: 1.2;
 }
 
+.rocket-page {
+  overflow: visible;
+}
+
+.rocket-showcase-title {
+  margin-top: 0 !important;
+  padding: clamp(28px, 4vw, 44px) !important;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(235, 62, 70, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(8, 18, 39, 0.84), rgba(36, 39, 42, 0.92)),
+    #1f2122;
+}
+
+.rocket-showcase-title .heading-section h4 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1;
+  text-shadow: 0 4px 10px rgba(8, 18, 39, 0.52);
+}
+
+.rocket-page .selecttype-placeholder {
+  height: 1px;
+}
+
+.rocket-page .rocket-nav {
+  position: sticky !important;
+  top: 84px !important;
+  left: auto;
+  z-index: 40;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 18px auto 0;
+  padding: 12px;
+  overflow-x: auto;
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 28px rgba(255, 255, 255, 0.18),
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transform: none;
+  transition: none;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.rocket-page .rocket-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.rocket-nav-button {
+  width: 48px;
+  height: 48px;
+}
+
+.rocket-nav-button img,
+.rocket-page .scroll-bar-sections img {
+  min-width: 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain;
+  border-radius: 999px;
+}
+
+.rocket-hub {
+  max-width: 100%;
+  overflow: visible;
+  margin-top: 18px !important;
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(117, 170, 219, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(235, 62, 70, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(27, 31, 33, 0.98), rgba(18, 21, 23, 0.98));
+  box-shadow:
+    0 20px 52px rgba(8, 18, 39, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.rocket-page .teamrocket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.rocket-page .teamrocket-item {
+  --rocket-accent: #75aadb;
+  min-width: 0;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--rocket-accent) 52%, rgba(255, 255, 255, 0.18));
+  border-top: 3px solid var(--rocket-accent);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 22% 0%, color-mix(in srgb, var(--rocket-accent) 24%, transparent), transparent 36%),
+    linear-gradient(180deg, rgba(39, 43, 45, 0.98), rgba(29, 32, 34, 0.98));
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  content-visibility: auto;
+  contain-intrinsic-size: 360px;
+  scroll-margin-top: 154px;
+}
+
+.rocket-page .character-info {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.rocket-page .character-image {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border: 2px solid color-mix(in srgb, var(--rocket-accent) 72%, #ffffff);
+  border-radius: 999px;
+  background: rgba(8, 18, 39, 0.5);
+}
+
+.rocket-page .character-name {
+  min-width: 0;
+  margin: 0;
+  color: #ffffff;
+  font-family: "DinProBlack", sans-serif;
+  font-size: clamp(17px, 1.35vw, 22px);
+  line-height: 1.05;
+}
+
+.rocket-page .character-type {
+  margin-top: 5px;
+  color: color-mix(in srgb, var(--rocket-accent) 72%, #ffffff) !important;
+  font-family: "DinProBold", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rocket-page .alignment {
+  gap: 10px;
+}
+
+.rocket-page .slot1,
+.rocket-page .slot2,
+.rocket-page .slot3 {
+  min-height: 82px;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(8, 18, 39, 0.44);
+}
+
+.rocket-page .slot-active {
+  border-color: color-mix(in srgb, var(--rocket-accent) 70%, rgba(255, 255, 255, 0.18));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--rocket-accent) 24%, transparent), transparent),
+    rgba(8, 18, 39, 0.5);
+}
+
+.rocket-page #giovanni .slot-active,
+.rocket-page #cliff .slot-active,
+.rocket-page #arlo .slot-active,
+.rocket-page #sierra .slot-active,
+.rocket-page #iniciales .slot-active,
+.rocket-page #snorlax .slot-active,
+.rocket-page #senuelo .slot-active {
+  border-color: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.36),
+    0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.rocket-page #giovanni .slot-active::before,
+.rocket-page #cliff .slot-active::before,
+.rocket-page #arlo .slot-active::before,
+.rocket-page #sierra .slot-active::before,
+.rocket-page #iniciales .slot-active::before,
+.rocket-page #snorlax .slot-active::before,
+.rocket-page #senuelo .slot-active::before {
+  color: #111418;
+  background: #ffffff;
+}
+
+.rocket-page .slot1::before,
+.rocket-page .slot2::before,
+.rocket-page .slot3::before {
+  top: 50%;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  color: #081227;
+  background: color-mix(in srgb, var(--rocket-accent) 82%, #ffffff);
+  font-size: 12px;
+}
+
+.rocket-page .pokemon-slot {
+  flex: 0 0 auto;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.12), transparent 42%),
+    rgba(255, 255, 255, 0.06);
+}
+
+.rocket-page .pokemon-image {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.rocket-page .seccioncontainer .teamrocket-grid .shiny-icon {
+  top: 2px;
+  right: 2px;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(8, 18, 39, 0.64);
+}
+
+.rocket-page .character-phrase {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(8, 18, 39, 0.34);
+  font-family: "DinProBold", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.rocket-page .character-phrase:hover::after {
+  display: none;
+}
+
+.rocket-legend {
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.rocket-legend .footer-banner {
+  min-height: 44px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff !important;
+  background: rgba(8, 18, 39, 0.42);
+  box-shadow: var(--nidos-shadow-soft);
+}
+
+.rocket-legend .footer-banner span {
+  color: #ffffff !important;
+}
+
 @media (max-width: 1200px) {
   .header-area .main-nav .logo img {
     width: 196px;
@@ -4033,6 +4307,10 @@ body .page-content {
 
   .about-page .team-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rocket-page .teamrocket-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -4821,6 +5099,80 @@ body .page-content {
     min-height: 96px;
     padding: 14px;
     border-radius: 18px;
+  }
+
+  .rocket-showcase-title {
+    padding: 24px 18px !important;
+  }
+
+  .rocket-showcase-title .heading-section h4 {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .rocket-page .rocket-nav {
+    margin-top: 14px;
+    padding: 10px;
+  }
+
+  .rocket-nav-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .rocket-nav-button img,
+  .rocket-page .scroll-bar-sections img {
+    min-width: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .rocket-hub {
+    padding: 18px 12px;
+    border-radius: 20px;
+  }
+
+  .rocket-page .teamrocket-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .rocket-page .teamrocket-item {
+    padding: 12px;
+    border-radius: 18px;
+    scroll-margin-top: 142px;
+  }
+
+  .rocket-page .character-info {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .rocket-page .character-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .rocket-page .slot1,
+  .rocket-page .slot2,
+  .rocket-page .slot3 {
+    min-height: 72px;
+    gap: 6px;
+    padding: 8px 8px 8px 34px;
+    border-radius: 16px;
+  }
+
+  .rocket-page .slot1::before,
+  .rocket-page .slot2::before,
+  .rocket-page .slot3::before {
+    left: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .rocket-page .pokemon-slot {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
   }
 }
 
