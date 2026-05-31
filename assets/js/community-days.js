@@ -1710,28 +1710,147 @@ const diasComunidad = {
 };
 
 const container = document.getElementById("communityDaysContainer");
+const bonusContainer = document.getElementById("bonusCommunityDay");
 const title = document.getElementById("communityDaysTitle");
+const yearLabel = document.getElementById("communityYearLabel");
 const prevButton = document.getElementById("prevYear");
 const nextButton = document.getElementById("nextYear");
 
 let currentYear;
+let activeCommunityIntervals = [];
+let communityEventLookup = new Map();
 const currentActualYear = new Date().getFullYear();
 const availableYears = Object.keys(diasComunidad).sort();
 
 if (availableYears.includes(String(currentActualYear))) {
   currentYear = String(currentActualYear);
 } else {
-  currentYear =
-    availableYears.find((year) => year >= currentActualYear) ||
-    availableYears[0];
+  currentYear = availableYears[availableYears.length - 1];
 }
 
-const years = Object.keys(diasComunidad);
+const years = availableYears;
+
+const communityAccentMap = {
+  abra: "245, 208, 75",
+  axew: "120, 183, 73",
+  bagon: "74, 138, 207",
+  beldum: "100, 154, 184",
+  bellsprout: "127, 194, 69",
+  bounsweet: "210, 74, 128",
+  bulbasaur: "98, 191, 132",
+  chansey: "244, 154, 188",
+  charmander: "239, 118, 55",
+  chespin: "111, 174, 83",
+  chikorita: "139, 203, 89",
+  chimchar: "235, 115, 49",
+  cyndaquil: "238, 125, 57",
+  deino: "75, 102, 164",
+  dratini: "91, 164, 218",
+  duskull: "112, 101, 139",
+  eevee: "190, 146, 97",
+  electabuzz: "244, 205, 48",
+  fennekin: "234, 132, 61",
+  flabebe: "232, 111, 166",
+  fletchling: "222, 86, 69",
+  froakie: "82, 167, 220",
+  fuecoco: "231, 83, 57",
+  gastly: "128, 86, 171",
+  geodude: "160, 145, 112",
+  gible: "70, 104, 179",
+  goomy: "171, 118, 200",
+  grookey: "92, 190, 84",
+  grubbin: "232, 190, 53",
+  hoppip: "231, 137, 180",
+  jangmo: "214, 186, 67",
+  karrablast: "74, 150, 203",
+  larvitar: "133, 168, 82",
+  litten: "219, 75, 58",
+  litwick: "142, 104, 193",
+  machop: "112, 151, 188",
+  magikarp: "235, 122, 47",
+  magmar: "229, 91, 49",
+  mankey: "181, 135, 88",
+  mareep: "245, 210, 76",
+  mudkip: "84, 169, 220",
+  noibat: "126, 94, 188",
+  oshawott: "79, 161, 215",
+  pawmi: "239, 133, 54",
+  pikachu: "247, 213, 53",
+  pikipek: "221, 74, 68",
+  piplup: "76, 156, 218",
+  poliwag: "73, 151, 218",
+  ponyta: "242, 182, 86",
+  popplio: "85, 163, 221",
+  porygon: "218, 91, 169",
+  quaxly: "84, 169, 223",
+  ralts: "104, 204, 167",
+  roggenrola: "74, 129, 180",
+  rookidee: "83, 129, 184",
+  roselia: "91, 185, 105",
+  rowlet: "112, 174, 84",
+  sandshrew: "210, 172, 97",
+  seedot: "168, 126, 76",
+  sewaddle: "119, 190, 79",
+  shelmet: "202, 104, 162",
+  shinx: "74, 154, 221",
+  slakoth: "174, 137, 187",
+  slowpoke: "238, 141, 181",
+  snivy: "90, 177, 91",
+  solosis: "105, 200, 121",
+  spheal: "92, 171, 217",
+  sprigatito: "93, 190, 88",
+  starly: "149, 158, 169",
+  stufful: "231, 111, 157",
+  swablu: "102, 177, 219",
+  swinub: "178, 137, 91",
+  teddiursa: "187, 132, 76",
+  tepig: "231, 116, 54",
+  timburr: "194, 139, 86",
+  togetic: "232, 214, 165",
+  torchic: "239, 129, 48",
+  totodile: "73, 151, 220",
+  trapinch: "224, 128, 55",
+  treecko: "80, 181, 95",
+  turtwig: "104, 174, 81",
+  tynamo: "236, 203, 69",
+  vanillite: "125, 210, 225",
+  weedle: "224, 175, 56",
+  wooper: "94, 173, 216",
+  zigzagoon: "156, 158, 166",
+};
+
+function normalizeCommunityName(name) {
+  return String(name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function getCommunityAccent(evento) {
+  const normalizedName = normalizeCommunityName(evento.name);
+  const accentKey = Object.keys(communityAccentMap).find((key) =>
+    normalizedName.includes(key)
+  );
+
+  return accentKey ? communityAccentMap[accentKey] : "255, 219, 75";
+}
+
+function applyCommunityAccent(element, evento) {
+  element.style.setProperty("--community-accent-rgb", getCommunityAccent(evento));
+}
+
+function clearCommunityIntervals() {
+  activeCommunityIntervals.forEach((intervalId) => clearInterval(intervalId));
+  activeCommunityIntervals = [];
+}
 
 function updateNavigationState() {
   const currentIndex = years.indexOf(currentYear);
-  prevButton.disabled = currentIndex === 0;  // Deshabilita si estás en el primer año
-  nextButton.disabled = currentIndex === years.length - 1; // Deshabilita si estás en el último año
+  prevButton.disabled = currentIndex === 0;
+  nextButton.disabled = currentIndex === years.length - 1;
+  if (yearLabel) {
+    yearLabel.textContent = currentYear;
+  }
 }
 
 prevButton.addEventListener("click", () => {
@@ -1753,40 +1872,42 @@ nextButton.addEventListener("click", () => {
 });
 
 function renderCommunityDays(year) {
-  const allBonusLists = document.querySelectorAll(".bonus-list");
-  allBonusLists.forEach((list) => list.remove());
+  clearCommunityIntervals();
+  communityEventLookup = new Map();
+  if (bonusContainer) {
+    bonusContainer.textContent = "";
+  }
 
-  const container = document.querySelector(".seccioncontainer");
-  container.innerHTML = "";
-  title.textContent = `Días de la Comunidad ${year}`;
+  container.textContent = "";
+  title.textContent = "Días de la Comunidad";
 
   if (!diasComunidad[year] || diasComunidad[year].length === 0) {
-    container.innerHTML = "<p>No hay eventos disponibles para este año.</p>";
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "community-empty";
+    emptyMessage.textContent = "No hay eventos disponibles para este año.";
+    container.appendChild(emptyMessage);
     return;
   }
 
-  // Contenedor de la cuadrícula
-  let gridContainer = document.querySelector(".imagenes-grid");
-  if (!gridContainer) {
-    gridContainer = document.createElement("div");
-    gridContainer.className = "imagenes-grid";
-    container.appendChild(gridContainer);
-  }
-
-  const imagePairs = []; // Almacena pares de imágenes para precarga
+  const gridContainer = document.createElement("div");
+  gridContainer.className = "imagenes-grid community-grid";
+  container.appendChild(gridContainer);
 
   diasComunidad[year].forEach((evento, index) => {
     const uniqueIndex = `${year}-${index + 1}`;
+    const hasInlineDetails = Boolean(evento.details && evento.details.bonuses);
+    const hasLinkedDetails = Boolean(evento.details && typeof evento.details === "string" && evento.details.endsWith(".html"));
     const eventElement = document.createElement("div");
     eventElement.className = "item item-pkmCD";
-    if (evento.details && evento.details.bonuses) {
-      eventElement.setAttribute("onclick", `showCommunity('${uniqueIndex}')`);
-    } else if (evento.details && evento.details.endsWith(".html")) {
-      eventElement.setAttribute(
-        "onclick",
-        `window.location.href='${evento.details}'`
-      );
+    applyCommunityAccent(eventElement, evento);
+    if (hasInlineDetails || hasLinkedDetails) {
+      eventElement.classList.add("has-details");
     }
+    if (hasInlineDetails) {
+      eventElement.dataset.communityId = uniqueIndex;
+      communityEventLookup.set(uniqueIndex, evento);
+    }
+
     eventElement.innerHTML = `
       <div class="thumb thumb-pkmCD">
         <img
@@ -1794,44 +1915,40 @@ function renderCommunityDays(year) {
           alt="${evento.name}"
           class="pokemon-image"
           data-images='["${evento.image}", "${evento.shinyImage}"]'
+          loading="lazy"
+          decoding="async"
         />
-        <div class="pokemon-name">${evento.date}</div>
+        <div class="pokemon-date">${evento.date}</div>
       </div>
-    `;
-    gridContainer.appendChild(eventElement);
-
-    // Agrega las imágenes al array para la precarga
-    imagePairs.push({
-      normal: evento.image,
-      shiny: evento.shinyImage,
-    });
-
-    if (evento.details && evento.details.bonuses) {
-      const bonusList = createBonusList(evento, uniqueIndex);
-      const bonusContainer = document.querySelector("#bonusCommunityDay"); // Contenedor para los bonus
-      if (bonusContainer) {
-        bonusContainer.appendChild(bonusList);
+      <div class="community-card-copy">
+        <h3>${evento.name}</h3>
+      </div>
+      ${
+        hasInlineDetails
+          ? `<button class="community-card-action" type="button" aria-label="Ver bonus de ${evento.name}">Ver bonus</button>`
+          : hasLinkedDetails
+            ? `<button class="community-card-action" type="button" aria-label="Ver evento de ${evento.name}">Ver evento</button>`
+            : '<span class="community-card-action is-muted">Sin detalle</span>'
       }
+    `;
+    const actionButton = eventElement.querySelector(".community-card-action");
+    if (hasInlineDetails && actionButton) {
+      actionButton.addEventListener("click", () => showCommunity(uniqueIndex));
+    } else if (hasLinkedDetails && actionButton) {
+      actionButton.addEventListener("click", () => {
+        window.location.href = evento.details;
+      });
     }
+    gridContainer.appendChild(eventElement);
   });
 
-  // Precarga las imágenes shiny
-  preloadShinyImages(imagePairs);
-
-  // Aplica los efectos de hover
   applyImageHoverEffects();
 }
 
 function createBonusList(evento, uniqueIndex) {
   const container = document.createElement("div");
-  container.className = `bonus-list community${uniqueIndex} hidden`;
-  container.style.marginTop = "15px";
-
-  // Título del evento
-  const titleDiv = document.createElement("div");
-  titleDiv.className = "titulo-communityday";
-  titleDiv.innerHTML = `<h3>${evento.date.toUpperCase()}</h3>`;
-  container.appendChild(titleDiv);
+  container.className = `bonus-list community${uniqueIndex}`;
+  applyCommunityAccent(container, evento);
 
   // Nombre del Pokémon destacado
   const nameHeading = document.createElement("h3");
@@ -1861,10 +1978,11 @@ if (evento.details.evolutionPath) {
 
     // Alternar imágenes normales y shiny
     let isNormal = true;
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       imgElement.src = isNormal ? shinyImages[index] : normalImages[index];
       isNormal = !isNormal;
     }, 1000);
+    activeCommunityIntervals.push(intervalId);
 
     stepDiv.appendChild(imgElement);
     evolutionDiv.appendChild(stepDiv);
@@ -1908,10 +2026,11 @@ if (evento.details.evolutionPath2) {
 
     // Alternar imágenes normales y shiny
     let isNormal = true;
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       imgElement.src = isNormal ? shinyImages[index] : normalImages[index];
       isNormal = !isNormal;
     }, 1000);
+    activeCommunityIntervals.push(intervalId);
 
     stepDiv.appendChild(imgElement);
     evolutionDiv.appendChild(stepDiv);
@@ -2006,44 +2125,43 @@ if (evento.details.evolutionPath2) {
   return container;
 }
 
-function preloadShinyImages(imagePairs) {
-  imagePairs.forEach((pair) => {
-    if (pair.normal) {
-      const normalImage = new Image();
-      normalImage.src = pair.normal;
-    }
-    if (pair.shiny) {
-      const shinyImage = new Image();
-      shinyImage.src = pair.shiny;
-    }
-  });
-}
-
 function applyImageHoverEffects() {
   const pokemonImages = document.querySelectorAll(".pokemon-image");
   pokemonImages.forEach((img) => {
     const images = JSON.parse(img.getAttribute("data-images"));
-    img.addEventListener("mouseover", () => {
+    img.addEventListener("mouseenter", () => {
       img.src = images[1];
     });
-    img.addEventListener("mouseout", () => {
+    img.addEventListener("mouseleave", () => {
       img.src = images[0];
     });
   });
 }
 
 function showCommunity(uniqueIndex) {
-  const allBonusLists = document.querySelectorAll(".bonus-list");
-  allBonusLists.forEach((list) => list.classList.add("hidden"));
+  if (!bonusContainer) return;
 
-  const targetBonusList = document.querySelector(`.community${uniqueIndex}`);
-  if (targetBonusList) {
-    targetBonusList.classList.remove("hidden");
-    targetBonusList.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const evento = communityEventLookup.get(uniqueIndex);
+  if (!evento) return;
+
+  clearCommunityIntervals();
+  bonusContainer.textContent = "";
+  document.querySelectorAll(".item-pkmCD.is-active").forEach((item) => {
+    item.classList.remove("is-active");
+  });
+
+  const activeCard = document.querySelector(`.item-pkmCD[data-community-id="${uniqueIndex}"]`);
+  if (activeCard) {
+    activeCard.classList.add("is-active");
   }
+
+  const targetBonusList = createBonusList(evento, uniqueIndex);
+  bonusContainer.appendChild(targetBonusList);
+
+  targetBonusList.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 
 window.addEventListener("load", () => {
