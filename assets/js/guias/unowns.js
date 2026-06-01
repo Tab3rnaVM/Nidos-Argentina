@@ -49,12 +49,28 @@ const UNOWN_LIST = [
 
 function renderUnown(){
     const grid = document.getElementById("unownGrid");
+    const unownTotal = document.getElementById("unownTotal");
+    const unownShinyTotal = document.getElementById("unownShinyTotal");
+    const shinyReleased = UNOWN_LIST.filter(u => u.shiny).length;
+
+    if (unownTotal) unownTotal.textContent = UNOWN_LIST.length;
+    if (unownShinyTotal) unownShinyTotal.textContent = `${shinyReleased} shiny`;
+
     grid.innerHTML = UNOWN_LIST.map(u => `
-    <div class="unown-card">
-        <div class="unown-letter">Unown (${u.letter})</div>
+    <div class="unown-card ${u.shiny ? "is-shiny-released" : "is-shiny-locked"}">
+        <div class="unown-card-top">
+            <span class="unown-letter">${u.letter}</span>
+            <span class="unown-status">${u.shiny ? "Shiny liberado" : "Shiny pendiente"}</span>
+        </div>
         <div class="unown-pair">
-        <img class="unown-img" alt="Unown ${u.letter} normal">
-        <img class="unown-img ${u.shiny ? "" : "unown-disabled"}" alt="Unown ${u.letter} shiny">
+            <div class="unown-form">
+                <span>Normal</span>
+                <img class="unown-img" alt="Unown ${u.letter} normal">
+            </div>
+            <div class="unown-form">
+                <span>Shiny</span>
+                <img class="unown-img ${u.shiny ? "" : "unown-disabled"}" alt="Unown ${u.letter} shiny">
+            </div>
         </div>
     </div>
     `).join("");

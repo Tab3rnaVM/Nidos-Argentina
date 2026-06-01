@@ -20,7 +20,7 @@
   <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="../../assets/css/fontawesome.css"/>
   <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5"/>
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.1" />
 
 
   <link rel="icon" href="../../assets/images/logo/favicon-64.png" type="image/png"/>
@@ -35,23 +35,32 @@
 
   <div class="container">
     <div class="row"><div class="col-lg-12">
-      <div class="page-content">
+      <div class="page-content regionales-page">
             <h1 class="sr-only">Pokémon Regionales</h1>
 
-        <div class="secciontitle">
-          <div class="col-lg-12"><div class="heading-section"><h4>Pokémon Regionales</h4></div></div>
+        <div class="secciontitle regionales-showcase-title">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4>Pokémon Regionales</h4>
+              <p class="section-kicker">Consulta qué Pokémon están ligados a zonas del mundo y dónde suelen aparecer en Pokémon GO.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="guide-intro" style="margin-top:15px;">
-          <h5 style="color:#2a2a2a">¿Qué es un Pokémon regional?</h5>
+        <div class="guide-intro regionales-intro">
+          <h5>¿Qué es un Pokémon regional?</h5>
           <p>
             Son Pokémon que solo aparecen en <b>zonas específicas del mundo</b> (salvo eventos especiales). 
             Aquí tienes la lista principal de regionales y las regiones donde suelen encontrarse.
           </p>
         </div>
 
-        <div class="season">
+        <div class="season regionales-panel">
           <div class="row"><div class="col-lg-12">
+            <div class="regionales-section-heading">
+              <span>Regionales disponibles</span>
+              <strong id="regionalCount">0</strong>
+            </div>
             <div id="regionalGrid" class="regional-list"><!-- render dinámico --></div>
           </div></div>
         </div>
@@ -67,7 +76,7 @@
   <script defer src="../../libs/jquery/jquery.min.js"></script>
 
   <script defer src="../../assets/js/custom.js"></script>
-  <script defer src='../../assets/js/guias/regionales.js'></script>
+  <script defer src='../../assets/js/guias/regionales.js?v=1.1'></script>
   <script defer src='../../assets/js/politicas.js'></script>
 </body>
 </html>

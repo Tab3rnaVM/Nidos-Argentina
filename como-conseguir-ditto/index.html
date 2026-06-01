@@ -19,7 +19,7 @@
     <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/fontawesome.css" />
     <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5" />
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.1" />
 
 
     <link rel="icon" href="../../assets/images/logo/favicon-64.png" type="image/png" />
@@ -38,20 +38,23 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
+        <div class="page-content ditto-page">
             <h1 class="sr-only">Guía para encontrar a Ditto</h1>
 
-          <div class="secciontitle">
+          <div class="secciontitle ditto-showcase-title">
             <div class="col-lg-12">
               <div class="heading-section">
                 <h4>¿Cómo conseguir a Ditto?</h4>
               </div>
+              <p class="section-kicker">
+                Revisa los disfraces actuales, captura sospechosos y confirma si Ditto aparece después de atraparlo.
+              </p>
             </div>
           </div>
 
           <!-- Intro -->
-          <div class="guide-intro" style="margin-top: 15px;">
-            <h5 style="color:#2a2a2a">Cómo funciona</h5>
+          <div class="guide-intro ditto-intro">
+            <h5>Cómo funciona</h5>
             <p>
               <b>Ditto</b> aparece en el mapa <b>disfrazado</b> como ciertos Pokémon. 
               Solo se revela como Ditto <b>después</b> de atraparlo. Aquí tienes la lista
@@ -60,7 +63,11 @@
           </div>
 
           <!-- Disfraces -->
-          <div class="season">
+          <div class="season ditto-panel">
+            <div class="ditto-section-heading">
+              <span>Disfraces actuales</span>
+              <strong id="dittoCount">0</strong>
+            </div>
             <div class="row">
               <div class="col-lg-12">
                 <div id="dittoGrid" class="ditto-grid"><!-- render dinámico --></div>
@@ -69,10 +76,10 @@
           </div>
 
           <!-- Tips -->
-          <div class="secciontitle" style="margin-top: 15px !important">
+          <div class="secciontitle ditto-tips-title">
             <div class="col-lg-12"><div class="heading-section"><h4>Tips rápidos</h4></div></div>
           </div>
-          <div class="season">
+          <div class="season ditto-tips-panel">
             <ul class="guide-tips">
               <li>Si el Pokémon <b>sale shiny</b>, no será Ditto (el shiny se queda como ese Pokémon).</li>
               <li>Los IV/PC que verás de Ditto pueden <b>cambiar</b> respecto al disfraz atrapado.</li>
@@ -98,7 +105,7 @@
 
     <script defer src="../../assets/js/custom.js"></script>
     <script defer src="../../assets/js/events-past.js"></script>
-    <script defer src="../../assets/js/guias/ditto.js"></script>
+    <script defer src="../../assets/js/guias/ditto.js?v=1.1"></script>
     <script defer src="../../assets/js/politicas.js"></script>
 
 </body>

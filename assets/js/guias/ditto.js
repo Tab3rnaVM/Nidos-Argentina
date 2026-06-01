@@ -21,17 +21,21 @@ const DITTO_DATA = [
 
 // ============ Render ============
 const grid = document.getElementById("dittoGrid");
+const dittoCount = document.getElementById("dittoCount");
 
 function cardHTML(p) {
   return `
     <div class="ditto-card">
+      <span class="ditto-number">#${String(p.id).padStart(3, "0")}</span>
       <img class="ditto-img" src="${p.img}" alt="${p.name}" loading="lazy" decoding="async">
       <div class="ditto-name">${p.name}</div>
+      <span class="ditto-card-tag">Disfraz posible</span>
     </div>
   `;
 }
 
 function renderDitto() {
+  if (dittoCount) dittoCount.textContent = DITTO_DATA.length;
   grid.innerHTML = DITTO_DATA.map(cardHTML).join("");
 
   // Fallback: si falla .webp, intenta .png automáticamente

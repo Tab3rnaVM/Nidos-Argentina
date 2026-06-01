@@ -16,7 +16,7 @@
   <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="../../assets/css/fontawesome.css"/>
   <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5"/>
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.1" />
 
 
   <link rel="icon" href="../../assets/images/logo/favicon-64.png" type="image/png"/>
@@ -34,23 +34,34 @@
 
   <div class="container">
     <div class="row"><div class="col-lg-12">
-      <div class="page-content">
+      <div class="page-content unowns-page">
             <h1 class="sr-only">Unown liberados</h1>
 
-        <div class="secciontitle">
-          <div class="col-lg-12"><div class="heading-section"><h4>Lista de Unown liberados</h4></div></div>
+        <div class="secciontitle unowns-showcase-title">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4>Lista de Unown liberados</h4>
+              <p class="section-kicker">Revisa las letras y símbolos disponibles, junto con su estado shiny en Pokémon GO.</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Intro -->
-        <div class="guide-intro" style="margin-top:15px;">
-          <h5 style="color:#2a2a2a">Cómo leer la lista</h5>
+        <div class="guide-intro unowns-intro">
+          <h5>Cómo leer la lista</h5>
           <p>
             Cada tarjeta muestra el <b>Unown normal</b> y su <b>versión shiny</b>. 
             Si el shiny aún no ha sido liberado, lo verás con estilo <b>desactivado</b>.
           </p>
         </div>
 
-        <div class="season">
+        <div class="season unowns-panel">
+          <div class="unowns-section-heading">
+            <span>Formas disponibles</span>
+            <div class="unowns-counts">
+              <strong id="unownTotal">0</strong>
+              <strong id="unownShinyTotal">0 shiny</strong>
+            </div>
+          </div>
           <div id="unownGrid" class="unown-grid"><!-- render dinámico --></div>
         </div>
 
@@ -69,7 +80,7 @@
 
 
   <script defer src="../../assets/js/custom.js"></script>
-  <script defer src="../../assets/js/guias/unowns.js"></script>
+  <script defer src="../../assets/js/guias/unowns.js?v=1.1"></script>
   <script defer src="../../assets/js/politicas.js"></script>
 
 </body>

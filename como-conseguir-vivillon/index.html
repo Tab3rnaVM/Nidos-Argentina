@@ -16,7 +16,7 @@
   <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="../../assets/css/fontawesome.css"/>
   <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5"/>
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.1" />
 
 
   <link rel="icon" href="../../assets/images/logo/favicon-64.png" type="image/png"/>
@@ -31,16 +31,21 @@
 
   <div class="container">
     <div class="row"><div class="col-lg-12">
-      <div class="page-content">
+      <div class="page-content vivillon-page">
             <h1 class="sr-only">Cómo conseguir a Vivillon</h1>
 
-        <div class="secciontitle">
-          <div class="col-lg-12"><div class="heading-section"><h4>¿Cómo conseguir a Vivillon?</h4></div></div>
+        <div class="secciontitle vivillon-showcase-title">
+          <div class="col-lg-12">
+            <div class="heading-section"><h4>¿Cómo conseguir a Vivillon?</h4></div>
+            <p class="section-kicker">
+              Ancla postales, suma regiones y completa todos los patrones de Vivillon.
+            </p>
+          </div>
         </div>
 
         <!-- Intro -->
-        <div class="guide-intro" style="margin-top:15px;">
-          <h5 style="color:#2a2a2a">Cómo funciona</h5>
+        <div class="guide-intro vivillon-intro">
+          <h5>Cómo funciona</h5>
           <p>
             Para conseguir a <b>Vivillon</b> debes <b>anclar Postcards</b> (postales) de amigos o tuyas. 
             Al sumar postales de una misma región, desbloqueas encuentros con <b>Scatterbug</b> (que evoluciona a <b>Spewpa</b> y luego a <b>Vivillon</b>).
@@ -49,22 +54,26 @@
         </div>
 
         <!-- Patrones -->
-        <div class="season">
+        <div class="season vivillon-panel">
+          <div class="vivillon-section-heading">
+            <span>Patrones disponibles</span>
+            <strong id="vivillonCount">0</strong>
+          </div>
           <div class="row"><div class="col-lg-12">
             <div id="vivillonGrid" class="vivillon-grid"><!-- render dinámico --></div>
           </div></div>
         </div>
 
         <!-- Tips -->
-        <div class="secciontitle" style="margin-top:15px !important">
+        <div class="secciontitle vivillon-tips-title">
           <div class="col-lg-12"><div class="heading-section"><h4>Tips rápidos</h4></div></div>
         </div>
-        <div class="season">
+        <div class="season vivillon-tips-panel">
           <ul class="guide-tips">
             <li>Las <b>postales</b> cuentan por <b>región</b>. Agrega amigos diferentes lugares para completar más patrones.</li>
             <li>Guarda suficientes postales para obtener varios <b>Scatterbug</b> del mismo patrón y asegurar caramelos.</li>
             <li>Al evolucionar: <b>Scatterbug → Spewpa → Vivillon</b>. El patrón final depende de la región del set de postales.</li>
-            <li><a href="https://campfire.onelink.me/eBr8?af_dp=campfire://&af_force_deeplink=true&deep_link_sub1=cj1jbHVicyZjPTY0ZmIxNjI0LWEzOWYtNGZjNS1iZmEyLWMwMDI4MzEzMzRmNyZpPXRydWU=" style="font-style: inherit; color:#75aadb">Busca amistades en nuestro Campfire</b></li>
+            <li><a class="guide-link" href="https://campfire.onelink.me/eBr8?af_dp=campfire://&af_force_deeplink=true&deep_link_sub1=cj1jbHVicyZjPTY0ZmIxNjI0LWEzOWYtNGZjNS1iZmEyLWMwMDI4MzEzMzRmNyZpPXRydWU=">Busca amistades en nuestro Campfire</a></li>
           </ul>
         </div>
 
@@ -85,7 +94,7 @@
   <script defer src="../../assets/js/custom.js"></script>
 
   <!-- Script Vivillon -->
-  <script defer src="../../assets/js/guias/vivillon.js"></script>
+  <script defer src="../../assets/js/guias/vivillon.js?v=1.1"></script>
   <script defer src="../../assets/js/politicas.js"></script>
 </body>
 </html>
