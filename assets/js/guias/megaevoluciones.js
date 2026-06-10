@@ -46,8 +46,8 @@ const MEGAS = [
   { name: "Pinsir",      region: "Kanto", dex: 127, desc: "Desbloquear cuesta 200 de Megaenergía." },
   { name: "Gyarados",    region: "Kanto", dex: 130, desc: "Desbloquear cuesta 300 de Megaenergía." },                      // GO Hub
   { name: "Aerodactyl",  region: "Kanto", dex: 142, desc: "Desbloquear cuesta 200 de Megaenergía." },                      // GO Hub
-  { name: "Mewtwo X", region: "Kanto", dex: 150, form: "MEGA_X", desc: "Desbloquear cuesta 300 de Megaenergía.", released: false },
-  { name: "Mewtwo Y", region: "Kanto", dex: 150, form: "MEGA_Y", desc: "Desbloquear cuesta 300 de Megaenergía.", released: false },
+  { name: "Mewtwo X", region: "Kanto", dex: 150, form: "MEGA_X", desc: "Desbloquear cuesta 7500 de Megaenergía." },
+  { name: "Mewtwo Y", region: "Kanto", dex: 150, form: "MEGA_Y", desc: "Desbloquear cuesta 7500 de Megaenergía." },
 
   /* ---------- JOHTO ---------- */
   { name: "Ampharos",    region: "Johto", dex: 181, desc: "Desbloquear cuesta 200 de Megaenergía." },                      // GO Hub
@@ -97,14 +97,24 @@ const MEGAS = [
 /* ===== Render helpers (mismo estilo que Vivillon/Regionales) ===== */
 
 const grid = document.getElementById("megaGrid");
+const megaCount = document.getElementById("megaCount");
+
+function regionClass(region) {
+  return String(region || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-");
+}
 
 function cardHTML(m) {
   const form = m.form || "MEGA";
   const img  = megaSprite(m.dex, form);
   const disabledClass = m.released === false ? "is-disabled" : "";
   return `
-    <div class="v-card ${disabledClass}">
+    <div class="v-card mega-card mega-${regionClass(m.region)} ${disabledClass}">
       <div class="v-text">
+        <span class="v-number">#${String(m.dex).padStart(3, "0")}</span>
         <div class="v-name">${m.name}</div>
         <div class="v-tag">${m.region}</div>
         <p class="v-regions">${m.desc}</p>
@@ -118,10 +128,10 @@ function cardHTML(m) {
 
 
 function renderMegas() {
+  if (megaCount) megaCount.textContent = MEGAS.length;
   grid.innerHTML = MEGAS.map(cardHTML).join("");
   grid.querySelectorAll(".v-img img").forEach(addWebpFallback);
 }
 
 document.addEventListener("DOMContentLoaded", renderMegas);
-
 

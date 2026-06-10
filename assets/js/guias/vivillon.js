@@ -27,6 +27,7 @@ const VIV_PATTERNS = [
 
 // Render
 const grid = document.getElementById("vivillonGrid");
+const vivillonCount = document.getElementById("vivillonCount");
 
 // Cambiamos la clase del contenedor a la nueva lista
 grid.classList.remove("vivillon-grid");
@@ -37,6 +38,7 @@ function rowHTML(p){
   return `
     <div class="v-card">
       <div class="v-text">
+        <span class="v-card-tag">Patrón</span>
         <div class="v-name">${p.name}</div>
         <p class="v-regions">${p.regions}</p>
       </div>
@@ -48,6 +50,7 @@ function rowHTML(p){
 }
 
 function renderVivillon(){
+  if (vivillonCount) vivillonCount.textContent = VIV_PATTERNS.length;
   grid.innerHTML = VIV_PATTERNS.map(rowHTML).join("");
 
   // Fallback: si no está el thumb del patrón -> intenta .png -> icono genérico

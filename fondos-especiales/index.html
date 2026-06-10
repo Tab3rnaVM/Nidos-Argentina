@@ -15,7 +15,7 @@
   <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="../../assets/css/fontawesome.css"/>
   <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5"/>
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.1" />
   <link rel="icon" href="../../assets/images/logo/favicon-64.png" type="image/png"/>
     <link rel="canonical" href="https://nidosargentina.com/fondos-especiales/" />
     <title>Nidos Argentina | Pokémon con Fondos</title>
@@ -27,34 +27,49 @@
 
   <div class="container">
     <div class="row"><div class="col-lg-12">
-      <div class="page-content">
+      <div class="page-content fondos-page">
             <h1 class="sr-only">Pokémon con Fondos</h1>
         
-        <div class="secciontitle">
+        <div class="secciontitle fondos-showcase-title">
           <div class="col-lg-12">
-            <div class="heading-section-arrows">
-              <button id="prevFondos" class="arrow fas fa-chevron-left"></button>
+            <div class="heading-section">
               <h4 id="fondosTitle">Pokémon con Fondo Especial</h4>
-              <button id="nextFondos" class="arrow fas fa-chevron-right"></button>
+              <p class="section-kicker">Explora fondos especiales, fondos de ubicación y fondos de estadios disponibles en Pokémon GO.</p>
             </div>
           </div>
         </div>
 
-        <!-- Intro -->
-        <div class="guide-intro" style="margin-top:15px;">
-          <h5 style="color:#2a2a2a">¿Qué son los “fondos Pokémon”?</h5>
+        <div class="guide-intro fondos-intro">
+          <h5>¿Qué son los “fondos Pokémon”?</h5>
           <p>
             Son encuentros de evento donde el Pokémon aparece con un <b>fondo temático</b>.
-            Existen 3 tipos de fondos: <b>Especiales</b>, <b>de Ubicación</b> y <b>de Estadios</b>.<br><br>
-            Los <b>especiales</b> salen en eventos globales (GO Fest, GO Tour, Wild Area, Días de la Comunidad, etc.).<br><br>
-            Los de <b>ubicación</b> son exclusivos de eventos presenciales (City Safari, GO Fest presenciales, etc.).<br><br>
-            Los de <b>estadios</b> están ligados a sedes deportivas concretas.<br><br>
-            Usa las flechas del título para alternar entre los tipos y toca cada fondo para desplegar su lista.
+            Existen 3 tipos principales: <b>Especiales</b>, <b>de Ubicación</b> y <b>de Estadios</b>.
+            Cambia de categoría y toca cada fondo para desplegar su lista de Pokémon.
           </p>
         </div>
 
-        <!-- Listas: se renderizan las 3; sólo una visible a la vez -->
-        <div class="season">
+        <div class="season fondos-toolbar">
+          <div class="fondos-tabs" role="tablist" aria-label="Tipos de fondos especiales">
+            <button class="fondos-tab is-active" type="button" data-fondos-mode="0">
+              <span>Especiales</span>
+              <strong id="fondosCountEspeciales">0</strong>
+            </button>
+            <button class="fondos-tab" type="button" data-fondos-mode="1">
+              <span>Ubicación</span>
+              <strong id="fondosCountUbicaciones">0</strong>
+            </button>
+            <button class="fondos-tab" type="button" data-fondos-mode="2">
+              <span>Estadios</span>
+              <strong id="fondosCountEstadios">0</strong>
+            </button>
+          </div>
+        </div>
+
+        <div class="season fondos-panel">
+          <div class="fondos-section-heading">
+            <span id="fondosSectionLabel">Fondos especiales</span>
+            <strong id="fondosActiveCount">0 fondos</strong>
+          </div>
           <div id="feEspeciales"  class="fe-accordion"><!-- render JS --></div>
           <div id="feUbicaciones" class="fe-accordion" style="display:none;"><!-- render JS --></div>
           <div id="feEstadios"    class="fe-accordion" style="display:none;"><!-- render JS --></div>
@@ -76,7 +91,7 @@
 
     <script defer src="../../assets/js/custom.js"></script>
     <script defer src="../../assets/js/events-past.js"></script>
-    <script defer src="../../assets/js/guias/fondos-especiales.js"></script>
+    <script defer src="../../assets/js/guias/fondos-especiales.js?v=1.1"></script>
     <script defer src="../../assets/js/politicas.js"></script>
 </body>
 </html>

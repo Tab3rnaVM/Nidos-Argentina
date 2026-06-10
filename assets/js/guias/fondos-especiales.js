@@ -1551,13 +1551,17 @@ function cardHTML(p){
 
 function sectionHTML(group, bannerSrc){
   const count = group.items.length;
+  const period = [group.month, group.year].filter(Boolean).join("/");
   return `
     <div class="fe-section" data-slug="${group.slug}">
       <div class="fe-header" data-toggle="panel">
         <img class="fe-banner" src="${bannerSrc}" alt="${group.title}">
         <div class="fe-headbar">
-          <div class="fe-title">${group.title}</div>
-          <div class="fe-count">Ver los ${count} Pokémon</div>
+          <div>
+            <div class="fe-title">${group.title}</div>
+            ${period ? `<div class="fe-period">${period}</div>` : ""}
+          </div>
+          <div class="fe-count">${count} Pokémon</div>
         </div>
       </div>
       <div class="fe-panel">
@@ -1585,7 +1589,11 @@ function renderAccordion(list, mountEl, bannerBuilder){
   mountEl.querySelectorAll(".fe-header").forEach(head=>{
     head.addEventListener("click", ()=>{
       const panel = head.nextElementSibling;
-      panel.classList.toggle("is-open");
+      const shouldOpen = !panel.classList.contains("is-open");
+      mountEl.querySelectorAll(".fe-panel.is-open").forEach(openPanel => {
+        if (openPanel !== panel) openPanel.classList.remove("is-open");
+      });
+      panel.classList.toggle("is-open", shouldOpen);
     });
   });
 }
@@ -1604,27 +1612,66 @@ function sortByYearMonthDesc(groups){
 /* ================= TOGGLE (3 modos) ================= */
 let fondosMode = 0; 
 
+const FONDOS_MODES = [
+  {
+    title: "Pokémon con Fondo Especial",
+    label: "Fondos especiales",
+    mountId: "feEspeciales",
+    accent: "special",
+  },
+  {
+    title: "Pokémon con Fondo de Ubicación",
+    label: "Fondos de ubicación",
+    mountId: "feUbicaciones",
+    accent: "location",
+  },
+  {
+    title: "Pokémon con Fondo de Estadios",
+    label: "Fondos de estadios",
+    mountId: "feEstadios",
+    accent: "stadium",
+  },
+];
+
+function setCount(id, value, suffix = "") {
+  const el = document.getElementById(id);
+  if (el) el.textContent = `${value}${suffix}`;
+}
+
+function setFondosCounts({ special, location, stadium }) {
+  setCount("fondosCountEspeciales", special.length);
+  setCount("fondosCountUbicaciones", location.length);
+  setCount("fondosCountEstadios", stadium.length);
+}
+
 function applyFondosMode() {
   const titleEl = document.getElementById("fondosTitle");
-  const esp = document.getElementById("feEspeciales");
-  const ubi = document.getElementById("feUbicaciones");
-  const est = document.getElementById("feEstadios");
+  const labelEl = document.getElementById("fondosSectionLabel");
+  const activeCountEl = document.getElementById("fondosActiveCount");
+  const pageEl = document.querySelector(".fondos-page");
+  const activeMode = FONDOS_MODES[fondosMode];
 
   // Oculta todo
-  if (esp) esp.style.display = "none";
-  if (ubi) ubi.style.display = "none";
-  if (est) est.style.display = "none";
+  FONDOS_MODES.forEach((mode) => {
+    const mount = document.getElementById(mode.mountId);
+    if (mount) mount.style.display = "none";
+  });
 
   // Muestra el modo activo y cambia el título
-  if (fondosMode === 0) {
-    if (titleEl) titleEl.textContent = "Pokémon con Fondo Especial";
-    if (esp) esp.style.display = "grid";
-  } else if (fondosMode === 1) {
-    if (titleEl) titleEl.textContent = "Pokémon con Fondo de Ubicación";
-    if (ubi) ubi.style.display = "grid";
-  } else {
-    if (titleEl) titleEl.textContent = "Pokémon con Fondo de Estadios";
-    if (est) est.style.display = "grid";
+  const activeMount = document.getElementById(activeMode.mountId);
+  if (titleEl) titleEl.textContent = activeMode.title;
+  if (labelEl) labelEl.textContent = activeMode.label;
+  if (activeCountEl && activeMount) activeCountEl.textContent = `${activeMount.children.length} fondos`;
+  if (activeMount) activeMount.style.display = "grid";
+
+  document.querySelectorAll(".fondos-tab").forEach((button) => {
+    const isActive = Number(button.dataset.fondosMode) === fondosMode;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  if (pageEl) {
+    pageEl.dataset.fondosAccent = activeMode.accent;
   }
 }
 
@@ -1652,6 +1699,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
   renderAccordion(espOrdenados, contEsp, B_E);
   renderAccordion(ubiOrdenados, contUbi, B_U);
   renderAccordion(staOrdenados, contEst, B_S);
+  setFondosCounts({
+    special: espOrdenados,
+    location: ubiOrdenados,
+    stadium: staOrdenados,
+  });
 
   // Set inicial (después de render)
   applyFondosMode();
@@ -1659,4 +1711,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
   // Botones (si existen)
   document.getElementById("prevFondos")?.addEventListener("click", prevFondos);
   document.getElementById("nextFondos")?.addEventListener("click", nextFondos);
+  document.querySelectorAll(".fondos-tab").forEach((button) => {
+    button.addEventListener("click", () => {
+      fondosMode = Number(button.dataset.fondosMode || 0);
+      applyFondosMode();
+    });
+  });
 });

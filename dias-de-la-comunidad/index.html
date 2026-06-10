@@ -19,7 +19,7 @@
     <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/fontawesome.css" />
     <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css?v=1.5" />
-    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.0" />
+    <link rel="stylesheet" href="../assets/css/nidos-system.css?v=1.4" />
     <link rel="stylesheet" href="../../assets/css/bg-communityday.css" />
 
 
@@ -43,36 +43,45 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="page-content">
+          <div class="page-content community-page">
             <h1 class="sr-only">Días de la Comunidad</h1>
-            <div class="secciontitle">
+            <div class="secciontitle events-showcase-title community-showcase-title">
               <div class="col-lg-12">
-                <div class="heading-section-arrows">
-                  <button
-                    id="prevYear"
-                    class="arrow fas fa-chevron-left"
-                  ></button>
-                  <h4 id="communityDaysTitle">Días de la Comunidad 2024</h4>
-                  <button
-                    id="nextYear"
-                    class="arrow fas fa-chevron-right"
-                  ></button>
+                <div class="heading-section">
+                  <h4 id="communityDaysTitle">Días de la Comunidad</h4>
                 </div>
+                <p class="section-kicker">
+                  Historial de Pokémon destacados, bonus y líneas evolutivas de cada Día de la Comunidad.
+                </p>
               </div>
+            </div>
+
+            <div class="community-year-nav" aria-label="Navegación por año">
+              <button
+                id="prevYear"
+                class="community-year-arrow fas fa-chevron-left"
+                type="button"
+                aria-label="Ver año anterior"
+              ></button>
+              <span id="communityYearLabel" class="community-year-label">2026</span>
+              <button
+                id="nextYear"
+                class="community-year-arrow fas fa-chevron-right"
+                type="button"
+                aria-label="Ver año siguiente"
+              ></button>
             </div>
 
             <div
               id="communityDaysContainer"
-              class="seccioncontainer counter-select"
-              style="margin-top: 15px !important"
+              class="seccioncontainer counter-select community-hub"
             >
               <!-- Contenido dinámico generado aquí -->
             </div>
 
             <div
               id="bonusCommunityDay"
-              class=""
-              style="margin-top: 15px !important"
+              class="community-detail-slot"
             >
               <!-- Contenido dinámico generado aquí -->
             </div>

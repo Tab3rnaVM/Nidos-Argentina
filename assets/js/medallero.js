@@ -164,6 +164,7 @@ async function login(){
 async function logout(){ await auth.signOut(); }
 
 function setSessionButton(){
+  if (!sessionBtn) return;
   if(currentUser){
     const short = shortenName(currentUser.displayName || "Usuario");
     sessionBtn.innerHTML = `<i class="fas fa-sign-out-alt"></i><span class="user">${short}</span>`;
@@ -332,7 +333,8 @@ function medalCard(m) {
   const { lat, lng } = getCoords(m);
   const st = buildState(m);
 
-  const cardClass = obtained ? "medal-card is-obtained" : "medal-card is-pending";
+  const statusClass = obtained ? "is-obtained" : st.state === "ended" ? "is-missed" : `is-${st.state}`;
+  const cardClass = `medal-card ${obtained ? "is-obtained" : "is-pending"} ${statusClass}`;
 
   // --- Botón según estado ---
   let buttonHTML = "";
@@ -341,13 +343,13 @@ function medalCard(m) {
     buttonHTML = `<button class="action-btn btn-success" disabled>Obtenida</button>`;
   } else if (st.state === "coming") {
     // ⏳ Evento futuro: Faltan X días
-    buttonHTML = `<button class="action-btn btn-gray" disabled>${st.label}</button>`;
+    buttonHTML = `<button class="action-btn btn-coming" disabled>${st.label}</button>`;
   } else if (st.state === "active") {
     // 🟦 Evento activo
     buttonHTML = `<button class="action-btn btn-primary checkin-btn" data-id="${m.id}">${st.label}</button>`;
   } else if (st.state === "ended") {
     // 🔚 Evento finalizado
-    buttonHTML = `<button class="action-btn btn-dark" disabled>Finalizado</button>`;
+    buttonHTML = `<button class="action-btn btn-ended" disabled>Finalizado</button>`;
   } else {
     // Fallback de seguridad
     buttonHTML = `<button class="action-btn btn-gray" disabled>${st.label || "Pronto"}</button>`;

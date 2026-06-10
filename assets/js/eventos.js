@@ -146,7 +146,7 @@ const eventos = {
       endDate: "2025-10-18T17:00:00",
       image: "../assets/images/eventos/eventodestacado64.webp",
       link: "https://pokemongo.com/es_MX/news/mega-rayquaza-raid-day-2025",
-    },  
+    },
     {
       name: "Halloween 2025: Parte I",
       startDate: "2025-10-21T10:00:00",
@@ -189,14 +189,54 @@ const eventos = {
       image: "../assets/images/eventos/eventodestacado65.webp",
       link: "https://pokemongo.com/gowildarea/global",
     },
-
-    
     {
       name: "Safari de Ciudad: Buenos Aires, Argentina",
       startDate: "2025-12-13T10:00:00",
       endDate: "2025-12-14T18:00:00",
       image: "../assets/images/eventos/eventodestacado71.webp",
       link: "https://pokemongo.com/es_MX/events/citysafari/buenos-aires",
+    },
+    {
+      name: "Blanche y la búsqueda del conocimiento",
+      startDate: "2026-05-26T10:00:00",
+      endDate: "2026-06-01T20:00:00",
+      image: "../assets/images/eventos/eventodestacado73.webp",
+      link: "https://pokemongo.com/es_MX/news/enchanted-hollow-2025",
+    },
+    {
+      name: "Pase de GO: junio",
+      startDate: "2026-06-02T10:00:00",
+      endDate: "2026-07-07T10:00:00",
+      image: "../assets/images/eventos/eventodestacado75.webp",
+      link: "https://pokemongo.com/es_MX/news/go-pass-june-2026",
+    },
+    {
+      name: "Candela y la búsqueda de la victoria",
+      startDate: "2026-06-09T10:00:00",
+      endDate: "2026-06-15T20:00:00",
+      image: "../assets/images/eventos/eventodestacado76.webp",
+      link: "https://pokemongo.com/es_MX/news/global-events-gofest2026-overlays",
+    },
+    {
+      name: "Día de la Comunidad de junio de 2026: Frigibax",
+      startDate: "2026-06-20T14:00:00",
+      endDate: "2026-06-20T17:00:00",
+      image: "../assets/images/eventos/eventodestacado74.webp",
+      link: "https://pokemongo.com/es_MX/news/communityday-june-2026-frigibax",
+    },
+    {
+      name: "Taxi volador",
+      startDate: "2026-06-23T10:00:00",
+      endDate: "2026-06-29T20:00:00",
+      image: "../assets/images/eventos/eventodestacado78.webp",
+      link: "https://pokemongo.com/es_MX/news/flying-taxi-2026",
+    },
+    {
+      name: "Taxi volador: Invasión",
+      startDate: "2026-06-25T00:00:00",
+      endDate: "2026-06-29T20:00:00",
+      image: "../assets/images/eventos/eventodestacado79.webp",
+      link: "https://pokemongo.com/es_MX/news/flying-taxi-taken-over-2026",
     },
     
   ],
@@ -241,6 +281,167 @@ function injectHintsForList(list, isIndex) {
   setPrefetch(all.slice(PRELOAD_LIMIT));
 }
 
+/* ---------- Calendar helpers ---------- */
+
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function escapeICSText(value) {
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+function formatCalendarDate(date) {
+  return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+}
+
+function createEventSlug(name) {
+  return String(name)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 70);
+}
+
+function getAbsoluteEventURL(url) {
+  try {
+    return new URL(url, window.location.origin).href;
+  } catch {
+    return window.location.href;
+  }
+}
+
+function getCalendarEventFromItem(item) {
+  return {
+    name: item.dataset.title || "Evento de Pokémon GO",
+    startDate: item.dataset.inicio,
+    endDate: item.dataset.fin,
+    link: item.dataset.link || window.location.href,
+  };
+}
+
+function buildGoogleCalendarURL(evento) {
+  const startDate = formatCalendarDate(new Date(evento.startDate));
+  const endDate = formatCalendarDate(new Date(evento.endDate));
+  const details = `Evento de Nidos Argentina. Más información: ${getAbsoluteEventURL(evento.link)}`;
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: evento.name,
+    dates: `${startDate}/${endDate}`,
+    details,
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+function buildICSContent(evento) {
+  const startDate = formatCalendarDate(new Date(evento.startDate));
+  const endDate = formatCalendarDate(new Date(evento.endDate));
+  const now = formatCalendarDate(new Date());
+  const absoluteURL = getAbsoluteEventURL(evento.link);
+  const uid = `${createEventSlug(evento.name)}-${startDate}@nidosargentina.com`;
+
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Nidos Argentina//Eventos Pokemon GO//ES",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "BEGIN:VEVENT",
+    `UID:${uid}`,
+    `DTSTAMP:${now}`,
+    `DTSTART:${startDate}`,
+    `DTEND:${endDate}`,
+    `SUMMARY:${escapeICSText(evento.name)}`,
+    `DESCRIPTION:${escapeICSText(`Evento de Nidos Argentina. Más información: ${absoluteURL}`)}`,
+    `URL:${absoluteURL}`,
+    "BEGIN:VALARM",
+    "TRIGGER:-PT30M",
+    "ACTION:DISPLAY",
+    `DESCRIPTION:${escapeICSText(`Recordatorio: ${evento.name}`)}`,
+    "END:VALARM",
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+}
+
+function downloadICS(evento) {
+  const fileName = `${createEventSlug(evento.name) || "evento-nidos"}.ics`;
+  const blob = new Blob([buildICSContent(evento)], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function closeCalendarMenus(exceptMenu = null) {
+  document.querySelectorAll(".calendar-menu").forEach((menu) => {
+    if (menu === exceptMenu) return;
+    menu.hidden = true;
+    menu.closest(".itemdate")?.classList.remove("calendar-open");
+    const toggle = menu.closest(".calendar-actions")?.querySelector(".calendar-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+  });
+}
+
+document.addEventListener("click", (event) => {
+  const toggle = event.target.closest(".calendar-toggle");
+
+  if (toggle) {
+    const menu = toggle.closest(".calendar-actions")?.querySelector(".calendar-menu");
+    if (!menu) return;
+
+    const shouldOpen = menu.hidden;
+    closeCalendarMenus(menu);
+    menu.hidden = !shouldOpen;
+    toggle.closest(".itemdate")?.classList.toggle("calendar-open", shouldOpen);
+    toggle.setAttribute("aria-expanded", String(shouldOpen));
+    return;
+  }
+
+  const calendarAction = event.target.closest("[data-calendar-action]");
+  if (calendarAction) {
+    const item = calendarAction.closest(".itemdate");
+    if (!item) return;
+
+    const evento = getCalendarEventFromItem(item);
+    if (calendarAction.dataset.calendarAction === "google") {
+      window.open(buildGoogleCalendarURL(evento), "_blank", "noopener,noreferrer");
+    } else {
+      downloadICS(evento);
+    }
+
+    closeCalendarMenus();
+    return;
+  }
+
+  if (!event.target.closest(".calendar-actions")) {
+    closeCalendarMenus();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeCalendarMenus();
+  }
+});
+
 /* ---------- Mover finalizados a pasados ---------- */
 
 function actualizarEventos() {
@@ -283,12 +484,12 @@ function actualizarTiempoRestante() {
     const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    let texto = `<strong>${label}</strong><br>`;
-    if (dias > 0) texto += `${dias} día${dias > 1 ? "s" : ""}, `;
-    if (horas > 0 || dias > 0) texto += `${horas} hora${horas > 1 ? "s" : ""}, `;
-    texto += `${minutos} minuto${minutos > 1 ? "s" : ""}`;
+    let tiempo = "";
+    if (dias > 0) tiempo += `${dias} día${dias > 1 ? "s" : ""}, `;
+    if (horas > 0 || dias > 0) tiempo += `${horas} hora${horas > 1 ? "s" : ""}, `;
+    tiempo += `${minutos} minuto${minutos > 1 ? "s" : ""}`;
 
-    el.innerHTML = texto;
+    el.innerHTML = `<strong>${label}</strong><span>${tiempo}</span>`;
   });
 }
 
@@ -301,7 +502,7 @@ function renderEventos(isIndex = false) {
   if (!container) return;
 
   if (!isIndex && title) {
-    title.textContent = currentEventType === "destacados" ? "Eventos Destacados" : "Eventos Pasados";
+    title.textContent = "Eventos destacados";
   }
 
   container.innerHTML = "";
@@ -329,6 +530,8 @@ function renderEventos(isIndex = false) {
     else if (now > endDate) itemClass = "date-past";
     else itemClass = "date-active";
 
+    const statusLabel = itemClass === "date-active" ? "En curso" : itemClass === "date-future" ? "Próximo" : "Finalizado";
+
     const isHigh = renderCount < HIGH_PRIORITY_LIMIT;
     renderCount++;
 
@@ -339,17 +542,39 @@ function renderEventos(isIndex = false) {
     card.className = `col-xl-3 col-lg-4 col-sm-6`;
 
     card.innerHTML = `
-      <a href="${evento.link}" target="_blank" rel="noopener noreferrer">
-        <div class="item itemdate ${itemClass}" data-inicio="${evento.startDate}" data-fin="${evento.endDate}">
+        <div
+          class="item itemdate ${itemClass}"
+          data-inicio="${escapeHTML(evento.startDate)}"
+          data-fin="${escapeHTML(evento.endDate)}"
+          data-title="${escapeHTML(evento.name)}"
+          data-link="${escapeHTML(evento.link)}"
+        >
+          <a class="event-card-link" href="${escapeHTML(evento.link)}" target="_blank" rel="noopener noreferrer">
           <div class="event-image">
-            <img src="${evento.image}" alt="${evento.name}" ${priorityAttr} ${decodingAttr}/>
+              <img src="${escapeHTML(evento.image)}" alt="${escapeHTML(evento.name)}" ${priorityAttr} ${decodingAttr}/>
           </div>
+          </a>
           <div class="event-details">
-            <h4>${evento.name}</h4>
+            <span class="event-status">${statusLabel}</span>
+            <a class="event-title-link" href="${escapeHTML(evento.link)}" target="_blank" rel="noopener noreferrer">
+              <h4>${escapeHTML(evento.name)}</h4>
+            </a>
             <p class="tiempo-restante"></p>
+            <div class="event-card-actions">
+              <a class="event-view-button" href="${escapeHTML(evento.link)}" target="_blank" rel="noopener noreferrer">Ver</a>
+              <div class="calendar-actions">
+                <button class="calendar-toggle" type="button" aria-expanded="false">
+                  <i class="fa fa-calendar-plus" aria-hidden="true"></i>
+                  Agendar en calendario
+                </button>
+                <div class="calendar-menu" hidden>
+                  <button type="button" data-calendar-action="google">Google Calendar</button>
+                  <button type="button" data-calendar-action="ics">Apple / Outlook</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </a>
     `;
 
     container.appendChild(card);
@@ -374,18 +599,7 @@ if (document.getElementById("indexEventList")) {
   // Render reducido para el índice
   renderEventos(true);
 } else {
-  // Botones para alternar entre destacados/pasados (si existen)
-  const prevBtn = document.getElementById("prevEvent");
-  const nextBtn = document.getElementById("nextEvent");
-
-  function toggleEventType() {
-    currentEventType = currentEventType === "destacados" ? "pasados" : "destacados";
-    renderEventos(false);
-  }
-
-  if (prevBtn) prevBtn.addEventListener("click", toggleEventType);
-  if (nextBtn) nextBtn.addEventListener("click", toggleEventType);
-
-  // Render completo
+  // Render completo de eventos actuales y futuros.
+  currentEventType = "destacados";
   renderEventos(false);
 }

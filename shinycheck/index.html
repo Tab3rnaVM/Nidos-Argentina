@@ -54,49 +54,58 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="page-content">
+          <div class="page-content shiny-page">
             <h1 class="sr-only">Shiny Check</h1>
-            <div class="secciontitle">
+            <div class="secciontitle events-showcase-title shiny-showcase-title">
               <div class="col-lg-12">
                 <div class="heading-section">
                   <h4>Lista de Pokémon Brillantes</h4>
                 </div>
-                <p class="update-bar">
-                  (Última actualización: <span id="updateDate"></span>)
+                <p class="section-kicker">
+                  Marca tu colección shiny, revisa tu avance por región y encuentra faltantes más rápido.
+                </p>
+                <p class="update-bar shiny-update">
+                  Última actualización: <span id="updateDate"></span>
                 </p>
               </div>
             </div>
 
-            <div class="ux-page-intro ux-page-intro-compact">
-              <div>
-                <h2>Registro shiny</h2>
-              </div>
-            </div>
-
-            <div class="col-lg-12" style="margin-top: 15px;">            
-                <!-- Botón para mostrar el popup -->
-                <div class="login-button-container">
-                  <button id="loginButton">
-                    <span class="google-icon">
-                      <i class="fab fa-google"></i>
-                    </span>
-                    Iniciar sesión
-                  </button>
+            <div class="shiny-dashboard">
+              <div class="shiny-progress-card">
+                <span class="shiny-progress-kicker">Progreso total</span>
+                <strong id="shinyTotalCounter">0/0</strong>
+                <div class="shiny-progress-track" aria-hidden="true">
+                  <span id="shinyTotalProgress"></span>
                 </div>
+                <p id="shinyRemainingCounter">Selecciona tus primeros shiny para comenzar.</p>
+              </div>
+
+              <div class="shiny-tool-panel">
+                <label class="shiny-search" for="shinySearchInput">
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                  <input id="shinySearchInput" type="search" placeholder="Buscar por número o región" autocomplete="off" />
+                </label>
+
+                <div class="shiny-filter-group" aria-label="Filtrar colección shiny">
+                  <button class="shiny-filter is-active" type="button" data-filter="all">Todos</button>
+                  <button class="shiny-filter" type="button" data-filter="caught">Capturados</button>
+                  <button class="shiny-filter" type="button" data-filter="missing">Faltantes</button>
+                </div>
+              </div>
             </div>
             
             <div class="selecttype-placeholder"></div>
-            <div class="scroll-bar-sections">
-              <img src="../assets/images/regiones/kanto.png" alt="Kanto" data-target="kanto" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/johto.png" alt="Johto" data-target="johto" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/hoenn.png" alt="Hoenn" data-target="hoenn" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/sinnoh.png" alt="Sinnoh" data-target="sinnoh" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/unova.png" alt="Unova" data-target="unova" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/kalos.png" alt="Kalos" data-target="kalos" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/alola.png" alt="Alola" data-target="alola" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/galar.png" alt="Galar" data-target="galar" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/hisui.png" alt="Hisui" data-target="hisui" role="button" tabindex="0" />
-              <img src="../assets/images/regiones/paldea.png" alt="Paldea" data-target="paldea" role="button" tabindex="0" />
+            <div class="scroll-bar-sections shiny-region-nav" aria-label="Regiones shiny">
+              <button class="shiny-region-button" type="button" data-target="kanto">Kanto</button>
+              <button class="shiny-region-button" type="button" data-target="johto">Johto</button>
+              <button class="shiny-region-button" type="button" data-target="hoenn">Hoenn</button>
+              <button class="shiny-region-button" type="button" data-target="sinnoh">Sinnoh</button>
+              <button class="shiny-region-button" type="button" data-target="unova">Unova</button>
+              <button class="shiny-region-button" type="button" data-target="kalos">Kalos</button>
+              <button class="shiny-region-button" type="button" data-target="alola">Alola</button>
+              <button class="shiny-region-button" type="button" data-target="galar">Galar</button>
+              <button class="shiny-region-button" type="button" data-target="hisui">Hisui</button>
+              <button class="shiny-region-button" type="button" data-target="paldea">Paldea</button>
             </div>                        
 
             <div class="event-list">

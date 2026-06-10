@@ -91,12 +91,22 @@ const REGIONALES = [
 ];
 
 const grid = document.getElementById("regionalGrid");
+const regionalCount = document.getElementById("regionalCount");
+
+function regionClass(tag) {
+  return String(tag || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-");
+}
 
 function rowHTML(p){
   const src = spriteFor(p);
   return `
-    <div class="v-card">
+    <div class="v-card regional-card regional-${regionClass(p.tag)}">
       <div class="v-text">
+        <span class="v-number">#${String(p.dex).padStart(3, "0")}</span>
         <div class="v-name">${p.name}</div>
         <div class="v-tag">${p.tag}</div>
         <p class="v-regions">${p.regions}</p>
@@ -109,6 +119,7 @@ function rowHTML(p){
 }
 
 function renderRegionales(){
+  if (regionalCount) regionalCount.textContent = REGIONALES.length;
   grid.innerHTML = REGIONALES.map(rowHTML).join("");
 
   // Fallback webp -> png

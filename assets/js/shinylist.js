@@ -15,13 +15,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", handleScroll);
 
-  // Agregar evento a cada imagen para hacer scroll automático
-  document.querySelectorAll(".scroll-bar-sections img").forEach((img) => {
-    img.addEventListener("click", function () {
+  // Agregar evento a cada botón para cambiar de región
+  document.querySelectorAll(".shiny-region-nav [data-target]").forEach((regionButton) => {
+    regionButton.addEventListener("click", function () {
       const targetId = this.getAttribute("data-target"); // Obtiene el ID de la región
-      const targetSection = document.getElementById(targetId); // Busca la sección correspondiente
+      setActiveRegion(targetId);
 
+      const targetSection = document.getElementById(targetId); // Busca la sección correspondiente
       if (targetSection) {
+        const targetList = targetSection.querySelector(".container-list");
+        const targetToggle = targetSection.querySelector(".section-header");
+        if (targetList && targetToggle && targetList.style.display === "none") {
+          targetToggle.click();
+        }
+
         const offset = 80; // Ajusta este valor según la altura de la barra fija
         const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -32,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    img.addEventListener("keydown", function (event) {
+    regionButton.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         this.click();
@@ -111,6 +118,85 @@ function closeModal() {
   if (modalOverlay) {
     modalOverlay.remove(); // Elimina el modal del DOM
   }
+}
+
+let activeShinyFilter = "all";
+
+function setActiveRegion(regionId = "kanto") {
+  document.querySelectorAll(".shiny-region-nav [data-target]").forEach((button) => {
+    const isActive = button.dataset.target === regionId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-current", isActive ? "true" : "false");
+  });
+}
+
+function syncBoxVisualState(box, isChecked) {
+  if (!box) return;
+  box.classList.toggle("is-caught", isChecked);
+  box.style.backgroundColor = "";
+}
+
+function updateGlobalProgress() {
+  const checkboxes = [...document.querySelectorAll(".container-list input[type='checkbox']")];
+  const total = checkboxes.length;
+  const caught = checkboxes.filter((checkbox) => checkbox.checked).length;
+  const remaining = Math.max(total - caught, 0);
+  const percent = total ? Math.round((caught / total) * 100) : 0;
+
+  const totalCounter = document.getElementById("shinyTotalCounter");
+  const totalProgress = document.getElementById("shinyTotalProgress");
+  const remainingCounter = document.getElementById("shinyRemainingCounter");
+
+  if (totalCounter) totalCounter.textContent = `${caught}/${total}`;
+  if (totalProgress) totalProgress.style.width = `${percent}%`;
+  if (remainingCounter) {
+    remainingCounter.textContent = total
+      ? `${remaining} pendientes · ${percent}% completado`
+      : "Selecciona tus primeros shiny para comenzar.";
+  }
+}
+
+function applyShinyFilters() {
+  const searchInput = document.getElementById("shinySearchInput");
+  const query = (searchInput?.value || "").trim().toLowerCase();
+
+  document.querySelectorAll("#mainContainer .section").forEach((section) => {
+    let visibleCount = 0;
+    const regionName = section.dataset.region || "";
+
+    section.querySelectorAll(".box").forEach((box) => {
+      const checkbox = box.querySelector("input[type='checkbox']");
+      const text = box.dataset.search || "";
+      const matchesSearch = !query || text.includes(query) || regionName.includes(query);
+      const matchesFilter =
+        activeShinyFilter === "all" ||
+        (activeShinyFilter === "caught" && checkbox?.checked) ||
+        (activeShinyFilter === "missing" && !checkbox?.checked);
+      const isVisible = matchesSearch && matchesFilter;
+
+      box.classList.toggle("is-hidden", !isVisible);
+      if (isVisible) visibleCount++;
+    });
+
+    section.classList.toggle("is-filter-empty", visibleCount === 0);
+  });
+}
+
+function initShinyTools() {
+  const searchInput = document.getElementById("shinySearchInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", applyShinyFilters);
+  }
+
+  document.querySelectorAll(".shiny-filter").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeShinyFilter = button.dataset.filter || "all";
+      document.querySelectorAll(".shiny-filter").forEach((filterButton) => {
+        filterButton.classList.toggle("is-active", filterButton === button);
+      });
+      applyShinyFilters();
+    });
+  });
 }
 
 
@@ -605,6 +691,7 @@ function createSection(title, sectionId, items, iconSrc) {
   const section = document.createElement("div");
   section.className = "section";
   section.id = title.toLowerCase();
+  section.dataset.region = title.toLowerCase();
 
   // Contenedor del título, contador y botón de collapse
   const titleContainer = document.createElement("div");
@@ -643,14 +730,14 @@ function createSection(title, sectionId, items, iconSrc) {
 
   // Botón de collapse con ícono
   const toggleButton = document.createElement("i");
-  toggleButton.className = "fas fa-chevron-down"; // Ícono inicial (flecha abajo)
+  toggleButton.className = sectionId === 1 ? "fas fa-chevron-up" : "fas fa-chevron-down"; // Ícono inicial
   toggleButton.style.fontSize = "1.5rem";
   toggleButton.style.cursor = "pointer";
 
   // Contenedor de los elementos (boxes)
   const container = document.createElement("div");
   container.className = "container-list";
-  container.style.display = "none";
+  container.style.display = sectionId === 1 ? "flex" : "none";
 
   // Función de toggle
   const toggleContainer = () => {
@@ -668,13 +755,15 @@ function createSection(title, sectionId, items, iconSrc) {
 
   // Crear ítems
   items.forEach((item, index) => {
-    const box = createBox(sectionId, index + 1, item.src, item.alt, item.text);
+    const box = createBox(sectionId, index + 1, item.src, item.alt, item.text, title);
     container.appendChild(box);
 
     const checkbox = box.querySelector("input[type='checkbox']");
-    checkbox.addEventListener("change", () =>
-      updateSectionCounter(sectionCounter, container)
-    );
+    checkbox.addEventListener("change", () => {
+      syncBoxVisualState(box, checkbox.checked);
+      updateSectionCounter(sectionCounter, container);
+      applyShinyFilters();
+    });
   });
 
   // Agregar a la estructura
@@ -693,9 +782,10 @@ function createSection(title, sectionId, items, iconSrc) {
   return section;
 }
 
-function createBox(sectionId, itemId, src, alt, text) {
+function createBox(sectionId, itemId, src, alt, text, regionName = "") {
   const box = document.createElement("div");
   box.className = "box";
+  box.dataset.search = `${regionName} ${text} ${alt}`.toLowerCase();
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
@@ -711,14 +801,13 @@ function createBox(sectionId, itemId, src, alt, text) {
     checkbox.checked = !checkbox.checked; // Alternar estado del checkbox
     saveCheckboxState(checkbox.id); // Guardar estado
     const box = checkbox.closest(".box");
-    box.style.backgroundColor = checkbox.checked
-      ? "rgb(117 170 219 / 85%)"
-      : "white";
+    syncBoxVisualState(box, checkbox.checked);
     // Actualizar el contador
     const section = box.closest(".section");
     const counter = section.querySelector(".section-counter");
     const container = section.querySelector(".container-list");
     updateSectionCounter(counter, container);
+    applyShinyFilters();
   });
 
   const p = document.createElement("p");
@@ -734,6 +823,7 @@ function createBox(sectionId, itemId, src, alt, text) {
 window.onload = async function () {
   // Carga las secciones
   loadSections();
+  initShinyTools();
 
   // Espera un momento para asegurarte de que el DOM esté listo
   setTimeout(() => {
@@ -751,6 +841,8 @@ window.onload = async function () {
 
   // Carga los estados de los checkboxes
   await loadCheckboxState();
+  updateGlobalProgress();
+  applyShinyFilters();
 };
 
 const firebaseConfig = {
@@ -799,8 +891,9 @@ window.loginWithGoogle = async function loginWithGoogle() {
 // Manejar cierre de sesión
 function updateLoginButton(user) {
   const loginButton = document.getElementById("loginButton");
+  if (!loginButton) return;
 
-  if (user && loginButton) {
+  if (user) {
     loginButton.innerHTML = `
     <span class="google-icon">
       <i class="fas fa-sign-out-alt"></i></span>
@@ -829,7 +922,6 @@ function resetLoginButton() {
   const loginButton = document.getElementById("loginButton");
 
   if (!loginButton) {
-    console.error("Botón de inicio de sesión no encontrado");
     return;
   }
 
@@ -871,7 +963,9 @@ async function saveCheckboxState(checkboxId) {
   }
 
   const box = checkbox.closest(".box");
-  box.style.backgroundColor = isChecked ? "rgb(117 170 219 / 85%)" : "white";
+  syncBoxVisualState(box, isChecked);
+  updateGlobalProgress();
+  applyShinyFilters();
 }
 
 async function saveToFirestore(checkboxId, isChecked) {
@@ -924,9 +1018,7 @@ async function loadCheckboxStateFromFirestore() {
 
             // Cambiar el color de fondo según el estado
             const box = checkbox.closest(".box");
-            box.style.backgroundColor = checkbox.checked
-              ? "rgb(117 170 219 / 85%)"
-              : "white";
+            syncBoxVisualState(box, checkbox.checked);
           }
         });
 
@@ -965,9 +1057,7 @@ function loadCheckboxStateFromLocalStorage() {
 
       // Cambiar el color de fondo
       const box = checkbox.closest(".box");
-      box.style.backgroundColor = checkbox.checked
-        ? "rgb(117 170 219 / 85%)"
-        : "white";
+      syncBoxVisualState(box, checkbox.checked);
     }
   });
 
@@ -1000,6 +1090,7 @@ function updateSectionCounter(counterElement, container) {
   const totalChecked = Array.from(checkboxes).filter((cb) => cb.checked).length;
   // Actualizar el texto del contador
   counterElement.textContent = `${totalChecked}/${checkboxes.length}`;
+  updateGlobalProgress();
 }
 
 
